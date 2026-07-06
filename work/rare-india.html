@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boutique Travel Platform — Case Study — Siva Sakthi V</title>
-  <meta name="description" content="Redesigning a boutique travel community platform for 60+ curated hotels across India, Nepal & Sri Lanka — three complete design directions. NDA-safe case study by Siva Sakthi V." />
+  <meta name="description" content="Redesigning a boutique travel community platform for 60+ curated hotels across India, Nepal & Sri Lanka — three complete design directions. A case study by Siva Sakthi V." />
   <meta name="theme-color" content="#FAFAF8" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314130F'/%3E%3Ctext x='50' y='72' font-size='64' font-family='Georgia,serif' fill='%23DE3B21' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -23,18 +23,22 @@
     <div class="loader-center"><div class="loader-pct"><span class="loader-num">00</span><sup>%</sup></div></div>
     <div class="loader-bottom">
       <div class="loader-track"><div class="loader-fill"></div></div>
-      <div class="loader-meta"><span>Loading</span><span>NDA-Safe Case Study</span></div>
+      <div class="loader-meta"><span>Loading</span><span>Boutique Travel · Case Study</span></div>
     </div>
   </div>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav-pill" id="nav">
     <a href="../index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
+    </button>
+    <nav class="nav-links" id="nav-menu" aria-label="Primary">
       <a href="../projects.html">Projects</a>
       <a href="../playground.html">Playground</a>
-      <a href="../index.html#about" class="hide-sm">About</a>
-      <a href="../projects.html" class="nav-cta">All work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a href="mailto:sivavenkat372@gmail.com" class="nav-cta">Get in touch</a>
     </nav>
   </header>
 
@@ -55,7 +59,7 @@
 
     <!-- HERO -->
     <section class="cs-hero wrap">
-      <p class="cs-kicker"><span>NDA-Safe Case Study</span><span class="sep">/</span><span>Responsive Web + Admin</span><span class="sep">/</span><span>2023–2024</span></p>
+      <p class="cs-kicker"><span>Case Study</span><span class="sep">/</span><span>Responsive Web + Admin</span><span class="sep">/</span><span>2023–2024</span></p>
       <h1 class="cs-title">Where <span class="ital">story</span> becomes stay.</h1>
       <p class="cs-sub">A curated network of 60+ handpicked boutique hotels across India, Nepal &amp; Sri Lanka — and a digital presence that didn't yet carry the soul of the brand.</p>
       <div class="cs-meta">
@@ -83,8 +87,8 @@
           <div class="card"><div class="fact-label">Team &amp; Process</div><h3 style="margin-top:6px">Sole designer with lead designer</h3><p>Brainstorming &amp; vision alignment on select features.</p></div>
         </div>
         <div class="callout reveal" style="margin-top:32px">
-          <div class="c-label">NDA note</div>
-          <p>I can't use the brand name, logo, or identifying assets — this is an unapproved pitch concept. Everything shown is from design explorations I led and own. All thinking and reasoning is mine.</p>
+          <div class="c-label">A quick note</div>
+          <p>This was an early pitch concept, so I'm keeping the brand under wraps. Everything shown here is from design explorations I led and own — and all the thinking and reasoning is mine.</p>
         </div>
       </div>
     </section>
@@ -398,35 +402,56 @@
         </div>
         <div class="cs-prose reveal d2">
           <p>I also learned the difference between designing for a brand and designing for a product. A brand lives on feeling, narrative, and identity. A product lives on task completion and clarity. The Earthy version worked best because it held both — it understood the <em>platform</em> while staying true to the <em>brand</em>.</p>
-          <p>The NDA constraints shaped this writeup in a useful way. They forced me to write about decisions and reasoning rather than leaning on brand recognition. A recruiter reading this should know: <strong>the thinking here is mine.</strong></p>
+          <p>Keeping the brand under wraps actually shaped this write-up in a useful way. It pushed me to write about decisions and reasoning rather than leaning on brand recognition. A recruiter reading this should know: <strong>the thinking here is mine.</strong></p>
         </div>
       </div>
     </section>
 
     <!-- PREV / NEXT -->
     <nav class="cs-nav" aria-label="More work">
-      <a href="fabrito.html" class="prev"><div class="lbl">← Previous</div><div class="ttl">Fabrito</div></a>
-      <a href="kbz.html" class="next"><div class="lbl">Next →</div><div class="ttl">Core Banking</div></a>
+      <a href="fabrito.html" class="prev"><div class="lbl"><i data-lucide="arrow-left" class="inline-ic"></i> Previous</div><div class="ttl">Fabrito</div></a>
+      <a href="kbz.html" class="next"><div class="lbl">Next <i data-lucide="arrow-right" class="inline-ic"></i></div><div class="ttl">Core Banking</div></a>
     </nav>
   </main>
 
-  <footer class="footer">
-    <span class="brand">Siva Sakthi V<span style="color:var(--accent)">.</span></span>
-    <div class="footer-links">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="mailto:sivavenkat372@gmail.com">Email</a>
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-kicker">Got a problem worth solving?</p>
+        <a class="foot-mail" href="mailto:sivavenkat372@gmail.com">sivavenkat372@gmail.com <i data-lucide="arrow-up-right"></i></a>
+        <p class="foot-sub"><i data-lucide="map-pin"></i> Tamil Nadu, India · usually replies within a day</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span class="foot-label">Explore</span>
+          <a href="../projects.html"><i data-lucide="layout-grid"></i> Projects</a>
+          <a href="../playground.html"><i data-lucide="shapes"></i> Playground</a>
+          <a href="../about.html"><i data-lucide="user"></i> About</a>
+          <a href="../assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Résumé</a>
+        </div>
+        <div class="foot-col">
+          <span class="foot-label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/siva-sakthi-v-9705b91a3/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+          <a href="https://www.behance.net/sivaserafino" target="_blank" rel="noopener"><i data-lucide="behance"></i> Behance</a>
+          <a href="mailto:sivavenkat372@gmail.com"><i data-lucide="mail"></i> Email</a>
+        </div>
+      </div>
     </div>
-    <span style="font-size:var(--fs-small)">All work shown is from unapproved pitch &amp; concept explorations. Brand withheld under NDA. 2023–2024.</span>
+    <div class="foot-base">
+      <span>© 2026 Siva Sakthi V</span>
+      <button class="foot-top" type="button" data-scroll-top>Back to top <i data-lucide="arrow-up"></i></button>
+      <span>An early concept explored end-to-end · 2023–2024</span>
+    </div>
   </footer>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lb-close" aria-label="Close image">✕</button>
+    <button class="lb-close" aria-label="Close image"><i data-lucide="x"></i></button>
     <img src="" alt="" />
   </div>
 
   <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="../assets/js/site.js"></script>
 </body>
 </html>

@@ -26,12 +26,16 @@
   </div>
 
   <!-- ROUNDED STICKY PILL NAV -->
-  <header class="nav-pill">
+  <header class="nav-pill" id="nav">
     <a href="index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
+    </button>
+    <nav class="nav-links" id="nav-menu" aria-label="Primary">
       <a href="projects.html">Projects</a>
       <a href="playground.html" aria-current="page">Playground</a>
-      <a href="index.html#about" class="hide-sm">About</a>
+      <a href="about.html">About</a>
+      <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="mailto:sivavenkat372@gmail.com" class="nav-cta">Get in touch</a>
     </nav>
   </header>
@@ -59,7 +63,7 @@
       </span>
       <span class="s-name">Magic To Do</span>
       <span class="s-desc">To-dos, without leaving Figma.</span>
-      <span class="s-open">Open</span>
+      <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
     </div>
 
     <!-- Orbit -->
@@ -74,7 +78,7 @@
       </span>
       <span class="s-name">Orbit</span>
       <span class="s-desc">Save what matters. Finish what you start.</span>
-      <span class="s-open">Open</span>
+      <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
     </div>
 
     <!-- Flow -->
@@ -87,7 +91,7 @@
       </span>
       <span class="s-name">Flow</span>
       <span class="s-desc">A calm, private finance planner.</span>
-      <span class="s-open">Open</span>
+      <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
     </div>
   </main>
 
@@ -96,7 +100,7 @@
 
   <!-- POPUP -->
   <div class="pop" id="pop" role="dialog" aria-modal="true" aria-label="Project details">
-    <button class="pop-close" aria-label="Close">✕</button>
+    <button class="pop-close" aria-label="Close"><i data-lucide="x"></i></button>
 
     <!-- Magic To Do -->
     <article class="pop-card" data-app="magic" hidden>
@@ -113,7 +117,7 @@
         <p class="pop-tagline">Organize and track your to-dos without leaving Figma.</p>
       </div>
       <div class="pop-body">
-        <a class="pop-cta" href="https://www.figma.com/community/plugin/1516524738595957600/magic-todo" target="_blank" rel="noopener">Open in Figma ↗</a>
+        <a class="pop-cta" href="https://www.figma.com/community/plugin/1516524738595957600/magic-todo" target="_blank" rel="noopener">Open in Figma <i data-lucide="arrow-up-right"></i></a>
         <p class="pop-desc">Magic To Do lets you organize and track your to-dos without leaving Figma — so your task list lives right where the design work happens.</p>
         <div>
           <div class="pop-label">Features</div>
@@ -146,7 +150,7 @@
         <p class="pop-tagline">Save what matters. Finish what you start.</p>
       </div>
       <div class="pop-body">
-        <a class="pop-cta" href="https://orbit-phi-three.vercel.app/" target="_blank" rel="noopener">Visit Orbit ↗</a>
+        <a class="pop-cta" href="https://orbit-phi-three.vercel.app/" target="_blank" rel="noopener">Visit Orbit <i data-lucide="arrow-up-right"></i></a>
         <p class="pop-desc">An adaptive execution system that turns your saved links into real momentum — resurfacing the right thing at the right time so ideas become action, not another forgotten tab.</p>
         <div>
           <div class="pop-label">Features</div>
@@ -177,7 +181,7 @@
         <p class="pop-tagline">Your calm, private finance planner for everyday life.</p>
       </div>
       <div class="pop-body">
-        <a class="pop-cta" href="https://flow-seven-orcin.vercel.app/" target="_blank" rel="noopener">Visit Flow ↗</a>
+        <a class="pop-cta" href="https://flow-seven-orcin.vercel.app/" target="_blank" rel="noopener">Visit Flow <i data-lucide="arrow-up-right"></i></a>
         <p class="pop-desc">Flow is a local-first personal finance planner that helps you capture expenses, organize accounts, plan future spending, and manage debts with clarity — all in one simple, secure, thoughtfully designed space. Instead of overwhelming dashboards, it helps you understand where your money is today and confidently plan where it goes tomorrow.</p>
         <div>
           <div class="pop-label">Features</div>
@@ -196,6 +200,7 @@
     </article>
   </div>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>

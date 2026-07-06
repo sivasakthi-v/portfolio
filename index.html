@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Siva Sakthi V — UI/UX & Product Designer</title>
-  <meta name="description" content="Siva Sakthi V — UI/UX and Product Designer with 3+ years designing scalable, user-centered products across B2B, B2C and B2B2C. Selected work in AI tooling, travel, mobility and commerce." />
+  <meta name="description" content="Siva Sakthi V — Visual & Experience Designer with 3+ years designing scalable, user-centered products across fintech, e-commerce, healthcare, travel and AI." />
   <meta name="author" content="Siva Sakthi V" />
   <meta property="og:title" content="Siva Sakthi V — UI/UX & Product Designer" />
-  <meta property="og:description" content="Selected work across AI tooling, travel, mobility and commerce." />
+  <meta property="og:description" content="Selected work across travel, fintech, mobility, AI tooling and commerce." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#FAFAF8" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314130F'/%3E%3Ctext x='50' y='72' font-size='64' font-family='Georgia,serif' fill='%23DE3B21' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
@@ -22,29 +22,25 @@
 
   <!-- LOADER -->
   <div id="loader" aria-hidden="true">
-    <div class="loader-top">
-      <span>Siva Sakthi V</span>
-      <span>Portfolio — 2026</span>
-    </div>
-    <div class="loader-center">
-      <div class="loader-pct"><span class="loader-num">00</span><sup>%</sup></div>
-    </div>
+    <div class="loader-top"><span>Siva Sakthi V</span><span>Portfolio — 2026</span></div>
+    <div class="loader-center"><div class="loader-pct"><span class="loader-num">00</span><sup>%</sup></div></div>
     <div class="loader-bottom">
       <div class="loader-track"><div class="loader-fill"></div></div>
-      <div class="loader-meta">
-        <span>Loading</span>
-        <span>UI / UX &amp; Product Design</span>
-      </div>
+      <div class="loader-meta"><span>Loading</span><span>UI / UX &amp; Product Design</span></div>
     </div>
   </div>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav-pill" id="nav">
     <a href="index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
+    </button>
+    <nav class="nav-links" id="nav-menu" aria-label="Primary">
       <a href="projects.html">Projects</a>
       <a href="playground.html">Playground</a>
-      <a href="#about" class="hide-sm">About</a>
+      <a href="about.html">About</a>
+      <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="mailto:sivavenkat372@gmail.com" class="nav-cta">Get in touch</a>
     </nav>
   </header>
@@ -53,11 +49,12 @@
 
     <!-- HERO -->
     <section class="hero wrap" aria-label="Introduction">
+      <canvas class="hero-wave" aria-hidden="true"></canvas>
       <div class="hero-main">
         <p class="hero-kicker">
-          <span>UI / UX &amp; Product Designer</span>
+          <span>Visual &amp; Experience Designer</span>
           <span class="sep">/</span>
-          <span>Chennai, India</span>
+          <span>Tamil Nadu, India</span>
           <span class="sep">/</span>
           <span>3+ Years</span>
         </p>
@@ -66,7 +63,7 @@
       </div>
       <div class="hero-foot">
         <span class="hero-avail"><span class="pip" aria-hidden="true"></span> Open to product design opportunities</span>
-        <span class="hero-scroll">Scroll to explore ↓</span>
+        <span class="hero-scroll">Scroll to explore</span>
       </div>
     </section>
 
@@ -77,136 +74,79 @@
         <h2>Five projects, one throughline:<br>reducing complexity for real people.</h2>
       </div>
 
-      <div class="work-grid">
-        <a class="work-card reveal" href="work/rare-india.html">
-          <div class="work-card-top"><span class="work-num">01</span><span class="work-year">2023 — 2024</span></div>
-          <div>
+      <div class="work-list">
+
+        <a class="work-item reveal" href="work/rare-india.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">01</span><span class="work-domain">Travel · Hospitality</span></div>
             <h3 class="work-title">Boutique Travel Platform</h3>
-            <p class="work-desc">A story-first travel community for 60+ curated boutique hotels — three complete design directions explored.</p>
+            <p class="work-desc">A story-first travel community for 60+ curated boutique hotels — three complete design directions explored end to end.</p>
+            <div class="work-tags"><span class="work-tag">B2B + B2C</span><span class="work-tag">Responsive Web</span><span class="work-tag">Motion</span></div>
+            <span class="work-cta full">Read case study <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-tags">
-            <span class="work-tag">B2B + B2C</span><span class="work-tag">Responsive Web</span><span class="work-tag">Motion</span>
-          </div>
-          <span class="work-arrow" aria-hidden="true">↗</span>
+          <div class="work-media"><div class="ph t1"><span class="ph-mono">RI</span><span class="ph-label">Travel Platform</span></div></div>
         </a>
 
-        <a class="work-card reveal d1" href="work/kbz.html">
-          <div class="work-card-top"><span class="work-num">02</span><span class="work-year">2024 — 2026</span></div>
-          <div>
+        <a class="work-item reveal" href="work/kbz.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">02</span><span class="work-domain">Fintech · Banking</span></div>
             <h3 class="work-title">Core Banking</h3>
-            <p class="work-desc">A KBZ core-banking MiniApp suite — video KYC, agent-supported chat, and maker-checker admin — plus KBZ Pay Market at 8M+ users.</p>
+            <p class="work-desc">A KBZ core-banking MiniApp suite — video KYC, agent-supported chat, maker-checker admin — plus KBZ Pay Market at 8M+ users.</p>
+            <div class="work-tags"><span class="work-tag">Fintech</span><span class="work-tag">MiniApps</span><span class="work-tag">Admin Platforms</span></div>
+            <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-tags">
-            <span class="work-tag">Fintech</span><span class="work-tag">MiniApps</span><span class="work-tag">Admin Platforms</span>
-          </div>
-          <span class="work-arrow" aria-hidden="true">↗</span>
+          <div class="work-media"><div class="ph t2"><span class="ph-mono">KBZ</span><span class="ph-label">Core Banking</span></div></div>
         </a>
 
-        <a class="work-card reveal d2" href="work/mozy.html">
-          <div class="work-card-top"><span class="work-num">03</span><span class="work-year">2022</span></div>
-          <div>
+        <a class="work-item reveal" href="work/mozy.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">03</span><span class="work-domain">Mobility</span></div>
             <h3 class="work-title">MOZY</h3>
-            <p class="work-desc">A research-first mobility app bringing clarity to India's chaotic commute — plus a solo share-auto pooling system.</p>
+            <p class="work-desc">A research-first mobility app bringing clarity to India's chaotic commute — plus a solo-designed share-auto pooling system.</p>
+            <div class="work-tags"><span class="work-tag">Mobile</span><span class="work-tag">UX Research</span><span class="work-tag">Systems</span></div>
+            <span class="work-cta full">Read case study <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-tags">
-            <span class="work-tag">Mobile</span><span class="work-tag">UX Research</span><span class="work-tag">Systems</span>
-          </div>
-          <span class="work-arrow" aria-hidden="true">↗</span>
+          <div class="work-media"><div class="ph t3"><span class="ph-mono">MZ</span><span class="ph-label">Mobility</span></div></div>
         </a>
 
-        <a class="work-card reveal d3" href="work/comms-ai.html">
-          <div class="work-card-top"><span class="work-num">04</span><span class="work-year">2023 — Present</span></div>
-          <div>
+        <a class="work-item reveal" href="work/comms-ai.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">04</span><span class="work-domain">AI · SaaS</span></div>
             <h3 class="work-title">Comms.AI</h3>
             <p class="work-desc">An AI communications platform that turns PR expertise into a structured, repeatable process across eight modules.</p>
+            <div class="work-tags"><span class="work-tag">AI Tooling</span><span class="work-tag">Web SaaS</span><span class="work-tag">Design System</span></div>
+            <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-tags">
-            <span class="work-tag">AI Tooling</span><span class="work-tag">Web SaaS</span><span class="work-tag">Design System</span>
-          </div>
-          <span class="work-arrow" aria-hidden="true">↗</span>
+          <div class="work-media"><div class="ph t4"><span class="ph-mono">C.AI</span><span class="ph-label">AI Tooling</span></div></div>
         </a>
 
-        <a class="work-card reveal d4" href="work/fabrito.html">
-          <div class="work-card-top"><span class="work-num">05</span><span class="work-year">2024</span></div>
-          <div>
+        <a class="work-item reveal" href="work/fabrito.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">05</span><span class="work-domain">B2B2C Commerce</span></div>
             <h3 class="work-title">Fabrito</h3>
             <p class="work-desc">A three-product ecosystem for India's fabric trade — admin panel, seller app, and B2C storefront on one design system.</p>
+            <div class="work-tags"><span class="work-tag">B2B2C</span><span class="work-tag">Multi-product</span><span class="work-tag">Design System</span></div>
+            <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-tags">
-            <span class="work-tag">B2B2C</span><span class="work-tag">Multi-product</span><span class="work-tag">Design System</span>
-          </div>
-          <span class="work-arrow" aria-hidden="true">↗</span>
+          <div class="work-media"><div class="ph t5"><span class="ph-mono">FB</span><span class="ph-label">Commerce</span></div></div>
         </a>
+
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT TEASER -->
     <section id="about" class="about" aria-label="About">
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-index">02 — About</span>
           <h2>Designer who thinks in systems,<br>writes in decisions.</h2>
         </div>
-
-        <div class="about-grid">
+        <div class="about-teaser">
           <div class="about-lead">
-            <p>I'm a UI/UX and Product Designer with <strong>3+ years of industry experience</strong> designing scalable, user-centered digital products across B2B, B2C, and B2B2C contexts.</p>
-            <p>I've delivered <strong>10+ products</strong> spanning fintech, e-commerce, healthcare, travel, and AI-powered platforms — owning the full process from user research and information architecture through high-fidelity UI, interactive prototyping, and design-system development. I'm most at home translating complex workflows into clear, intuitive experiences inside Agile, cross-functional teams.</p>
-
-            <div class="exp-list">
-              <div class="exp-item">
-                <span class="exp-role">Product / UI-UX Designer<br><span class="exp-org">CodesTax.AI · Chennai</span></span>
-                <span></span>
-                <span class="exp-year">Jan 2023 — Present</span>
-              </div>
-              <div class="exp-item">
-                <span class="exp-role">UI/UX Design Intern<br><span class="exp-org">Steam Troops Innovation Labs · Chennai</span></span>
-                <span></span>
-                <span class="exp-year">Mar — May 2022</span>
-              </div>
-              <div class="exp-item">
-                <span class="exp-role">UI/UX Fresher Programme<br><span class="exp-org">UXMINT Academy · Chennai</span></span>
-                <span></span>
-                <span class="exp-year">2022</span>
-              </div>
-            </div>
+            <p style="font-size:var(--fs-lead);color:var(--ink-2)"><strong>Vanakkam!</strong> I'm Siva — a Visual &amp; Experience Designer with 3+ years of industry experience across fintech, e-commerce, healthcare, travel, and a few AI products. I've shipped 10+ products, owning the full process from research to high-fidelity UI and design systems.</p>
+            <p style="margin-top:16px;color:var(--muted)">Curious, slightly chaotic, and definitely living in my own movie — tea in hand, doodling on any spare surface.</p>
           </div>
-
-          <div class="about-side">
-            <div class="fact">
-              <div class="fact-label">Recent work spans</div>
-              <div class="fact-body">Comms.AI &amp; LaunchPad (governed AI workspaces), KBZ Pay Market &amp; KBZ Bank MiniApps (8M+ users, Myanmar), a luxury responsible-tourism platform, e-pharmacy &amp; teleconsultation, microfinance, and humanitarian apps.</div>
-            </div>
-            <div class="fact">
-              <div class="fact-label">What I do</div>
-              <div class="chip-row">
-                <span class="chip">User Research</span>
-                <span class="chip">Information Architecture</span>
-                <span class="chip">Interaction Design</span>
-                <span class="chip">Visual / UI Design</span>
-                <span class="chip">Prototyping</span>
-                <span class="chip">Design Systems</span>
-                <span class="chip">Design Tokens</span>
-                <span class="chip">Motion Direction</span>
-              </div>
-            </div>
-            <div class="fact">
-              <div class="fact-label">Tools</div>
-              <div class="chip-row">
-                <span class="chip">Figma</span>
-                <span class="chip">FigJam / Miro</span>
-                <span class="chip">Framer</span>
-                <span class="chip">Jitter</span>
-                <span class="chip">GenAI Tools</span>
-                <span class="chip">Illustrator</span>
-                <span class="chip">HTML / CSS</span>
-              </div>
-            </div>
-            <div class="fact">
-              <div class="fact-label">Recognition</div>
-              <div class="fact-body">Joint Winner — Smart India Hackathon 2022 (Ministry of Rural Development). 3rd Place — Designathon, UXMINT &amp; VIT Chennai.</div>
-            </div>
-          </div>
+          <a class="btn solid" href="about.html">More about me <i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -215,7 +155,7 @@
     <section id="contact" class="contact" aria-label="Contact">
       <div class="wrap">
         <span class="eyebrow">03 — Contact</span>
-        <p class="contact-title" style="margin-top:18px;">Let's make something<br><span class="roll" data-words="worth keeping|people actually trust|quietly delightful|genuinely clear|you'll want to use">worth keeping</span>. <a href="mailto:sivavenkat372@gmail.com">Say hello ↗</a></p>
+        <p class="contact-title" style="margin-top:18px;">Let's make something<br><span class="roll" data-words="worth keeping|people actually trust|quietly delightful|genuinely clear|you'll want to use">worth keeping</span>. <a href="mailto:sivavenkat372@gmail.com">Say hello <i data-lucide="arrow-up-right"></i></a></p>
         <div class="contact-grid">
           <div class="contact-item">
             <span class="fact-label">Email</span>
@@ -231,7 +171,7 @@
           </div>
           <div class="contact-item">
             <span class="fact-label">Based in</span>
-            <span>Chennai, India</span>
+            <span>Tamil Nadu, India</span>
           </div>
         </div>
       </div>
@@ -239,17 +179,37 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <span class="brand">Siva Sakthi V<span style="color:var(--accent)">.</span></span>
-    <div class="footer-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="mailto:sivavenkat372@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/siva-sakthi-v-9705b91a3/" target="_blank" rel="noopener">LinkedIn</a>
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-kicker">Got a problem worth solving?</p>
+        <a class="foot-mail" href="mailto:sivavenkat372@gmail.com">sivavenkat372@gmail.com <i data-lucide="arrow-up-right"></i></a>
+        <p class="foot-sub"><i data-lucide="map-pin"></i> Tamil Nadu, India · usually replies within a day</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span class="foot-label">Explore</span>
+          <a href="projects.html"><i data-lucide="layout-grid"></i> Projects</a>
+          <a href="playground.html"><i data-lucide="shapes"></i> Playground</a>
+          <a href="about.html"><i data-lucide="user"></i> About</a>
+          <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Résumé</a>
+        </div>
+        <div class="foot-col">
+          <span class="foot-label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/siva-sakthi-v-9705b91a3/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+          <a href="https://www.behance.net/sivaserafino" target="_blank" rel="noopener"><i data-lucide="behance"></i> Behance</a>
+          <a href="mailto:sivavenkat372@gmail.com"><i data-lucide="mail"></i> Email</a>
+        </div>
+      </div>
     </div>
-    <span style="font-size:var(--fs-small)">© 2026 · Designed &amp; built by Siva</span>
+    <div class="foot-base">
+      <span>© 2026 Siva Sakthi V</span>
+      <button class="foot-top" type="button" data-scroll-top>Back to top <i data-lucide="arrow-up"></i></button>
+      <span>Designed &amp; built with care</span>
+    </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>

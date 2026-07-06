@@ -27,13 +27,17 @@
   </div>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav-pill" id="nav">
     <a href="../index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
+    </button>
+    <nav class="nav-links" id="nav-menu" aria-label="Primary">
       <a href="../projects.html">Projects</a>
       <a href="../playground.html">Playground</a>
-      <a href="../index.html#about" class="hide-sm">About</a>
-      <a href="../projects.html" class="nav-cta">All work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a href="mailto:sivavenkat372@gmail.com" class="nav-cta">Get in touch</a>
     </nav>
   </header>
 
@@ -46,7 +50,7 @@
       <p class="cs-sub">A core-banking application suite for KBZ Bank and KBZ Pay — from video-based KYC and agent-supported chat to maker-checker admin platforms, serving one of Myanmar's largest financial ecosystems.</p>
       <div class="cs-meta">
         <div><div class="fact-label">Role</div><div class="fact-val">UI/UX &amp; Product Design</div></div>
-        <div><div class="fact-label">Context</div><div class="fact-val">CodesTax.AI · for KBZ</div></div>
+        <div><div class="fact-label">Context</div><div class="fact-val">CodeStax.Ai · for KBZ</div></div>
         <div><div class="fact-label">Platforms</div><div class="fact-val">MiniApps · Web Admin</div></div>
         <div><div class="fact-label">Scale</div><div class="fact-val">8M+ users (KBZ Pay Market)</div></div>
       </div>
@@ -98,8 +102,8 @@
           <h2>Full Case Study — Coming Soon.</h2>
           <p>Good things take time, hehe. The deep dive — video-KYC flows, maker-checker governance, and designing both sides of every interaction — is being written up with the care it deserves.</p>
           <div class="coming-actions">
-            <a class="btn solid" href="../projects.html">← Back to all projects</a>
-            <a class="btn" href="mailto:sivavenkat372@gmail.com">Ask me about it ↗</a>
+            <a class="btn solid" href="../projects.html"><i data-lucide="arrow-left"></i> Back to all projects</a>
+            <a class="btn" href="mailto:sivavenkat372@gmail.com">Ask me about it <i data-lucide="arrow-up-right"></i></a>
           </div>
         </div>
       </div>
@@ -107,21 +111,42 @@
 
     <!-- PREV / NEXT -->
     <nav class="cs-nav" aria-label="More work">
-      <a href="rare-india.html" class="prev"><div class="lbl">← Previous</div><div class="ttl">Boutique Travel Platform</div></a>
-      <a href="mozy.html" class="next"><div class="lbl">Next →</div><div class="ttl">MOZY</div></a>
+      <a href="rare-india.html" class="prev"><div class="lbl"><i data-lucide="arrow-left" class="inline-ic"></i> Previous</div><div class="ttl">Boutique Travel Platform</div></a>
+      <a href="mozy.html" class="next"><div class="lbl">Next <i data-lucide="arrow-right" class="inline-ic"></i></div><div class="ttl">MOZY</div></a>
     </nav>
   </main>
 
-  <footer class="footer">
-    <span class="brand">Siva Sakthi V<span style="color:var(--accent)">.</span></span>
-    <div class="footer-links">
-      <a href="../projects.html">Projects</a>
-      <a href="../playground.html">Playground</a>
-      <a href="mailto:sivavenkat372@gmail.com">Email</a>
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-kicker">Got a problem worth solving?</p>
+        <a class="foot-mail" href="mailto:sivavenkat372@gmail.com">sivavenkat372@gmail.com <i data-lucide="arrow-up-right"></i></a>
+        <p class="foot-sub"><i data-lucide="map-pin"></i> Tamil Nadu, India · usually replies within a day</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span class="foot-label">Explore</span>
+          <a href="../projects.html"><i data-lucide="layout-grid"></i> Projects</a>
+          <a href="../playground.html"><i data-lucide="shapes"></i> Playground</a>
+          <a href="../about.html"><i data-lucide="user"></i> About</a>
+          <a href="../assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Résumé</a>
+        </div>
+        <div class="foot-col">
+          <span class="foot-label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/siva-sakthi-v-9705b91a3/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+          <a href="https://www.behance.net/sivaserafino" target="_blank" rel="noopener"><i data-lucide="behance"></i> Behance</a>
+          <a href="mailto:sivavenkat372@gmail.com"><i data-lucide="mail"></i> Email</a>
+        </div>
+      </div>
     </div>
-    <span style="font-size:var(--fs-small)">© 2026 · Siva Sakthi V</span>
+    <div class="foot-base">
+      <span>© 2026 Siva Sakthi V</span>
+      <button class="foot-top" type="button" data-scroll-top>Back to top <i data-lucide="arrow-up"></i></button>
+      <span>Designed &amp; built with care</span>
+    </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="../assets/js/site.js"></script>
 </body>
 </html>

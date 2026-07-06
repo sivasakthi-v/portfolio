@@ -49,13 +49,100 @@
     })();
   }
 
-  /* ---------- NAV solidify on scroll ---------- */
+  /* ---------- NAV (legacy solidify + pill mobile menu) ---------- */
   function initNav() {
-    var nav = document.querySelector('.nav');
-    if (!nav) return;
-    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    var legacy = document.querySelector('.nav');
+    if (legacy) {
+      var onScroll = function () { legacy.classList.toggle('solid', window.scrollY > 24); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+    var pill = document.querySelector('.nav-pill');
+    if (!pill) return;
+    var toggle = pill.querySelector('.nav-toggle');
+    var menu = pill.querySelector('.nav-links');
+    if (!toggle || !menu) return;
+    var setOpen = function (open) {
+      pill.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    toggle.addEventListener('click', function () { setOpen(!pill.classList.contains('open')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('click', function (e) { if (pill.classList.contains('open') && !pill.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  }
+
+  /* ---------- Lucide icons (+ inline brand glyphs Lucide dropped) ---------- */
+  function initLucide() {
+    var sv = 'viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" aria-hidden="true" focusable="false"';
+    var brands = {
+      linkedin: '<svg ' + sv + '><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>',
+      behance: '<svg ' + sv + '><path d="M22 7h-5V5.5h5V7zm-3.5 3c1.93 0 3.5 1.57 3.5 3.5 0 .17-.01.33-.04.5h-5.42c.14.86.79 1.5 1.96 1.5.6 0 1.1-.2 1.4-.5H21c-.5 1.3-1.7 2-3.5 2-2.2 0-3.5-1.5-3.5-3.5S16.3 10 18.5 10zm-1.46 2.5h2.92c-.15-.7-.7-1.1-1.46-1.1s-1.31.4-1.46 1.1zM7.5 6c1.9 0 3 .9 3 2.6 0 .9-.4 1.5-1.1 1.9.9.4 1.4 1.1 1.4 2.1 0 1.8-1.3 2.9-3.3 2.9H2V6h5.5zM4.5 9.5h2.6c.7 0 1.1-.3 1.1-.9s-.4-.9-1.1-.9H4.5v1.8zm0 4.3h2.8c.8 0 1.2-.4 1.2-1s-.4-1-1.2-1H4.5v2z"/></svg>',
+      figma: '<svg ' + sv + '><path d="M8 24a4 4 0 0 0 4-4v-4H8a4 4 0 1 0 0 8zm-4-8a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4zm0-8a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4zm8-8h4a4 4 0 1 1 0 8h-4V0zm0 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/></svg>',
+      framer: '<svg ' + sv + '><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg>'
+    };
+    document.querySelectorAll('i[data-lucide]').forEach(function (el) {
+      var n = el.getAttribute('data-lucide');
+      if (brands[n]) {
+        var span = document.createElement('span');
+        span.className = 'brand-ic';
+        span.setAttribute('aria-hidden', 'true');
+        span.innerHTML = brands[n];
+        el.replaceWith(span);
+      }
+    });
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  /* ---------- hero cursor-reactive wave ---------- */
+  function initHeroWave() {
+    var canvas = document.querySelector('.hero-wave');
+    if (!canvas || reduce) return;
+    var hero = canvas.closest('.hero') || canvas.parentElement;
+    var ctx = canvas.getContext('2d');
+    var w = 0, h = 0;
+    var mouse = { x: 0.5, y: 0.5, active: 0 };
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      mouse.x = (e.clientX - r.left) / r.width;
+      mouse.y = (e.clientY - r.top) / r.height;
+      mouse.active = 1;
+    });
+    hero.addEventListener('pointerleave', function () { mouse.active = 0; });
+    var t = 0, hov = 0, lines = 5;
+    (function draw() {
+      t += 0.006;
+      hov += ((mouse.active ? 1 : 0) - hov) * 0.05;
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < lines; i++) {
+        var yBase = h * (0.22 + 0.56 * (i / (lines - 1)));
+        ctx.beginPath();
+        for (var x = 0; x <= w; x += 8) {
+          var nx = x / w;
+          var amp = 7 + 15 * hov;
+          var dist = Math.abs(nx - mouse.x);
+          var bump = (1 - Math.min(dist * 3, 1)) * 28 * hov;
+          var y = yBase + Math.sin(nx * 6 + t * 4 + i) * amp + Math.sin(nx * 12 - t * 3) * 4 - bump * Math.sin(mouse.y * 3.14159);
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = (i === 2)
+          ? 'rgba(222,59,33,' + (0.10 + 0.16 * hov) + ')'
+          : 'rgba(20,19,15,' + (0.045 + 0.05 * hov) + ')';
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+      }
+      requestAnimationFrame(draw);
+    })();
   }
 
   /* ---------- reading progress bar ---------- */
@@ -223,14 +310,23 @@
     var lastFocus = null;
     var free = window.matchMedia('(min-width: 761px)').matches;
 
-    // initial desktop layout from data-fx / data-fy (both fractions 0..1)
+    // initial desktop layout: an evenly-spaced horizontal row, 40px below the hero
     if (free) {
-      stickers.forEach(function (s) {
-        var fx = parseFloat(s.getAttribute('data-fx'));
-        var fy = parseFloat(s.getAttribute('data-fy'));
-        var cw = canvas.clientWidth, ch = canvas.clientHeight, sw = s.offsetWidth, sh = s.offsetHeight;
-        s.style.left = Math.max(0, Math.min(cw - sw, fx * (cw - sw))) + 'px';
-        s.style.top = Math.max(0, Math.min(ch - sh, fy * (ch - sh))) + 'px';
+      var heroEl = document.querySelector('.pg-hero');
+      var pad = 40;
+      var cw = canvas.clientWidth, ch = canvas.clientHeight;
+      var topY = heroEl ? heroEl.getBoundingClientRect().bottom + 40 : Math.round(ch * 0.32);
+      var widths = stickers.map(function (s) { return s.offsetWidth; });
+      var totalW = widths.reduce(function (a, b) { return a + b; }, 0);
+      var n = stickers.length;
+      var gap = n > 1 ? (cw - 2 * pad - totalW) / (n - 1) : 0;
+      if (gap < 16) { gap = 16; pad = Math.max(16, (cw - totalW - gap * (n - 1)) / 2); }
+      var x = pad;
+      stickers.forEach(function (s, i) {
+        var sh = s.offsetHeight;
+        s.style.left = Math.round(Math.max(0, Math.min(cw - widths[i], x))) + 'px';
+        s.style.top = Math.round(Math.max(0, Math.min(ch - sh - 20, topY))) + 'px';
+        x += widths[i] + gap;
       });
     }
 
@@ -335,8 +431,18 @@
     targets.forEach(function (t) { obs.observe(t); });
   }
 
+  /* ---------- back to top ---------- */
+  function initScrollTop() {
+    document.querySelectorAll('[data-scroll-top]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+  }
+
   /* ---------- init ---------- */
   document.addEventListener('DOMContentLoaded', function () {
+    initScrollTop();
     initLoader();
     initNav();
     initProgress();
@@ -349,5 +455,7 @@
     initPlayground();
     initPlyr();
     initToc();
+    initHeroWave();
+    initLucide();
   });
 })();

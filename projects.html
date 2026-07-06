@@ -26,12 +26,16 @@
   </div>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav-pill" id="nav">
     <a href="index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
+    </button>
+    <nav class="nav-links" id="nav-menu" aria-label="Primary">
       <a href="projects.html" aria-current="page">Projects</a>
       <a href="playground.html">Playground</a>
-      <a href="index.html#about" class="hide-sm">About</a>
+      <a href="about.html">About</a>
+      <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="mailto:sivavenkat372@gmail.com" class="nav-cta">Get in touch</a>
     </nav>
   </header>
@@ -47,56 +51,61 @@
 
     <!-- LIST -->
     <section id="list" class="wrap" style="padding-bottom: var(--pad-y);">
-      <div class="proj-list">
+      <div class="work-list">
 
-        <a class="proj-row reveal" href="work/rare-india.html">
-          <span class="proj-num">01</span>
-          <span class="proj-main">
-            <span class="proj-domain">Travel · Hospitality</span>
-            <span class="proj-title">Where a hotel list becomes a journey worth choosing.</span>
-            <span class="proj-tags"><span class="tag">B2B + B2C</span><span class="tag">Responsive Web</span><span class="tag">Motion</span><span class="tag">3 Directions</span></span>
-          </span>
-          <span class="proj-side"><span class="proj-status full">Full case study</span><span class="proj-arrow" aria-hidden="true">↗</span></span>
+        <a class="work-item reveal" href="work/rare-india.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">01</span><span class="work-domain">Travel · Hospitality</span></div>
+            <h3 class="work-title">Where a hotel list becomes a journey worth choosing.</h3>
+            <p class="work-desc">A story-first boutique-travel community — three complete design directions, from cinematic motion to a research-led, brand-true system.</p>
+            <div class="work-tags"><span class="work-tag">B2B + B2C</span><span class="work-tag">Responsive Web</span><span class="work-tag">Motion</span></div>
+            <span class="work-cta full">Read case study <i data-lucide="arrow-up-right"></i></span>
+          </div>
+          <div class="work-media"><div class="ph t1"><span class="ph-mono">RI</span><span class="ph-label">Travel Platform</span></div></div>
         </a>
 
-        <a class="proj-row reveal" href="work/kbz.html">
-          <span class="proj-num">02</span>
-          <span class="proj-main">
-            <span class="proj-domain">Fintech · Banking</span>
-            <span class="proj-title">Making regulated banking feel effortless at national scale.</span>
-            <span class="proj-tags"><span class="tag">MiniApps</span><span class="tag">Video KYC</span><span class="tag">Admin Platforms</span><span class="tag">8M+ Users</span></span>
-          </span>
-          <span class="proj-side"><span class="proj-status">Overview</span><span class="proj-arrow" aria-hidden="true">↗</span></span>
+        <a class="work-item reveal" href="work/kbz.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">02</span><span class="work-domain">Fintech · Banking</span></div>
+            <h3 class="work-title">Making regulated banking feel effortless at national scale.</h3>
+            <p class="work-desc">A KBZ core-banking MiniApp suite — video KYC, agent-supported chat, maker-checker admin — plus KBZ Pay Market at 8M+ users.</p>
+            <div class="work-tags"><span class="work-tag">MiniApps</span><span class="work-tag">Video KYC</span><span class="work-tag">Admin Platforms</span></div>
+            <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
+          </div>
+          <div class="work-media"><div class="ph t2"><span class="ph-mono">KBZ</span><span class="ph-label">Core Banking</span></div></div>
         </a>
 
-        <a class="proj-row reveal" href="work/mozy.html">
-          <span class="proj-num">03</span>
-          <span class="proj-main">
-            <span class="proj-domain">Mobility</span>
-            <span class="proj-title">Bringing calm and clarity to a chaotic commute.</span>
-            <span class="proj-tags"><span class="tag">Mobile</span><span class="tag">UX Research</span><span class="tag">Systems Thinking</span></span>
-          </span>
-          <span class="proj-side"><span class="proj-status full">Full case study</span><span class="proj-arrow" aria-hidden="true">↗</span></span>
+        <a class="work-item reveal" href="work/mozy.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">03</span><span class="work-domain">Mobility</span></div>
+            <h3 class="work-title">Bringing calm and clarity to a chaotic commute.</h3>
+            <p class="work-desc">A research-first mobility app for India's urban transit — plus a solo-designed share-auto pooling system born from the street.</p>
+            <div class="work-tags"><span class="work-tag">Mobile</span><span class="work-tag">UX Research</span><span class="work-tag">Systems Thinking</span></div>
+            <span class="work-cta full">Read case study <i data-lucide="arrow-up-right"></i></span>
+          </div>
+          <div class="work-media"><div class="ph t3"><span class="ph-mono">MZ</span><span class="ph-label">Mobility</span></div></div>
         </a>
 
-        <a class="proj-row reveal" href="work/comms-ai.html">
-          <span class="proj-num">04</span>
-          <span class="proj-main">
-            <span class="proj-domain">AI · SaaS</span>
-            <span class="proj-title">Turning PR expertise into a repeatable system.</span>
-            <span class="proj-tags"><span class="tag">AI Tooling</span><span class="tag">Web SaaS</span><span class="tag">Design System</span></span>
-          </span>
-          <span class="proj-side"><span class="proj-status">Overview</span><span class="proj-arrow" aria-hidden="true">↗</span></span>
+        <a class="work-item reveal" href="work/comms-ai.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">04</span><span class="work-domain">AI · SaaS</span></div>
+            <h3 class="work-title">Turning PR expertise into a repeatable system.</h3>
+            <p class="work-desc">An AI communications platform where a structured questionnaire — not a blank prompt — drives genuinely good output across eight modules.</p>
+            <div class="work-tags"><span class="work-tag">AI Tooling</span><span class="work-tag">Web SaaS</span><span class="work-tag">Design System</span></div>
+            <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
+          </div>
+          <div class="work-media"><div class="ph t4"><span class="ph-mono">C.AI</span><span class="ph-label">AI Tooling</span></div></div>
         </a>
 
-        <a class="proj-row reveal" href="work/fabrito.html">
-          <span class="proj-num">05</span>
-          <span class="proj-main">
-            <span class="proj-domain">B2B2C Commerce</span>
-            <span class="proj-title">One design language for three very different users.</span>
-            <span class="proj-tags"><span class="tag">Multi-product</span><span class="tag">Design System</span><span class="tag">Web + Mobile</span></span>
-          </span>
-          <span class="proj-side"><span class="proj-status">Overview</span><span class="proj-arrow" aria-hidden="true">↗</span></span>
+        <a class="work-item reveal" href="work/fabrito.html">
+          <div class="work-body">
+            <div class="work-top"><span class="work-num">05</span><span class="work-domain">B2B2C Commerce</span></div>
+            <h3 class="work-title">One design language for three very different users.</h3>
+            <p class="work-desc">A three-product ecosystem for India's fabric trade — admin panel, seller app, and B2C storefront, unified by a single system.</p>
+            <div class="work-tags"><span class="work-tag">Multi-product</span><span class="work-tag">Design System</span><span class="work-tag">Web + Mobile</span></div>
+            <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
+          </div>
+          <div class="work-media"><div class="ph t5"><span class="ph-mono">FB</span><span class="ph-label">Commerce</span></div></div>
         </a>
 
       </div>
@@ -104,17 +113,37 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <span class="brand">Siva Sakthi V<span style="color:var(--accent)">.</span></span>
-    <div class="footer-links">
-      <a href="projects.html">Projects</a>
-      <a href="playground.html">Playground</a>
-      <a href="index.html#about">About</a>
-      <a href="mailto:sivavenkat372@gmail.com">Email</a>
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-kicker">Got a problem worth solving?</p>
+        <a class="foot-mail" href="mailto:sivavenkat372@gmail.com">sivavenkat372@gmail.com <i data-lucide="arrow-up-right"></i></a>
+        <p class="foot-sub"><i data-lucide="map-pin"></i> Tamil Nadu, India · usually replies within a day</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span class="foot-label">Explore</span>
+          <a href="projects.html"><i data-lucide="layout-grid"></i> Projects</a>
+          <a href="playground.html"><i data-lucide="shapes"></i> Playground</a>
+          <a href="about.html"><i data-lucide="user"></i> About</a>
+          <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Résumé</a>
+        </div>
+        <div class="foot-col">
+          <span class="foot-label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/siva-sakthi-v-9705b91a3/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+          <a href="https://www.behance.net/sivaserafino" target="_blank" rel="noopener"><i data-lucide="behance"></i> Behance</a>
+          <a href="mailto:sivavenkat372@gmail.com"><i data-lucide="mail"></i> Email</a>
+        </div>
+      </div>
     </div>
-    <span style="font-size:var(--fs-small)">© 2026 · Siva Sakthi V</span>
+    <div class="foot-base">
+      <span>© 2026 Siva Sakthi V</span>
+      <button class="foot-top" type="button" data-scroll-top>Back to top <i data-lucide="arrow-up"></i></button>
+      <span>Designed &amp; built with care</span>
+    </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>
