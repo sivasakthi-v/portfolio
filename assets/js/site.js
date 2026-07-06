@@ -190,6 +190,27 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
   }
 
+  /* ---------- rolling words ---------- */
+  function initRoller() {
+    document.querySelectorAll('.roll[data-words]').forEach(function (el) {
+      var words = el.getAttribute('data-words').split('|').map(function (w) { return w.trim(); }).filter(Boolean);
+      if (words.length < 2) return;
+      var i = 0;
+      var longest = words.reduce(function (a, b) { return b.length > a.length ? b : a; }, '');
+      // reserve width to avoid layout shift
+      el.style.minWidth = longest.length + 'ch';
+      if (reduce) return;
+      setInterval(function () {
+        i = (i + 1) % words.length;
+        el.classList.remove('swap');
+        // force reflow to restart animation
+        void el.offsetWidth;
+        el.textContent = words[i];
+        el.classList.add('swap');
+      }, 2600);
+    });
+  }
+
   /* ---------- init ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     initLoader();
@@ -200,5 +221,6 @@
     initTabs();
     initVideos();
     initLightbox();
+    initRoller();
   });
 })();
