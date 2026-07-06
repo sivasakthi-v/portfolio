@@ -20,7 +20,7 @@
 
     // ease the counter toward a target that we nudge on a timer,
     // guaranteeing it lands on 100 shortly after window load.
-    var ramp = setInterval(function () { if (target < 90) target += Math.random() * 12; }, 180);
+    var ramp = setInterval(function () { if (target < 90) target = Math.min(90, target + Math.random() * 12); }, 180);
     window.addEventListener('load', function () { target = 100; });
     // safety: never hang the page
     setTimeout(function () { target = 100; }, 4000);
@@ -164,12 +164,14 @@
     var open = function (src, alt) {
       img.src = src; img.alt = alt || '';
       box.classList.add('open');
+      box.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       lastFocus = document.activeElement;
       closeBtn.focus();
     };
     var close = function () {
       box.classList.remove('open');
+      box.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       img.src = '';
       if (lastFocus) lastFocus.focus();

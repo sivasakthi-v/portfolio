@@ -142,7 +142,7 @@ em { font-style: italic; }
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--f-sans); font-weight: 600;
   font-size: var(--fs-label); letter-spacing: .16em; text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-2); /* AA on light; dark sections override to --accent */
 }
 .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); flex-shrink: 0; }
 .eyebrow.plain::before { display: none; }
@@ -241,7 +241,7 @@ em { font-style: italic; }
 }
 .work-card:hover { border-color: var(--line-2); transform: translateY(-4px); box-shadow: 0 24px 60px -30px rgba(20,19,15,.35); }
 .work-card-top { display: flex; justify-content: space-between; align-items: baseline; }
-.work-num { font-family: var(--f-display); font-size: 1.1rem; color: var(--accent); }
+.work-num { font-family: var(--f-display); font-size: 1.1rem; color: var(--accent-2); }
 .work-year { font-size: var(--fs-small); color: var(--muted); font-variant-numeric: tabular-nums; }
 .work-title { font-family: var(--f-display); font-size: clamp(1.9rem, 3.4vw, 2.9rem); line-height: 1.02; letter-spacing: -0.02em; }
 .work-desc { font-size: var(--fs-small); color: var(--muted); max-width: 34ch; }
@@ -366,7 +366,8 @@ figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: 12px; 
 .card:hover { border-color: var(--line-2); transform: translateY(-3px); }
 .cs-section.alt .card { background: var(--paper); }
 .cs-section.dark .card { background: var(--dark-2); border-color: var(--dark-line); }
-.card-num { font-family: var(--f-sans); font-weight: 600; font-size: var(--fs-label); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.card-num { font-family: var(--f-sans); font-weight: 600; font-size: var(--fs-label); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); }
+.cs-section.dark .card-num { color: var(--accent); }
 .card h3 { margin: 0; }
 .card p { font-size: var(--fs-small); color: var(--muted); }
 .cs-section.dark .card p { color: var(--on-dark-2); }
@@ -391,7 +392,8 @@ figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: 12px; 
 /* callout / insight */
 .callout { border-left: 3px solid var(--accent); background: var(--paper-2); padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 28px 0 0; max-width: var(--measure); }
 .cs-section.dark .callout { background: var(--dark-2); }
-.callout .c-label { font-size: var(--fs-label); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.callout .c-label { font-size: var(--fs-label); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 8px; }
+.cs-section.dark .callout .c-label { color: var(--accent); }
 .callout p { font-size: var(--fs-small); color: var(--ink-2); }
 .cs-section.dark .callout p { color: var(--on-dark); }
 
@@ -417,7 +419,8 @@ figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: 12px; 
 .panel h3 { margin-bottom: 8px; }
 .panel p { font-size: var(--fs-small); color: var(--muted); }
 .cs-section.dark .panel p { color: var(--on-dark-2); }
-.panel-role { font-size: var(--fs-small); color: var(--accent); margin-bottom: 6px; }
+.panel-role { font-size: var(--fs-small); color: var(--accent-2); margin-bottom: 6px; }
+.cs-section.dark .panel-role { color: var(--accent); }
 .divide-list > * { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .divide-list > *:first-child { padding-top: 0; }
 .divide-list > *:last-child { border-bottom: none; padding-bottom: 0; }
