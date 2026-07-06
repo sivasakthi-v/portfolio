@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playground — Siva Sakthi V</title>
-  <meta name="description" content="Side projects and experiments by Siva Sakthi V — a Figma to-do plugin, and two app concepts, Orbit and Flow." />
+  <meta name="description" content="Side projects and experiments by Siva Sakthi V — Magic To Do (Figma plugin), Orbit, and Flow. A draggable canvas of things built to figure them out." />
   <meta name="theme-color" content="#FAFAF8" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314130F'/%3E%3Ctext x='50' y='72' font-size='64' font-family='Georgia,serif' fill='%23DE3B21' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&f[]=gambarino@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
-  <noscript><style>#loader{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <noscript><style>#loader{display:none!important}.reveal{opacity:1!important;transform:none!important}.sticker{position:static!important;width:100%;left:auto!important;top:auto!important}.canvas{min-height:0!important;display:flex;flex-direction:column;gap:16px;padding:16px}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#play">Skip to experiments</a>
@@ -39,45 +39,167 @@
   <main id="main">
 
     <!-- HEADER -->
-    <section class="cs-hero wrap">
+    <section class="cs-hero wrap" style="padding-bottom: clamp(24px,4vw,40px);">
       <p class="cs-kicker"><span>Playground</span><span class="sep">/</span><span>Experiments &amp; Side Projects</span></p>
       <h1 class="cs-title">Things I build just to <span class="ital">figure them out</span>.</h1>
-      <p class="cs-sub">Side projects, plugins, and app concepts — where I explore ideas without a brief. Rougher than the case studies, and all the more honest for it.</p>
+      <p class="cs-sub">A little canvas of side projects. Drag them around, then tap one to flip it open. Rougher than the case studies — and all the more honest for it.</p>
     </section>
 
-    <!-- CARDS -->
+    <!-- CANVAS -->
     <section id="play" class="wrap" style="padding-bottom: var(--pad-y);">
-      <div class="play-grid">
+      <div class="canvas" id="canvas">
+        <span class="canvas-hint">Drag · tap to open</span>
 
-        <article class="play-card reveal">
-          <span class="play-icon" aria-hidden="true">✅</span>
-          <span class="play-status wip">In progress</span>
-          <h3>Figma To-Do</h3>
-          <p>A tiny Figma plugin that keeps a running to-do list right inside the canvas — so tasks, notes, and follow-ups live where the work happens instead of a separate app you forget to open.</p>
-          <div class="play-meta">Figma Plugin · Personal tool</div>
-        </article>
+        <!-- Magic To Do -->
+        <div class="sticker" data-app="magic" data-fx="0.06" data-fy="70" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Magic To Do details">
+          <span class="s-tile" aria-hidden="true">
+            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="100" fill="#F1F0EA"/>
+              <g stroke="#14130F" stroke-width="3" stroke-linecap="round"><line x1="52" y1="34" x2="122" y2="34"/><line x1="52" y1="52" x2="122" y2="52"/><line x1="52" y1="70" x2="104" y2="70"/></g>
+              <g fill="none" stroke="#DE3B21" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 33 l5 5 l9 -11"/><path d="M32 51 l5 5 l9 -11"/></g>
+              <circle cx="37" cy="70" r="6" fill="none" stroke="#B9B3A6" stroke-width="3"/>
+            </svg>
+          </span>
+          <span class="s-name">Magic To Do</span>
+          <span class="s-desc">To-dos, without leaving Figma.</span>
+          <span class="s-open">Open</span>
+        </div>
 
-        <article class="play-card reveal d1">
-          <span class="play-icon" aria-hidden="true">🪐</span>
-          <span class="play-status concept">Concept</span>
-          <h3>Orbit</h3>
-          <p>An app concept for keeping the people who matter in your orbit — gentle, ambient reminders to stay in touch, designed to feel like care rather than a chore or another notification to dismiss.</p>
-          <div class="play-meta">Mobile App · Concept exploration</div>
-        </article>
+        <!-- Orbit -->
+        <div class="sticker" data-app="orbit" data-fx="0.44" data-fy="230" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Orbit details">
+          <span class="s-tile" aria-hidden="true">
+            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="100" fill="#14130F"/>
+              <g fill="none" stroke="#EDEAE1" stroke-width="2" opacity="0.5"><ellipse cx="80" cy="50" rx="46" ry="21"/><ellipse cx="80" cy="50" rx="46" ry="21" transform="rotate(60 80 50)"/><ellipse cx="80" cy="50" rx="46" ry="21" transform="rotate(-60 80 50)"/></g>
+              <circle cx="80" cy="50" r="9" fill="#DE3B21"/>
+              <circle cx="126" cy="50" r="4" fill="#EDEAE1"/>
+            </svg>
+          </span>
+          <span class="s-name">Orbit</span>
+          <span class="s-desc">Save what matters. Finish what you start.</span>
+          <span class="s-open">Open</span>
+        </div>
 
-        <article class="play-card reveal d2">
-          <span class="play-icon" aria-hidden="true">🌊</span>
-          <span class="play-status concept">Concept</span>
-          <h3>Flow</h3>
-          <p>An app concept for protecting focus — shaping your day around deep-work blocks instead of a wall of tasks, so momentum is designed in rather than fought for. A calmer take on getting things done.</p>
-          <div class="play-meta">Mobile App · Concept exploration</div>
-        </article>
+        <!-- Flow -->
+        <div class="sticker" data-app="flow" data-fx="0.82" data-fy="110" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Flow details">
+          <span class="s-tile" aria-hidden="true">
+            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="100" fill="#F1F0EA"/>
+              <g fill="none" stroke-width="3" stroke-linecap="round"><path d="M18 40 q20 -14 40 0 t40 0 t44 0" stroke="#14130F"/><path d="M18 58 q20 -14 40 0 t40 0 t44 0" stroke="#DE3B21"/><path d="M18 76 q20 -14 40 0 t40 0 t44 0" stroke="#B9B3A6"/></g>
+            </svg>
+          </span>
+          <span class="s-name">Flow</span>
+          <span class="s-desc">A calm, private finance planner.</span>
+          <span class="s-open">Open</span>
+        </div>
 
       </div>
 
-      <p class="lead reveal d2" style="margin-top: clamp(36px,5vw,56px); max-width: 46rem; color: var(--muted);">More experiments are always in the oven. If any of these sound interesting, <a href="mailto:sivavenkat372@gmail.com" style="color:var(--accent-2); text-decoration: underline; text-underline-offset: 3px;">say hello</a> — I love talking through half-built ideas.</p>
+      <p class="lead reveal" style="margin-top: clamp(32px,5vw,48px); max-width: 46rem; color: var(--muted);">More experiments are always in the oven. If any of these sound interesting, <a href="mailto:sivavenkat372@gmail.com" style="color:var(--accent-2); text-decoration: underline; text-underline-offset: 3px;">say hello</a> — I love talking through half-built ideas.</p>
     </section>
   </main>
+
+  <!-- POPUP -->
+  <div class="pop" id="pop" role="dialog" aria-modal="true" aria-label="Project details">
+    <button class="pop-close" aria-label="Close">✕</button>
+
+    <!-- Magic To Do -->
+    <article class="pop-card" data-app="magic" hidden>
+      <div class="pop-head">
+        <span class="pop-tile" aria-hidden="true">
+          <svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="70" fill="#F1F0EA"/>
+            <g stroke="#14130F" stroke-width="3" stroke-linecap="round"><line x1="52" y1="22" x2="122" y2="22"/><line x1="52" y1="37" x2="122" y2="37"/><line x1="52" y1="52" x2="104" y2="52"/></g>
+            <g fill="none" stroke="#DE3B21" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 21 l5 5 l9 -11"/><path d="M32 36 l5 5 l9 -11"/></g>
+            <circle cx="37" cy="52" r="6" fill="none" stroke="#B9B3A6" stroke-width="3"/>
+          </svg>
+        </span>
+        <h2 class="pop-name">Magic To Do</h2>
+        <p class="pop-tagline">Organize and track your to-dos without leaving Figma.</p>
+      </div>
+      <div class="pop-body">
+        <a class="pop-cta" href="https://www.figma.com/community/plugin/1516524738595957600/magic-todo" target="_blank" rel="noopener">Open in Figma ↗</a>
+        <p class="pop-desc">Magic To Do lets you organize and track your to-dos without leaving Figma — so your task list lives right where the design work happens.</p>
+        <div>
+          <div class="pop-label">Features</div>
+          <ul class="pop-features">
+            <li>Tasks tab (live): create &amp; rename folders, add &amp; remove tasks</li>
+            <li>Check tasks off into Completed, restore with one click</li>
+            <li>Everything saved between sessions</li>
+            <li>Magic Tasks (coming soon): paste requirements, AI spins up a folder of actionable tasks</li>
+          </ul>
+        </div>
+        <div class="pop-foot">
+          <span class="pop-version">v1 · Tasks live · Magic Tasks soon</span>
+          <span class="pop-tags"><span class="tag">Figma Plugin</span><span class="tag">Productivity</span><span class="tag accent">AI soon</span></span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Orbit -->
+    <article class="pop-card" data-app="orbit" hidden>
+      <div class="pop-head">
+        <span class="pop-tile" aria-hidden="true">
+          <svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="70" fill="#14130F"/>
+            <g fill="none" stroke="#EDEAE1" stroke-width="2" opacity="0.55"><ellipse cx="80" cy="35" rx="48" ry="16"/><ellipse cx="80" cy="35" rx="48" ry="16" transform="rotate(60 80 35)"/><ellipse cx="80" cy="35" rx="48" ry="16" transform="rotate(-60 80 35)"/></g>
+            <circle cx="80" cy="35" r="8" fill="#DE3B21"/>
+            <circle cx="128" cy="35" r="4" fill="#EDEAE1"/>
+          </svg>
+        </span>
+        <h2 class="pop-name">Orbit</h2>
+        <p class="pop-tagline">Save what matters. Finish what you start.</p>
+      </div>
+      <div class="pop-body">
+        <a class="pop-cta" href="https://orbit-phi-three.vercel.app/" target="_blank" rel="noopener">Visit Orbit ↗</a>
+        <p class="pop-desc">An adaptive execution system that turns your saved links into real momentum — resurfacing the right thing at the right time so ideas become action, not another forgotten tab.</p>
+        <div>
+          <div class="pop-label">Features</div>
+          <ul class="pop-features">
+            <li>Save the links that actually matter</li>
+            <li>Adaptive resurfacing — the right thing at the right time</li>
+            <li>Turns saved ideas into momentum, not clutter</li>
+            <li>An antidote to the forgotten-tab graveyard</li>
+          </ul>
+        </div>
+        <div class="pop-foot">
+          <span class="pop-version">Beta</span>
+          <span class="pop-tags"><span class="tag">Web App</span><span class="tag">Productivity</span><span class="tag">Execution</span></span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Flow -->
+    <article class="pop-card" data-app="flow" hidden>
+      <div class="pop-head">
+        <span class="pop-tile" aria-hidden="true">
+          <svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="70" fill="#F1F0EA"/>
+            <g fill="none" stroke-width="3" stroke-linecap="round"><path d="M18 26 q20 -12 40 0 t40 0 t44 0" stroke="#14130F"/><path d="M18 40 q20 -12 40 0 t40 0 t44 0" stroke="#DE3B21"/><path d="M18 54 q20 -12 40 0 t40 0 t44 0" stroke="#B9B3A6"/></g>
+          </svg>
+        </span>
+        <h2 class="pop-name">Flow</h2>
+        <p class="pop-tagline">Your calm, private finance planner for everyday life.</p>
+      </div>
+      <div class="pop-body">
+        <a class="pop-cta" href="https://flow-seven-orcin.vercel.app/" target="_blank" rel="noopener">Visit Flow ↗</a>
+        <p class="pop-desc">Flow is a local-first personal finance planner that helps you capture expenses, organize accounts, plan future spending, and manage debts with clarity — all in one simple, secure, thoughtfully designed space. Instead of overwhelming dashboards, it helps you understand where your money is today and confidently plan where it goes tomorrow.</p>
+        <div>
+          <div class="pop-label">Features</div>
+          <ul class="pop-features">
+            <li>Capture expenses and organize accounts</li>
+            <li>Plan future spending with clarity</li>
+            <li>Manage debts in one place</li>
+            <li>Local-first — private and secure by design</li>
+          </ul>
+        </div>
+        <div class="pop-foot">
+          <span class="pop-version">Beta</span>
+          <span class="pop-tags"><span class="tag">Web App</span><span class="tag">Finance</span><span class="tag">Local-first</span><span class="tag">Privacy</span></span>
+        </div>
+      </div>
+    </article>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
