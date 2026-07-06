@@ -632,7 +632,7 @@ figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: 12px; 
 .pop {
   position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center;
   padding: clamp(20px, 5vw, 56px);
-  background: rgba(20,19,15,.55); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+  background: rgba(20,19,15,.62);
   opacity: 0; pointer-events: none; transition: opacity .3s;
 }
 .pop.open { opacity: 1; pointer-events: auto; }
@@ -703,6 +703,75 @@ figcaption { font-size: var(--fs-small); color: var(--muted); margin-top: 12px; 
   .proj-row { grid-template-columns: 40px 1fr; }
   .proj-side { grid-column: 2; justify-content: flex-start; margin-top: 6px; }
 }
+
+/* ============================================================
+   PLYR VIDEO PLAYER (theming)
+   ============================================================ */
+:root { --plyr-color-main: var(--accent); --plyr-video-background: #0d0c0a; --plyr-border-radius: 0px; }
+.media-frame .plyr { border-radius: var(--radius); overflow: hidden; }
+.media-frame.has-player { padding: 0; border: 1px solid var(--line); background: #0d0c0a; }
+.cs-section.dark .media-frame.has-player { border-color: var(--dark-line); }
+.plyr--video { border-radius: var(--radius); }
+.plyr__control--overlaid { background: color-mix(in srgb, var(--accent) 88%, #000); }
+
+/* ============================================================
+   PLAYGROUND — FULL CANVAS PAGE
+   ============================================================ */
+body.pg { overflow: hidden; }
+.nav-pill {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 500;
+  display: flex; align-items: center; gap: clamp(14px, 2vw, 30px);
+  padding: 9px 12px 9px 22px; max-width: calc(100vw - 24px);
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line-2); border-radius: 100px;
+  box-shadow: 0 10px 30px -14px rgba(20,19,15,.28);
+}
+.nav-pill .nav-brand, .nav-pill .nav-cta { white-space: nowrap; flex-shrink: 0; }
+.nav-pill .nav-links { flex-wrap: nowrap; }
+.nav-pill .nav-links a { white-space: nowrap; }
+.pg-canvas.fullscreen {
+  position: fixed; inset: 0; z-index: 0; min-height: 0;
+  border: none; border-radius: 0;
+  background-color: #FFFFFF;
+  background-image: radial-gradient(var(--line-2) 1.1px, transparent 1.1px);
+  background-size: 26px 26px; background-position: -13px -13px;
+}
+.pg-hero {
+  position: fixed; left: var(--pad-x); top: clamp(96px, 15vh, 172px); z-index: 1;
+  max-width: min(620px, 62vw); pointer-events: none;
+}
+.pg-hero .cs-kicker, .pg-hero .cs-title, .pg-hero .cs-sub { pointer-events: auto; }
+.pg-foot {
+  position: fixed; left: var(--pad-x); bottom: 18px; z-index: 1;
+  font-size: var(--fs-small); color: var(--faint); pointer-events: none;
+}
+.pg-canvas.fullscreen .canvas-hint { position: fixed; right: var(--pad-x); bottom: 18px; left: auto; top: auto; }
+.pg-canvas.fullscreen .sticker { z-index: 3; }
+
+@media (max-width: 760px) {
+  body.pg { overflow: auto; }
+  .nav-pill { left: 12px; right: 12px; transform: none; max-width: none; justify-content: space-between; }
+  .pg-canvas.fullscreen { position: static; height: auto; min-height: 100svh; display: block; padding: 96px 16px 40px; }
+  .pg-hero { position: static; max-width: none; margin-bottom: 24px; pointer-events: auto; }
+  .pg-foot { position: static; margin-top: 24px; }
+  .pg-canvas.fullscreen .canvas-hint { position: static; display: inline-block; margin-bottom: 12px; }
+}
+
+/* ============================================================
+   SECTION NAV PANE (TOC scroll-spy) — detail pages
+   ============================================================ */
+section[id] { scroll-margin-top: 92px; }
+.toc { position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 400; display: none; }
+@media (min-width: 1240px) { .toc { display: block; } }
+.toc ol { list-style: none; display: grid; gap: 13px; }
+.toc a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.toc .tick { width: 20px; height: 2px; border-radius: 2px; background: var(--line-2); flex-shrink: 0; transition: width .25s var(--ease), background .25s; }
+.toc .txt { font-size: 0.76rem; letter-spacing: .01em; color: var(--muted); white-space: nowrap; opacity: 0; transform: translateX(-6px); transition: opacity .25s var(--ease), transform .25s var(--ease); }
+.toc:hover .txt { opacity: 1; transform: none; }
+.toc a:hover .tick, .toc a.active .tick { width: 30px; background: var(--accent); }
+.toc a:hover .txt { color: var(--ink); }
+.toc a.active .txt { color: var(--ink); font-weight: 600; }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {

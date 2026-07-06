@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&f[]=gambarino@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
   <noscript><style>#loader{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -36,6 +37,19 @@
       <a href="../projects.html" class="nav-cta">All work</a>
     </nav>
   </header>
+
+  <nav class="toc" aria-label="Section navigation">
+    <ol>
+      <li><a href="#overview"><span class="tick"></span><span class="txt">Overview</span></a></li>
+      <li><a href="#problem"><span class="tick"></span><span class="txt">Problem</span></a></li>
+      <li><a href="#identity"><span class="tick"></span><span class="txt">Identity</span></a></li>
+      <li><a href="#cinematic"><span class="tick"></span><span class="txt">Cinematic</span></a></li>
+      <li><a href="#earthy"><span class="tick"></span><span class="txt">Earthy</span></a></li>
+      <li><a href="#decisions"><span class="tick"></span><span class="txt">Decisions</span></a></li>
+      <li><a href="#outcome"><span class="tick"></span><span class="txt">Outcome</span></a></li>
+      <li><a href="#reflection"><span class="tick"></span><span class="txt">Reflection</span></a></li>
+    </ol>
+  </nav>
 
   <main id="main">
 
@@ -76,7 +90,7 @@
     </section>
 
     <!-- PROBLEM -->
-    <section class="cs-section">
+    <section id="problem" class="cs-section">
       <div class="wrap">
         <div class="cs-head reveal">
           <span class="eyebrow">The Problem</span>
@@ -95,7 +109,7 @@
     </section>
 
     <!-- IDENTITY -->
-    <section class="cs-section alt">
+    <section id="identity" class="cs-section alt">
       <div class="wrap">
         <div class="cs-head reveal">
           <span class="eyebrow">Brand Identity · Shared Foundation</span>
@@ -110,7 +124,7 @@
     </section>
 
     <!-- CHAPTER 1 — CINEMATIC -->
-    <section class="cs-section dark">
+    <section id="cinematic" class="cs-section dark">
       <div class="wrap">
         <span class="eyebrow reveal">Chapter 01 · First Pitch Direction</span>
         <h2 class="reveal d1" style="margin-top:16px">The <span class="ital" style="color:var(--accent)">Cinematic</span> version — experimental &amp; immersive.</h2>
@@ -130,9 +144,10 @@
           </div>
           <div class="tag-row"><span class="tag">Auto-transitions</span><span class="tag">Full-width immersion</span><span class="tag">Calm motion rhythm</span></div>
           <figure>
-            <div class="media-frame video-holder">
-              <video src="../assets/media/rare-india/landing-hotel-intro.mp4" preload="none" loop playsinline aria-label="Landing page and hotel introduction prototype"></video>
-              <button class="video-overlay" aria-label="Play video"><span class="play-ring"></span></button>
+            <div class="media-frame">
+              <video class="js-player" playsinline controls preload="metadata" aria-label="Landing page and hotel introduction prototype">
+                <source src="../assets/media/rare-india/landing-hotel-intro.mp4" type="video/mp4" />
+              </video>
             </div>
             <figcaption>Prototype · landing page &amp; hotel introduction — cinematic auto-transition flow</figcaption>
           </figure>
@@ -148,9 +163,10 @@
           </div>
           <div class="tag-row"><span class="tag">Chaitya arch motif</span><span class="tag">Cultural hierarchy</span><span class="tag">Horizontal guided flow</span></div>
           <figure>
-            <div class="media-frame video-holder">
-              <video src="../assets/media/rare-india/hotel-categories.mp4" preload="none" loop playsinline aria-label="Hotel categories prototype"></video>
-              <button class="video-overlay" aria-label="Play video"><span class="play-ring"></span></button>
+            <div class="media-frame">
+              <video class="js-player" playsinline controls preload="metadata" aria-label="Hotel categories prototype">
+                <source src="../assets/media/rare-india/hotel-categories.mp4" type="video/mp4" />
+              </video>
             </div>
             <figcaption>Prototype · hotel categories — Chaitya arch framing with cultural visual hierarchy</figcaption>
           </figure>
@@ -166,9 +182,10 @@
           </div>
           <div class="tag-row"><span class="tag">Vertical scroll reveal</span><span class="tag">Contextual narratives</span><span class="tag">Visual continuity</span></div>
           <figure>
-            <div class="media-frame video-holder">
-              <video src="../assets/media/rare-india/hotel-details-scroll.mp4" preload="none" loop playsinline aria-label="Hotel details scroll prototype"></video>
-              <button class="video-overlay" aria-label="Play video"><span class="play-ring"></span></button>
+            <div class="media-frame">
+              <video class="js-player" playsinline controls preload="metadata" aria-label="Hotel details scroll prototype">
+                <source src="../assets/media/rare-india/hotel-details-scroll.mp4" type="video/mp4" />
+              </video>
             </div>
             <figcaption>Prototype · hotel details scroll — layered storytelling with scroll-driven reveals</figcaption>
           </figure>
@@ -184,9 +201,10 @@
           </div>
           <div class="tag-row"><span class="tag">Ambient backdrop</span><span class="tag">Mood-responsive</span><span class="tag">Curated selection flow</span></div>
           <figure>
-            <div class="media-frame video-holder">
-              <video src="../assets/media/rare-india/rare-spotlight.mp4" preload="none" loop playsinline aria-label="Rare Spotlight prototype"></video>
-              <button class="video-overlay" aria-label="Play video"><span class="play-ring"></span></button>
+            <div class="media-frame">
+              <video class="js-player" playsinline controls preload="metadata" aria-label="Rare Spotlight prototype">
+                <source src="../assets/media/rare-india/rare-spotlight.mp4" type="video/mp4" />
+              </video>
             </div>
             <figcaption>Prototype · Rare Spotlight — ambient mood-responsive browsing experience</figcaption>
           </figure>
@@ -202,9 +220,10 @@
           </div>
           <div class="tag-row"><span class="tag">Timed background transitions</span><span class="tag">Delayed CTA reveal</span><span class="tag">Exploration → Action</span></div>
           <figure>
-            <div class="media-frame video-holder">
-              <video src="../assets/media/rare-india/enquire-now.mp4" preload="none" loop playsinline aria-label="Enquire Now prototype"></video>
-              <button class="video-overlay" aria-label="Play video"><span class="play-ring"></span></button>
+            <div class="media-frame">
+              <video class="js-player" playsinline controls preload="metadata" aria-label="Enquire Now prototype">
+                <source src="../assets/media/rare-india/enquire-now.mp4" type="video/mp4" />
+              </video>
             </div>
             <figcaption>Prototype · Enquire Now — animated banner with delayed CTA and mood-setting transitions</figcaption>
           </figure>
@@ -242,7 +261,7 @@
     </section>
 
     <!-- CHAPTER 2 — EARTHY -->
-    <section class="cs-section dark">
+    <section id="earthy" class="cs-section dark">
       <div class="wrap">
         <span class="eyebrow reveal">Chapter 02 · Research-Led Direction</span>
         <h2 class="reveal d1" style="margin-top:16px">The <span class="ital" style="color:var(--accent)">Earthy</span> version — research-led &amp; brand-true.</h2>
@@ -333,7 +352,7 @@
     </section>
 
     <!-- KEY DECISIONS -->
-    <section class="cs-section alt">
+    <section id="decisions" class="cs-section alt">
       <div class="wrap">
         <div class="cs-head reveal">
           <span class="eyebrow">Key Decisions</span>
@@ -349,7 +368,7 @@
     </section>
 
     <!-- OUTCOME -->
-    <section class="cs-section">
+    <section id="outcome" class="cs-section">
       <div class="wrap">
         <div class="cs-head reveal">
           <span class="eyebrow">Outcome</span>
@@ -365,7 +384,7 @@
     </section>
 
     <!-- REFLECTION -->
-    <section class="cs-section dark">
+    <section id="reflection" class="cs-section dark">
       <div class="wrap">
         <div class="cs-head reveal">
           <span class="eyebrow">Reflection</span>
@@ -407,6 +426,7 @@
     <img src="" alt="" />
   </div>
 
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   <script src="../assets/js/site.js"></script>
 </body>
 </html>
