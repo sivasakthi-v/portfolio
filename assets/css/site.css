@@ -840,7 +840,7 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
 .work-cta.full { color: var(--accent-2); }
 .work-cta svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
 .work-item:hover .work-cta svg { transform: translate(4px, -4px); }
-.work-media { position: relative; aspect-ratio: 3 / 2; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+.work-media { position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
 .work-media img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1); transition: transform .7s var(--ease); }
 .reveal:not(.visible) .work-media img { transform: scale(1.09); }
 .work-item:hover .work-media img { transform: scale(1.05); }
@@ -933,13 +933,15 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
 /* ============================================================
    SITE-WIDE DITHER OVERLAY
    ============================================================ */
+/* base texture: sits behind all content (never over text) */
+html { background: var(--paper); }
+body { background: transparent; }
 .dither-overlay {
-  position: fixed; inset: 0; z-index: 9999; pointer-events: none;
-  opacity: 0.5; mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='white'/%3E%3Crect width='1' height='1' fill='%23000'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23000'/%3E%3C/svg%3E");
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23FAFAF8'/%3E%3Crect width='1' height='1' fill='%23D8D5CC'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23D8D5CC'/%3E%3C/svg%3E");
   background-size: 3px 3px;
 }
-@media (prefers-color-scheme: dark) { .dither-overlay { mix-blend-mode: screen; opacity: 0.35; } }
 
 /* ============================================================
    NAV — Get in touch button (fixed hover + always visible)
@@ -999,6 +1001,71 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
   font-family: var(--f-sans); font-size: var(--fs-label);
   letter-spacing: .2em; color: var(--muted);
 }
+
+/* ============================================================
+   STICKY-STACK CARDS (disable on mobile) + footer headline unlink
+   ============================================================ */
+.work-list { position: relative; }
+@media (max-width: 760px) {
+  .work-item { position: static !important; top: auto !important; z-index: auto !important; }
+}
+.foot-head { cursor: default; }
+
+/* ============================================================
+   HOVER GLYPH TRAIL (hero + footer)
+   ============================================================ */
+.trail-layer { position: fixed; inset: 0; z-index: 400; pointer-events: none; overflow: hidden; }
+.trail-glyph { position: fixed; display: block; will-change: transform, opacity; }
+.trail-glyph svg { width: 100%; height: 100%; display: block; }
+
+/* ============================================================
+   BLOG DETAIL — bottom-right progress + section sheet (mobile/tablet)
+   ============================================================ */
+.cs-fab { position: fixed; right: 18px; bottom: 18px; z-index: 600; display: none; }
+@media (max-width: 1239px) { .cs-fab { display: block; } }
+.cs-fab-btn {
+  position: relative; width: 54px; height: 54px; border-radius: 4px;
+  background: var(--ink); color: var(--paper); display: grid; place-items: center;
+  box-shadow: 0 14px 32px -12px rgba(20,19,15,.5); transition: transform .2s var(--ease);
+}
+.cs-fab-btn:hover { transform: translateY(-2px); }
+.cs-fab-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.cs-fab-ring .ring-bg { fill: none; stroke: rgba(255,255,255,.16); stroke-width: 3; }
+.cs-fab-ring .ring-fg { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; transition: stroke-dashoffset .1s linear; }
+.cs-fab-ic { position: relative; z-index: 1; display: grid; place-items: center; }
+.cs-fab-ic svg { width: 20px; height: 20px; }
+.cs-sheet {
+  position: absolute; right: 0; bottom: 66px; width: 224px;
+  background: var(--paper); border: 1px solid var(--line-2); border-radius: 4px;
+  box-shadow: 0 26px 54px -20px rgba(20,19,15,.4); padding: 10px;
+  opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+  max-height: 62vh; overflow: auto;
+}
+.cs-fab.open .cs-sheet { opacity: 1; transform: none; pointer-events: auto; }
+.cs-sheet ol { list-style: none; display: grid; gap: 2px; }
+.cs-sheet a { display: block; padding: 10px 12px; border-radius: 4px; font-size: .9rem; color: var(--ink-2); text-decoration: none; transition: background .15s, color .15s; }
+.cs-sheet a:hover { background: var(--paper-2); color: var(--ink); }
+
+/* ============================================================
+   PROJECT DETAIL — 3:1 cover banner
+   ============================================================ */
+.cs-cover { margin-top: clamp(20px, 3vw, 34px); }
+.cs-cover-inner {
+  position: relative; aspect-ratio: 3 / 1; width: 100%; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 4px;
+  display: grid; place-items: center;
+}
+.cs-cover-inner img { width: 100%; height: 100%; object-fit: cover; }
+.cs-cover .glyph { font-family: var(--f-display); font-size: clamp(2.4rem, 7vw, 5rem); color: rgba(20,19,15,.16); letter-spacing: -0.02em; }
+.cs-cover.dark .cs-cover-inner { border-color: var(--dark-line); }
+.cs-cover.dark .glyph { color: rgba(255,255,255,.18); }
+.cs-cover .cover-label {
+  position: absolute; left: 16px; bottom: 14px;
+  font-size: var(--fs-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.cs-cover.dark .cover-label { color: rgba(255,255,255,.5); }
+@media (max-width: 600px) { .cs-cover-inner { aspect-ratio: 5 / 2; } }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {

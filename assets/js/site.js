@@ -6,16 +6,7 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Greek numeral (0..100) ---------- */
-  function greekNumeral(n) {
-    if (n >= 100) return 'ρʹ';
-    var u = ['', 'α', 'β', 'γ', 'δ', 'ε', 'ϛ', 'ζ', 'η', 'θ'];
-    var t = ['', 'ι', 'κ', 'λ', 'μ', 'ν', 'ξ', 'ο', 'π', 'ϟ'];
-    var s = t[Math.floor(n / 10)] + u[n % 10];
-    return s ? s + 'ʹ' : '·';
-  }
-
-  /* ---------- LOADER (Greek numeral counter → curtain lift) ---------- */
+  /* ---------- LOADER (number counter → curtain lift) ---------- */
   function initLoader() {
     var loader = document.getElementById('loader');
     if (!loader) { document.body.classList.add('loaded'); return; }
@@ -23,11 +14,6 @@
 
     var pctEl = loader.querySelector('.loader-num');
     var fill  = loader.querySelector('.loader-fill');
-    var sup   = loader.querySelector('.loader-pct sup');
-    if (sup) sup.style.display = 'none';
-    var pct = loader.querySelector('.loader-pct');
-    var tr = loader.querySelector('.loader-tr');
-    if (!tr && pct) { tr = document.createElement('span'); tr.className = 'loader-tr'; pct.appendChild(tr); }
     var val = 0;
     var target = 0;
     var done = false;
@@ -43,15 +29,13 @@
       val += (target - val) * 0.12 + 0.4;
       if (val > 100) val = 100;
       var shown = Math.floor(val);
-      if (pctEl) pctEl.textContent = greekNumeral(shown);
-      if (tr) tr.textContent = (shown < 10 ? '0' + shown : '' + shown) + '%';
+      if (pctEl) pctEl.textContent = shown < 10 ? '0' + shown : '' + shown;
       if (fill) fill.style.right = (100 - val) + '%';
       if (val >= 99.6 && target === 100) {
         if (!done) {
           done = true;
           clearInterval(ramp);
-          if (pctEl) pctEl.textContent = greekNumeral(100);
-          if (tr) tr.textContent = '100%';
+          if (pctEl) pctEl.textContent = '100';
           if (fill) fill.style.right = '0%';
           setTimeout(function () {
             loader.classList.add('done');
@@ -112,101 +96,52 @@
     }
   }
 
-  /* ---------- hero WebGL shader (fine dithered wave lines) ---------- */
-  function initHeroWave() {
-    var canvas = document.querySelector('.hero-wave');
-    if (!canvas || reduce) return;
-    var hero = canvas.closest('.hero') || canvas.parentElement;
-    var gl = canvas.getContext('webgl', { antialias: false, alpha: false, depth: false, powerPreference: 'low-power' })
-          || canvas.getContext('experimental-webgl');
-    if (!gl) return;
+  /* ---------- hover glyph motion trail (hero + footer) ---------- */
+  function initTrail() {
+    if (reduce) return;
+    var zones = [].slice.call(document.querySelectorAll('.hero, .site-footer'));
+    if (!zones.length) return;
+    var layer = document.createElement('div');
+    layer.className = 'trail-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(layer);
 
-    var vsrc = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
-    var fsrc = [
-      'precision mediump float;',
-      'uniform vec2 u_res; uniform float u_time; uniform vec3 u_mouse;',
-      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-      'void main(){',
-      '  vec2 fc=gl_FragCoord.xy; vec2 uv=fc/u_res;',
-      '  float ink=0.0; float accent=0.0;',
-      '  for(int i=0;i<6;i++){',
-      '    float fi=float(i)/5.0;',
-      '    float y0=0.16+0.68*fi;',
-      '    float w=sin(uv.x*6.0+u_time*0.5+fi*3.0)*0.020+sin(uv.x*13.0-u_time*0.4)*0.008;',
-      '    float d=abs(uv.x-u_mouse.x);',
-      '    float bump=(1.0-smoothstep(0.0,0.34,d))*0.055*u_mouse.z;',
-      '    float yl=y0+w-bump;',
-      '    float line=smoothstep(0.0065,0.0,abs(uv.y-yl));',
-      '    ink+=line; if(i==3){accent+=line;}',
-      '  }',
-      '  ink=clamp(ink,0.0,1.0);',
-      '  float g=hash(floor(fc/1.0));',
-      '  float grain=step(0.5,g)*0.018;',
-      '  vec3 col=vec3(0.980,0.980,0.972);',
-      '  col=mix(col,vec3(0.08,0.075,0.06),ink*0.10);',
-      '  col=mix(col,vec3(0.87,0.23,0.13),accent*0.16*(0.35+0.65*u_mouse.z));',
-      '  col-=grain;',
-      '  gl_FragColor=vec4(col,1.0);',
-      '}'
-    ].join('\n');
-
-    function compile(type, src) {
-      var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
-      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) return null;
-      return s;
+    var shapes = [
+      '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 5 L19 19 L5 19 Z"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 16 A8 8 0 0 1 20 16"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 4 L20 12 L12 20 L4 12 Z"/></svg>'
+    ];
+    var last = 0;
+    function spawn(x, y, dark) {
+      var g = document.createElement('span');
+      g.className = 'trail-glyph';
+      g.innerHTML = shapes[(Math.random() * shapes.length) | 0];
+      var size = 10 + Math.random() * 12;
+      g.style.left = x + 'px'; g.style.top = y + 'px';
+      g.style.width = size + 'px'; g.style.height = size + 'px';
+      g.style.color = Math.random() < 0.28 ? 'var(--accent)' : (dark ? 'rgba(237,234,225,0.5)' : 'rgba(20,19,15,0.45)');
+      layer.appendChild(g);
+      var dx = (Math.random() - 0.5) * 44, dy = 42 + Math.random() * 64, rot = (Math.random() - 0.5) * 140;
+      var anim = g.animate([
+        { transform: 'translate(-50%,-50%) scale(0.5) rotate(0deg)', opacity: 0 },
+        { opacity: 0.85, offset: 0.16 },
+        { transform: 'translate(calc(-50% + ' + dx + 'px), calc(-50% + ' + dy + 'px)) scale(1) rotate(' + rot + 'deg)', opacity: 0 }
+      ], { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(0.22,1,0.36,1)' });
+      anim.onfinish = function () { g.remove(); };
     }
-    var vs = compile(gl.VERTEX_SHADER, vsrc), fs = compile(gl.FRAGMENT_SHADER, fsrc);
-    if (!vs || !fs) { canvas.style.display = 'none'; return; }
-    var prog = gl.createProgram();
-    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { canvas.style.display = 'none'; return; }
-    gl.useProgram(prog);
-
-    var buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    var loc = gl.getAttribLocation(prog, 'p');
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    var uRes = gl.getUniformLocation(prog, 'u_res');
-    var uTime = gl.getUniformLocation(prog, 'u_time');
-    var uMouse = gl.getUniformLocation(prog, 'u_mouse');
-
-    var w = 0, h = 0;
-    function resize() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      w = Math.round(canvas.clientWidth * dpr);
-      h = Math.round(canvas.clientHeight * dpr);
-      canvas.width = w; canvas.height = h;
-      gl.viewport(0, 0, w, h);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    var mouse = { x: 0.5, y: 0.5, active: 0 };
-    hero.addEventListener('pointermove', function (e) {
-      var r = hero.getBoundingClientRect();
-      mouse.x = (e.clientX - r.left) / r.width;
-      mouse.y = 1.0 - (e.clientY - r.top) / r.height;
-      mouse.active = 1;
+    if (!('animate' in document.createElement('span'))) return;
+    zones.forEach(function (z) {
+      var dark = z.classList.contains('site-footer');
+      z.addEventListener('pointermove', function (e) {
+        var now = performance.now();
+        if (now - last < 55) return;
+        last = now;
+        spawn(e.clientX, e.clientY, dark);
+      });
     });
-    hero.addEventListener('pointerleave', function () { mouse.active = 0; });
-
-    var visible = true;
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(canvas);
-    }
-    var t0 = performance.now(), hov = 0;
-    function frame(now) {
-      requestAnimationFrame(frame);
-      if (!visible || document.hidden) return;
-      hov += ((mouse.active ? 1 : 0) - hov) * 0.05;
-      gl.uniform2f(uRes, w, h);
-      gl.uniform1f(uTime, (now - t0) / 1000);
-      gl.uniform3f(uMouse, mouse.x, mouse.y, hov);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-    }
-    requestAnimationFrame(frame);
   }
 
   /* ---------- reading progress bar ---------- */
@@ -453,8 +388,7 @@
         controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
         resetOnEnd: true,
         hideControls: true,
-        loadSprite: false,
-        iconUrl: 'https://cdn.plyr.io/3.7.8/plyr.svg'
+        loadSprite: true
       });
       var frame = v.closest('.media-frame');
       if (frame) frame.classList.add('has-player');
@@ -511,6 +445,65 @@
     }
   }
 
+  /* ---------- offset (fanned) sticky-stack cards ---------- */
+  function initStickyCards() {
+    if (window.matchMedia('(max-width: 760px)').matches) return;
+    document.querySelectorAll('.work-list').forEach(function (list) {
+      var items = list.querySelectorAll('.work-item');
+      items.forEach(function (it, i) {
+        it.style.position = 'sticky';
+        it.style.top = (98 + i * 16) + 'px';
+        it.style.zIndex = String(i + 1);
+      });
+    });
+  }
+
+  /* ---------- blog detail: bottom-right progress + section sheet (mobile/tablet) ---------- */
+  function initBlogFab() {
+    var toc = document.querySelector('.toc');
+    if (!toc) return;
+    var links = [].slice.call(toc.querySelectorAll('a[href^="#"]'));
+    if (!links.length) return;
+
+    var fab = document.createElement('div');
+    fab.className = 'cs-fab';
+    fab.innerHTML =
+      '<button class="cs-fab-btn" aria-label="Jump to section" aria-expanded="false">' +
+        '<svg class="cs-fab-ring" viewBox="0 0 40 40" aria-hidden="true"><circle class="ring-bg" cx="20" cy="20" r="17"/><circle class="ring-fg" cx="20" cy="20" r="17"/></svg>' +
+        '<span class="cs-fab-ic"><i data-lucide="list"></i></span>' +
+      '</button>' +
+      '<nav class="cs-sheet" aria-label="Sections"><ol></ol></nav>';
+    var ol = fab.querySelector('ol');
+    links.forEach(function (a) {
+      var li = document.createElement('li');
+      var b = document.createElement('a');
+      b.href = a.getAttribute('href');
+      var txt = a.querySelector('.txt');
+      b.textContent = txt ? txt.textContent : a.textContent.trim();
+      li.appendChild(b); ol.appendChild(li);
+    });
+    document.body.appendChild(fab);
+
+    var btn = fab.querySelector('.cs-fab-btn');
+    var ring = fab.querySelector('.ring-fg');
+    var circ = 2 * Math.PI * 17;
+    ring.style.strokeDasharray = circ;
+    ring.style.strokeDashoffset = circ;
+    var setOpen = function (o) { fab.classList.toggle('open', o); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); };
+    btn.addEventListener('click', function () { setOpen(!fab.classList.contains('open')); });
+    fab.querySelectorAll('.cs-sheet a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('click', function (e) { if (fab.classList.contains('open') && !fab.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    var onScroll = function () {
+      var d = document.documentElement;
+      var max = d.scrollHeight - d.clientHeight;
+      var p = max > 0 ? d.scrollTop / max : 0;
+      ring.style.strokeDashoffset = circ * (1 - p);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---------- site-wide dither overlay ---------- */
   function initDither() {
     if (document.querySelector('.dither-overlay')) return;
@@ -544,7 +537,9 @@
     initPlayground();
     initPlyr();
     initToc();
-    initHeroWave();
+    initStickyCards();
+    initBlogFab();
+    initTrail();
     initDither();
     initLucide();
   });
