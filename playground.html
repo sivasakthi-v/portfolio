@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playground — Siva Sakthi V</title>
-  <meta name="description" content="Side projects and experiments by Siva Sakthi V — Magic To Do (Figma plugin), Orbit, and Flow. A draggable canvas of things built to figure them out." />
-  <meta name="theme-color" content="#FFFFFF" />
+  <title>Playground, Siva Sakthi V</title>
+  <meta name="description" content="Side projects and experiments by Siva Sakthi V: Magic To Do (Figma plugin), Orbit, and Flow. A little canvas of things built to figure them out." />
+  <meta name="theme-color" content="#FAFAF8" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314130F'/%3E%3Ctext x='50' y='72' font-size='64' font-family='Georgia,serif' fill='%23DE3B21' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&f[]=gambarino@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
-  <noscript><style>#loader{display:none!important}.reveal{opacity:1!important;transform:none!important}.pg-canvas.fullscreen{position:static!important;height:auto!important;min-height:100svh;display:block;padding:96px 16px 40px}.pg-hero{position:static!important;max-width:none!important}.sticker{position:static!important;width:100%;left:auto!important;top:auto!important;margin-bottom:16px}</style></noscript>
+  <noscript><style>#loader{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body class="pg">
+<body>
   <a class="skip-link" href="#play">Skip to experiments</a>
 
   <!-- LOADER -->
@@ -21,11 +21,11 @@
     <div class="loader-center"><div class="loader-pct"><span class="loader-num">00</span><sup>%</sup></div></div>
     <div class="loader-bottom">
       <div class="loader-track"><div class="loader-fill"></div></div>
-      <div class="loader-meta"><span>Loading</span><span>Experiments &amp; Side Projects</span></div>
+      <div class="loader-meta"><span>Loading</span><span>Experiments &amp; side projects</span></div>
     </div>
   </div>
 
-  <!-- ROUNDED STICKY PILL NAV -->
+  <!-- NAV -->
   <header class="nav-pill" id="nav">
     <a href="index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
@@ -35,74 +35,104 @@
       <a href="projects.html">Projects</a>
       <a href="playground.html" aria-current="page">Playground</a>
       <a href="about.html">About</a>
-      <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a href="mailto:sivavenkat372@gmail.com" class="nav-cta">Get in touch</a>
     </nav>
   </header>
 
-  <!-- FIXED HERO -->
-  <div class="pg-hero">
-    <p class="cs-kicker"><span>Playground</span><span class="sep">/</span><span>Experiments &amp; Side Projects</span></p>
-    <h1 class="cs-title">Things I build just to <span class="ital">figure them out</span>.</h1>
-    <p class="cs-sub">A canvas of side projects. Drag them around, then tap one to flip it open.</p>
-  </div>
+  <main id="main">
 
-  <!-- CANVAS (only the projects are draggable) -->
-  <main id="canvas" class="pg-canvas fullscreen canvas" aria-label="Playground canvas — drag the projects, tap to open">
-    <span class="canvas-hint">Drag · tap to open</span>
+    <!-- HERO -->
+    <section class="cs-hero wrap">
+      <p class="cs-kicker"><span>Playground</span><span class="sep">/</span><span>Experiments &amp; side projects</span></p>
+      <h1 class="cs-title">Things I build just to <span class="ital">figure them out</span>.</h1>
+      <p class="cs-sub">A little corner for the side projects. Drag the cards around, then tap one to open it. Rougher than the case studies, and honestly more fun for it.</p>
+    </section>
 
-    <!-- Magic To Do -->
-    <div class="sticker" data-app="magic" data-fx="0.62" data-fy="0.10" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Magic To Do details">
-      <span class="s-tile" aria-hidden="true">
-        <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="160" height="100" fill="#F1F0EA"/>
-          <g stroke="#14130F" stroke-width="3" stroke-linecap="round"><line x1="52" y1="34" x2="122" y2="34"/><line x1="52" y1="52" x2="122" y2="52"/><line x1="52" y1="70" x2="104" y2="70"/></g>
-          <g fill="none" stroke="#DE3B21" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 33 l5 5 l9 -11"/><path d="M32 51 l5 5 l9 -11"/></g>
-          <circle cx="37" cy="70" r="6" fill="none" stroke="#B9B3A6" stroke-width="3"/>
-        </svg>
-      </span>
-      <span class="s-name">Magic To Do</span>
-      <span class="s-desc">To-dos, without leaving Figma.</span>
-      <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
-    </div>
+    <!-- STAGE -->
+    <section id="play" class="wrap" style="padding-bottom: var(--pad-y);">
+      <div class="pg-stage" id="canvas" aria-label="Playground canvas">
+        <span class="canvas-hint">Drag · tap to open</span>
 
-    <!-- Orbit -->
-    <div class="sticker" data-app="orbit" data-fx="0.76" data-fy="0.56" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Orbit details">
-      <span class="s-tile" aria-hidden="true">
-        <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="160" height="100" fill="#14130F"/>
-          <g fill="none" stroke="#EDEAE1" stroke-width="2" opacity="0.5"><ellipse cx="80" cy="50" rx="46" ry="21"/><ellipse cx="80" cy="50" rx="46" ry="21" transform="rotate(60 80 50)"/><ellipse cx="80" cy="50" rx="46" ry="21" transform="rotate(-60 80 50)"/></g>
-          <circle cx="80" cy="50" r="9" fill="#DE3B21"/>
-          <circle cx="126" cy="50" r="4" fill="#EDEAE1"/>
-        </svg>
-      </span>
-      <span class="s-name">Orbit</span>
-      <span class="s-desc">Save what matters. Finish what you start.</span>
-      <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
-    </div>
+        <div class="sticker" data-app="magic" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Magic To Do details">
+          <span class="s-tile" aria-hidden="true">
+            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="100" fill="#F1F0EA"/>
+              <g stroke="#14130F" stroke-width="3" stroke-linecap="round"><line x1="52" y1="34" x2="122" y2="34"/><line x1="52" y1="52" x2="122" y2="52"/><line x1="52" y1="70" x2="104" y2="70"/></g>
+              <g fill="none" stroke="#DE3B21" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 33 l5 5 l9 -11"/><path d="M32 51 l5 5 l9 -11"/></g>
+              <circle cx="37" cy="70" r="6" fill="none" stroke="#B9B3A6" stroke-width="3"/>
+            </svg>
+          </span>
+          <span class="s-name">Magic To Do</span>
+          <span class="s-desc">To-dos, without leaving Figma.</span>
+          <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
+        </div>
 
-    <!-- Flow -->
-    <div class="sticker" data-app="flow" data-fx="0.38" data-fy="0.76" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Flow details">
-      <span class="s-tile" aria-hidden="true">
-        <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="160" height="100" fill="#F1F0EA"/>
-          <g fill="none" stroke-width="3" stroke-linecap="round"><path d="M18 40 q20 -14 40 0 t40 0 t44 0" stroke="#14130F"/><path d="M18 58 q20 -14 40 0 t40 0 t44 0" stroke="#DE3B21"/><path d="M18 76 q20 -14 40 0 t40 0 t44 0" stroke="#B9B3A6"/></g>
-        </svg>
-      </span>
-      <span class="s-name">Flow</span>
-      <span class="s-desc">A calm, private finance planner.</span>
-      <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
-    </div>
+        <div class="sticker" data-app="orbit" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Orbit details">
+          <span class="s-tile" aria-hidden="true">
+            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="100" fill="#14130F"/>
+              <g fill="none" stroke="#EDEAE1" stroke-width="2" opacity="0.5"><ellipse cx="80" cy="50" rx="46" ry="21"/><ellipse cx="80" cy="50" rx="46" ry="21" transform="rotate(60 80 50)"/><ellipse cx="80" cy="50" rx="46" ry="21" transform="rotate(-60 80 50)"/></g>
+              <circle cx="80" cy="50" r="9" fill="#DE3B21"/>
+              <circle cx="126" cy="50" r="4" fill="#EDEAE1"/>
+            </svg>
+          </span>
+          <span class="s-name">Orbit</span>
+          <span class="s-desc">Save what matters. Finish what you start.</span>
+          <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
+        </div>
+
+        <div class="sticker" data-app="flow" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Flow details">
+          <span class="s-tile" aria-hidden="true">
+            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="100" fill="#F1F0EA"/>
+              <g fill="none" stroke-width="3" stroke-linecap="round"><path d="M18 40 q20 -14 40 0 t40 0 t44 0" stroke="#14130F"/><path d="M18 58 q20 -14 40 0 t40 0 t44 0" stroke="#DE3B21"/><path d="M18 76 q20 -14 40 0 t40 0 t44 0" stroke="#B9B3A6"/></g>
+            </svg>
+          </span>
+          <span class="s-name">Flow</span>
+          <span class="s-desc">A calm, private finance planner.</span>
+          <span class="s-open">Open <i data-lucide="arrow-up-right"></i></span>
+        </div>
+      </div>
+
+      <p class="lead reveal" style="margin-top: clamp(32px,5vw,48px); max-width: 46rem; color: var(--muted);">More experiments are always in the oven. If any of these sound interesting, <a href="mailto:sivavenkat372@gmail.com" style="color:var(--accent-2); text-decoration: underline; text-underline-offset: 3px;">say hello</a>. I love talking through half-built ideas.</p>
+    </section>
   </main>
 
-  <!-- FOOTER CREDIT -->
-  <div class="pg-foot">© 2026 · Siva Sakthi V</div>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div class="foot-left">
+        <p class="foot-kicker">Let's talk</p>
+        <a class="foot-head" href="mailto:sivavenkat372@gmail.com">Let's make something <span class="roll" data-words="worth keeping|people actually trust|quietly delightful|genuinely clear|you'll want to use">worth keeping</span>. <i data-lucide="arrow-up-right"></i></a>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span class="foot-label">Explore</span>
+          <a href="projects.html"><i data-lucide="layout-grid"></i> Projects</a>
+          <a href="playground.html"><i data-lucide="shapes"></i> Playground</a>
+          <a href="about.html"><i data-lucide="user"></i> About</a>
+          <a href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Resume</a>
+        </div>
+        <div class="foot-col">
+          <span class="foot-label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/siva-sakthi-v-9705b91a3/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+          <a href="https://www.behance.net/sivaserafino" target="_blank" rel="noopener"><i data-lucide="behance"></i> Behance</a>
+          <a href="mailto:sivavenkat372@gmail.com"><i data-lucide="mail"></i> Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Siva Sakthi</span>
+      <button class="foot-top" type="button" data-scroll-top>Back to top <i data-lucide="arrow-up"></i></button>
+      <span>Designed &amp; built by Siva Sakthi</span>
+    </div>
+  </footer>
 
   <!-- POPUP -->
   <div class="pop" id="pop" role="dialog" aria-modal="true" aria-label="Project details">
     <button class="pop-close" aria-label="Close"><i data-lucide="x"></i></button>
 
-    <!-- Magic To Do -->
     <article class="pop-card" data-app="magic" hidden>
       <div class="pop-head">
         <span class="pop-tile" aria-hidden="true">
@@ -118,14 +148,14 @@
       </div>
       <div class="pop-body">
         <a class="pop-cta" href="https://www.figma.com/community/plugin/1516524738595957600/magic-todo" target="_blank" rel="noopener">Open in Figma <i data-lucide="arrow-up-right"></i></a>
-        <p class="pop-desc">Magic To Do lets you organize and track your to-dos without leaving Figma — so your task list lives right where the design work happens.</p>
+        <p class="pop-desc">A small Figma plugin that keeps your to-do list right on the canvas, so your tasks live where the design work already happens.</p>
         <div>
           <div class="pop-label">Features</div>
           <ul class="pop-features">
-            <li>Tasks tab (live): create &amp; rename folders, add &amp; remove tasks</li>
+            <li>Tasks tab (live): create and rename folders, add and remove tasks</li>
             <li>Check tasks off into Completed, restore with one click</li>
             <li>Everything saved between sessions</li>
-            <li>Magic Tasks (coming soon): paste requirements, AI spins up a folder of actionable tasks</li>
+            <li>Magic Tasks (coming soon): paste requirements, AI spins up a folder of tasks</li>
           </ul>
         </div>
         <div class="pop-foot">
@@ -135,7 +165,6 @@
       </div>
     </article>
 
-    <!-- Orbit -->
     <article class="pop-card" data-app="orbit" hidden>
       <div class="pop-head">
         <span class="pop-tile" aria-hidden="true">
@@ -151,12 +180,12 @@
       </div>
       <div class="pop-body">
         <a class="pop-cta" href="https://orbit-phi-three.vercel.app/" target="_blank" rel="noopener">Visit Orbit <i data-lucide="arrow-up-right"></i></a>
-        <p class="pop-desc">An adaptive execution system that turns your saved links into real momentum — resurfacing the right thing at the right time so ideas become action, not another forgotten tab.</p>
+        <p class="pop-desc">An adaptive system that turns your saved links into real momentum. It resurfaces the right thing at the right time, so ideas become action instead of another forgotten tab.</p>
         <div>
           <div class="pop-label">Features</div>
           <ul class="pop-features">
             <li>Save the links that actually matter</li>
-            <li>Adaptive resurfacing — the right thing at the right time</li>
+            <li>Adaptive resurfacing at the right time</li>
             <li>Turns saved ideas into momentum, not clutter</li>
             <li>An antidote to the forgotten-tab graveyard</li>
           </ul>
@@ -168,7 +197,6 @@
       </div>
     </article>
 
-    <!-- Flow -->
     <article class="pop-card" data-app="flow" hidden>
       <div class="pop-head">
         <span class="pop-tile" aria-hidden="true">
@@ -182,14 +210,14 @@
       </div>
       <div class="pop-body">
         <a class="pop-cta" href="https://flow-seven-orcin.vercel.app/" target="_blank" rel="noopener">Visit Flow <i data-lucide="arrow-up-right"></i></a>
-        <p class="pop-desc">Flow is a local-first personal finance planner that helps you capture expenses, organize accounts, plan future spending, and manage debts with clarity — all in one simple, secure, thoughtfully designed space. Instead of overwhelming dashboards, it helps you understand where your money is today and confidently plan where it goes tomorrow.</p>
+        <p class="pop-desc">A local-first personal finance planner that helps you capture expenses, organize accounts, plan future spending, and manage debts, all in one simple, secure space. Instead of overwhelming dashboards, it shows you where your money is today and helps you plan where it goes next.</p>
         <div>
           <div class="pop-label">Features</div>
           <ul class="pop-features">
             <li>Capture expenses and organize accounts</li>
             <li>Plan future spending with clarity</li>
             <li>Manage debts in one place</li>
-            <li>Local-first — private and secure by design</li>
+            <li>Local-first, private and secure by design</li>
           </ul>
         </div>
         <div class="pop-foot">
