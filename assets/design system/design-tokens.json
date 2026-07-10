@@ -1,0 +1,2093 @@
+{
+  "$meta": {
+    "name": "Portfolio Design System",
+    "version": "1.0.0",
+    "colorSpace": "OKLCH (CSS Color Module 4), sRGB hex fallback provided for every value",
+    "contrastStandard": "WCAG 2.2 - relative luminance contrast per §1.4.3 (text, 4.5:1 / 3:1 large) and §1.4.11 (non-text UI components, 3:1)",
+    "steps": [
+      50,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900,
+      950
+    ],
+    "structure": "primitives = raw color scales (source of truth). tokens = semantic layer; every token's `ref` points back into primitives.",
+    "usageNote": "Fetch this file and read tokens.* directly for component styling. primitives.* exists for building new tokens or design tooling (Figma variables, Style Dictionary, Tailwind config) - do not hardcode primitive values directly into components."
+  },
+  "primitives": {
+    "cream": {
+      "role": "Brand background (warm off-white)",
+      "brandName": "Background",
+      "scale": {
+        "50": {
+          "hex": "#FCF8EC",
+          "oklch": "oklch(97.9% 0.016 91.5)",
+          "isBrandAnchor": true
+        },
+        "100": {
+          "hex": "#F9F0D5",
+          "oklch": "oklch(95.5% 0.037 91.7)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#F5E0A3",
+          "oklch": "oklch(91.0% 0.081 91.3)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#F3CD54",
+          "oklch": "oklch(85.9% 0.143 91.5)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#E2B700",
+          "oklch": "oklch(79.5% 0.163 91.7)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#C6A000",
+          "oklch": "oklch(72.0% 0.147 91.7)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#A78700",
+          "oklch": "oklch(63.5% 0.130 92.0)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#886D00",
+          "oklch": "oklch(54.5% 0.112 91.6)",
+          "isBrandAnchor": false
+        },
+        "800": {
+          "hex": "#634F00",
+          "oklch": "oklch(43.6% 0.089 92.0)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#3F3100",
+          "oklch": "oklch(32.0% 0.065 91.4)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#261D00",
+          "oklch": "oklch(23.5% 0.048 92.4)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "gold": {
+      "role": "Brand primary (golden yellow)",
+      "brandName": "Primary",
+      "scale": {
+        "50": {
+          "hex": "#FDF8EC",
+          "oklch": "oklch(98.0% 0.017 88.0)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#FAF0D5",
+          "oklch": "oklch(95.6% 0.037 90.1)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#F7E0A2",
+          "oklch": "oklch(91.1% 0.083 90.0)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#FDD35A",
+          "oklch": "oklch(88.1% 0.145 89.8)",
+          "isBrandAnchor": true
+        },
+        "400": {
+          "hex": "#E5B600",
+          "oklch": "oklch(79.6% 0.163 89.9)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#C89F00",
+          "oklch": "oklch(72.0% 0.147 90.1)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#A98600",
+          "oklch": "oklch(63.5% 0.130 90.2)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#896C00",
+          "oklch": "oklch(54.4% 0.111 90.1)",
+          "isBrandAnchor": false
+        },
+        "800": {
+          "hex": "#644E00",
+          "oklch": "oklch(43.5% 0.089 90.0)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#403100",
+          "oklch": "oklch(32.1% 0.066 90.0)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#271D00",
+          "oklch": "oklch(23.6% 0.048 90.5)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "ink": {
+      "role": "Brand secondary (true near-black neutral)",
+      "brandName": "Secondary",
+      "scale": {
+        "50": {
+          "hex": "#F8F8F8",
+          "oklch": "oklch(97.9% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#F0F0F0",
+          "oklch": "oklch(95.5% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#E1E1E1",
+          "oklch": "oklch(91.0% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#D1D1D1",
+          "oklch": "oklch(86.1% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#BCBCBC",
+          "oklch": "oklch(79.5% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#A4A4A4",
+          "oklch": "oklch(71.9% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#8A8A8A",
+          "oklch": "oklch(63.3% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#707070",
+          "oklch": "oklch(54.5% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "800": {
+          "hex": "#515151",
+          "oklch": "oklch(43.5% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#333333",
+          "oklch": "oklch(32.1% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#1E1E1E",
+          "oklch": "oklch(23.5% 0.000 89.9)",
+          "isBrandAnchor": true
+        }
+      }
+    },
+    "orange": {
+      "role": "Brand accent 1 (vivid orange)",
+      "brandName": "Accent 1",
+      "scale": {
+        "50": {
+          "hex": "#FFF6F3",
+          "oklch": "oklch(97.9% 0.011 39.4)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#FFEBE4",
+          "oklch": "oklch(95.4% 0.024 40.3)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#FFD7C8",
+          "oklch": "oklch(90.9% 0.049 41.6)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#FFC1A8",
+          "oklch": "oklch(86.1% 0.079 43.0)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#FFA17B",
+          "oklch": "oklch(79.6% 0.124 42.6)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#FF702E",
+          "oklch": "oklch(71.1% 0.190 42.3)",
+          "isBrandAnchor": true
+        },
+        "600": {
+          "hex": "#E45700",
+          "oklch": "oklch(63.5% 0.190 42.4)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#BA4500",
+          "oklch": "oklch(54.5% 0.164 42.2)",
+          "isBrandAnchor": false
+        },
+        "800": {
+          "hex": "#893100",
+          "oklch": "oklch(43.5% 0.131 42.4)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#591D00",
+          "oklch": "oklch(32.1% 0.096 42.4)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#380F00",
+          "oklch": "oklch(23.5% 0.071 42.1)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "lavender": {
+      "role": "Brand accent 2 (pastel lavender)",
+      "brandName": "Accent 2",
+      "scale": {
+        "50": {
+          "hex": "#F8F8FD",
+          "oklch": "oklch(98.0% 0.007 286.3)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#EFEFFA",
+          "oklch": "oklch(95.5% 0.015 286.1)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#DFDFF6",
+          "oklch": "oklch(91.1% 0.031 285.8)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#D3D2FA",
+          "oklch": "oklch(87.7% 0.055 286.4)",
+          "isBrandAnchor": true
+        },
+        "400": {
+          "hex": "#B7B5EF",
+          "oklch": "oklch(79.5% 0.082 286.0)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#9F9AE6",
+          "oklch": "oklch(72.0% 0.110 286.3)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#857CD9",
+          "oklch": "oklch(63.5% 0.137 286.2)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#6C5DC6",
+          "oklch": "oklch(54.6% 0.158 286.5)",
+          "isBrandAnchor": false
+        },
+        "800": {
+          "hex": "#4E3E9C",
+          "oklch": "oklch(43.4% 0.147 286.4)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#31226D",
+          "oklch": "oklch(31.9% 0.124 286.3)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#1D1148",
+          "oklch": "oklch(23.4% 0.097 286.3)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "neutral": {
+      "role": "UI neutral gray (subtle warm undertone, independent of Secondary)",
+      "brandName": null,
+      "scale": {
+        "50": {
+          "hex": "#F8F8F8",
+          "oklch": "oklch(97.9% 0.000 89.9)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#F0F0EF",
+          "oklch": "oklch(95.5% 0.001 106.4)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#E2E1E0",
+          "oklch": "oklch(91.0% 0.002 67.8)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#D2D1CE",
+          "oklch": "oklch(86.1% 0.004 91.5)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#BDBCB8",
+          "oklch": "oklch(79.5% 0.006 95.1)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#A6A4A0",
+          "oklch": "oklch(71.9% 0.006 84.6)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#8C8B85",
+          "oklch": "oklch(63.6% 0.009 99.0)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#72706A",
+          "oklch": "oklch(54.5% 0.009 91.5)",
+          "isBrandAnchor": false
+        },
+        "800": {
+          "hex": "#53514B",
+          "oklch": "oklch(43.5% 0.010 91.6)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#34332E",
+          "oklch": "oklch(32.0% 0.009 97.6)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#1F1E1B",
+          "oklch": "oklch(23.5% 0.006 91.6)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "green": {
+      "role": "Semantic - success / positive",
+      "brandName": null,
+      "scale": {
+        "50": {
+          "hex": "#F6FAF6",
+          "oklch": "oklch(98.1% 0.007 145.5)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#EAF3EB",
+          "oklch": "oklch(95.5% 0.014 148.8)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#D4E7D7",
+          "oklch": "oklch(90.9% 0.029 150.1)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#BADBBF",
+          "oklch": "oklch(86.0% 0.052 149.5)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#99CBA1",
+          "oklch": "oklch(79.6% 0.079 149.2)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#73B780",
+          "oklch": "oklch(71.9% 0.106 149.2)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#48A05D",
+          "oklch": "oklch(63.5% 0.131 149.2)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#008438",
+          "oklch": "oklch(53.6% 0.150 149.2)",
+          "isBrandAnchor": true
+        },
+        "800": {
+          "hex": "#006328",
+          "oklch": "oklch(43.6% 0.122 149.2)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#003F17",
+          "oklch": "oklch(32.1% 0.090 149.3)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#00260B",
+          "oklch": "oklch(23.5% 0.066 149.3)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "red": {
+      "role": "Semantic - error / destructive",
+      "brandName": null,
+      "scale": {
+        "50": {
+          "hex": "#FEF6F5",
+          "oklch": "oklch(97.9% 0.009 26.0)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#FCECEA",
+          "oklch": "oklch(95.5% 0.018 26.1)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#FBD8D3",
+          "oklch": "oklch(91.0% 0.040 27.5)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#FCC0B8",
+          "oklch": "oklch(86.0% 0.070 27.3)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#F8A298",
+          "oklch": "oklch(79.5% 0.104 26.9)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#EF7F74",
+          "oklch": "oklch(71.9% 0.140 26.9)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#E0574D",
+          "oklch": "oklch(63.5% 0.173 27.3)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#D6332F",
+          "oklch": "oklch(57.6% 0.200 27.2)",
+          "isBrandAnchor": true
+        },
+        "800": {
+          "hex": "#9C000C",
+          "oklch": "oklch(43.6% 0.178 27.3)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#660005",
+          "oklch": "oklch(32.1% 0.131 27.2)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#410002",
+          "oklch": "oklch(23.6% 0.096 27.2)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "amber": {
+      "role": "Semantic - alert / warning",
+      "brandName": null,
+      "scale": {
+        "50": {
+          "hex": "#FBF8F5",
+          "oklch": "oklch(98.1% 0.005 67.8)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#F7EEE8",
+          "oklch": "oklch(95.5% 0.013 56.2)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#F0DDD0",
+          "oklch": "oklch(90.9% 0.027 56.7)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#E9CAB3",
+          "oklch": "oklch(85.9% 0.047 58.7)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#DFB290",
+          "oklch": "oklch(79.6% 0.070 58.6)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#D19668",
+          "oklch": "oklch(72.0% 0.094 58.5)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#BF773C",
+          "oklch": "oklch(63.5% 0.117 57.7)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#AD5D00",
+          "oklch": "oklch(56.1% 0.134 58.2)",
+          "isBrandAnchor": true
+        },
+        "800": {
+          "hex": "#7A4000",
+          "oklch": "oklch(43.5% 0.104 58.4)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#4F2700",
+          "oklch": "oklch(32.0% 0.077 58.0)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#311600",
+          "oklch": "oklch(23.5% 0.056 58.2)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "blue": {
+      "role": "Semantic - info / neutral-informative",
+      "brandName": null,
+      "scale": {
+        "50": {
+          "hex": "#F6F9FE",
+          "oklch": "oklch(98.1% 0.007 260.7)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#EAF0FC",
+          "oklch": "oklch(95.4% 0.017 264.5)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#D4E2FB",
+          "oklch": "oklch(91.0% 0.037 262.1)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#BAD2FD",
+          "oklch": "oklch(86.0% 0.066 262.1)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#9ABCFC",
+          "oklch": "oklch(79.4% 0.099 262.7)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#78A3F8",
+          "oklch": "oklch(72.0% 0.133 263.1)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#5386ED",
+          "oklch": "oklch(63.5% 0.164 262.8)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#346CE2",
+          "oklch": "oklch(56.1% 0.190 262.8)",
+          "isBrandAnchor": true
+        },
+        "800": {
+          "hex": "#1646B0",
+          "oklch": "oklch(43.5% 0.177 262.9)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#03287C",
+          "oklch": "oklch(32.0% 0.148 262.7)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#001553",
+          "oklch": "oklch(23.4% 0.116 262.8)",
+          "isBrandAnchor": false
+        }
+      }
+    },
+    "violet": {
+      "role": "Semantic - links (shares hue family with Accent 2)",
+      "brandName": null,
+      "scale": {
+        "50": {
+          "hex": "#F8F8FD",
+          "oklch": "oklch(98.0% 0.007 286.3)",
+          "isBrandAnchor": false
+        },
+        "100": {
+          "hex": "#EFEFFB",
+          "oklch": "oklch(95.6% 0.016 286.1)",
+          "isBrandAnchor": false
+        },
+        "200": {
+          "hex": "#DFDEFA",
+          "oklch": "oklch(91.0% 0.038 287.3)",
+          "isBrandAnchor": false
+        },
+        "300": {
+          "hex": "#CDCBFB",
+          "oklch": "oklch(86.0% 0.066 286.8)",
+          "isBrandAnchor": false
+        },
+        "400": {
+          "hex": "#B7B3F9",
+          "oklch": "oklch(79.5% 0.099 286.5)",
+          "isBrandAnchor": false
+        },
+        "500": {
+          "hex": "#9F97F3",
+          "oklch": "oklch(72.0% 0.132 286.6)",
+          "isBrandAnchor": false
+        },
+        "600": {
+          "hex": "#8577E8",
+          "oklch": "oklch(63.5% 0.165 286.4)",
+          "isBrandAnchor": false
+        },
+        "700": {
+          "hex": "#735DDF",
+          "oklch": "oklch(56.9% 0.190 286.5)",
+          "isBrandAnchor": true
+        },
+        "800": {
+          "hex": "#4F36AB",
+          "oklch": "oklch(43.5% 0.177 286.3)",
+          "isBrandAnchor": false
+        },
+        "900": {
+          "hex": "#321A78",
+          "oklch": "oklch(31.9% 0.148 286.3)",
+          "isBrandAnchor": false
+        },
+        "950": {
+          "hex": "#1E0951",
+          "oklch": "oklch(23.4% 0.118 286.3)",
+          "isBrandAnchor": false
+        }
+      }
+    }
+  },
+  "tokens": {
+    "background": {
+      "canvas": {
+        "default": {
+          "value": "#FCF8EC",
+          "ref": "primitives.cream.50",
+          "oklch": "oklch(97.9% 0.016 91.5)",
+          "usage": "Primary page background."
+        },
+        "subtle": {
+          "value": "#F9F0D5",
+          "ref": "primitives.cream.100",
+          "oklch": "oklch(95.5% 0.037 91.7)",
+          "usage": "Alternating section background / zebra striping on the page canvas."
+        },
+        "muted": {
+          "value": "#F5E0A3",
+          "ref": "primitives.cream.200",
+          "oklch": "oklch(91.0% 0.081 91.3)",
+          "usage": "Tertiary tint for large decorative sections; avoid placing body text directly on this without re-checking contrast."
+        }
+      },
+      "surface": {
+        "default": {
+          "value": "#F8F8F8",
+          "ref": "primitives.neutral.50",
+          "oklch": "oklch(97.9% 0.000 89.9)",
+          "usage": "Card, panel, and container background sitting above the canvas."
+        },
+        "sunken": {
+          "value": "#F0F0EF",
+          "ref": "primitives.neutral.100",
+          "oklch": "oklch(95.5% 0.001 106.4)",
+          "usage": "Inset wells: code blocks, quote blocks, input containers at rest."
+        }
+      },
+      "inverse": {
+        "default": {
+          "value": "#1E1E1E",
+          "ref": "primitives.ink.950",
+          "oklch": "oklch(23.5% 0.000 89.9)",
+          "usage": "Dark sections: nav bar, hero, footer. This is the exact Secondary brand color."
+        },
+        "subtle": {
+          "value": "#333333",
+          "ref": "primitives.ink.900",
+          "oklch": "oklch(32.1% 0.000 89.9)",
+          "usage": "Secondary dark surface stacked on top of inverse.default (e.g. a card inside a dark footer)."
+        },
+        "muted": {
+          "value": "#515151",
+          "ref": "primitives.ink.800",
+          "oklch": "oklch(43.5% 0.000 89.9)",
+          "usage": "Tertiary dark surface / hover state for inverse.subtle."
+        }
+      },
+      "brand": {
+        "default": {
+          "value": "#FDD35A",
+          "ref": "primitives.gold.300",
+          "oklch": "oklch(88.1% 0.145 89.8)",
+          "usage": "Brand-colored section band or CTA banner. This is the exact Primary brand hex.",
+          "contrast": {
+            "cream.50 (page)": "1.35:1 vs cream.50 [FAIL - do not use for text or required UI boundaries]"
+          },
+          "notes": "Low luminance-contrast against canvas (1.35:1) — an isolated gold block on cream needs a border, shadow, or generous whitespace gap to read as a distinct region."
+        },
+        "subtle": {
+          "value": "#FAF0D5",
+          "ref": "primitives.gold.100",
+          "oklch": "oklch(95.6% 0.037 90.1)",
+          "usage": "Soft brand-tinted highlight box (e.g. a callout or quote background)."
+        }
+      },
+      "accent": {
+        "default": {
+          "value": "#FF702E",
+          "ref": "primitives.orange.500",
+          "oklch": "oklch(71.1% 0.190 42.3)",
+          "usage": "Large decorative color block using the exact Accent-1 brand hex. Pair only with ink.950 foreground content, never white.",
+          "contrast": {
+            "cream.50 (page)": "2.60:1 vs cream.50 [FAIL - do not use for text or required UI boundaries]"
+          }
+        },
+        "subtle": {
+          "value": "#FFEBE4",
+          "ref": "primitives.orange.100",
+          "oklch": "oklch(95.4% 0.024 40.3)",
+          "usage": "Soft orange-tinted highlight box."
+        }
+      },
+      "accent2": {
+        "default": {
+          "value": "#D3D2FA",
+          "ref": "primitives.lavender.300",
+          "oklch": "oklch(87.7% 0.055 286.4)",
+          "usage": "Decorative color block using the exact Accent-2 brand hex."
+        },
+        "subtle": {
+          "value": "#EFEFFA",
+          "ref": "primitives.lavender.100",
+          "oklch": "oklch(95.5% 0.015 286.1)",
+          "usage": "Soft lavender-tinted highlight box."
+        }
+      },
+      "overlay": {
+        "scrim": {
+          "value": "rgba(30, 30, 30, 0.6)",
+          "ref": "primitives.ink.950 @ 60% alpha",
+          "usage": "Modal / drawer backdrop scrim placed over page content."
+        }
+      },
+      "disabled": {
+        "value": "#F0F0EF",
+        "ref": "primitives.neutral.100",
+        "oklch": "oklch(95.5% 0.001 106.4)",
+        "usage": "Background for disabled containers (e.g. a disabled card or input wrapper)."
+      }
+    },
+    "layer": {
+      "0_canvas": {
+        "ref": "background.canvas.default",
+        "usage": "The page itself. Elevation baseline."
+      },
+      "1_card": {
+        "background": {
+          "value": "#F8F8F8",
+          "ref": "primitives.neutral.50",
+          "oklch": "oklch(97.9% 0.000 89.9)",
+          "usage": "Base elevation for cards and static panels."
+        },
+        "border": {
+          "value": "#E2E1E0",
+          "ref": "primitives.neutral.200",
+          "oklch": "oklch(91.0% 0.002 67.8)",
+          "usage": "Decorative separation from canvas; not a required 3:1 boundary since the card shape/shadow is not solely color-dependent."
+        },
+        "shadow": "0 1px 2px rgba(30,30,30,0.06), 0 1px 3px rgba(30,30,30,0.08)"
+      },
+      "2_raised": {
+        "background": {
+          "value": "#FFFFFF",
+          "ref": "literal white (brighter than neutral.50 by design, for pop-over emphasis)",
+          "usage": "Dropdowns, modals, popovers — content that floats above layer 1."
+        },
+        "border": {
+          "value": "#E2E1E0",
+          "ref": "primitives.neutral.200",
+          "oklch": "oklch(91.0% 0.002 67.8)",
+          "usage": "Decorative edge."
+        },
+        "shadow": "0 4px 6px rgba(30,30,30,0.10), 0 8px 24px rgba(30,30,30,0.12)"
+      },
+      "3_overlay_dark": {
+        "background": {
+          "value": "#1E1E1E",
+          "ref": "primitives.ink.950",
+          "oklch": "oklch(23.5% 0.000 89.9)",
+          "usage": "Tooltips and toasts intentionally break the light elevation pattern and float as dark chips for maximum visual priority."
+        },
+        "text": {
+          "value": "#FCF8EC",
+          "ref": "primitives.cream.50",
+          "oklch": "oklch(97.9% 0.016 91.5)",
+          "usage": "Tooltip/toast text.",
+          "contrast": {
+            "ink.950": "15.70:1 vs ink.950 [AAA]"
+          }
+        },
+        "shadow": "0 8px 16px rgba(30,30,30,0.24)"
+      },
+      "sunken": {
+        "background": {
+          "value": "#F0F0EF",
+          "ref": "primitives.neutral.100",
+          "oklch": "oklch(95.5% 0.001 106.4)",
+          "usage": "Inset wells sitting below the surrounding surface: code blocks, quote blocks."
+        },
+        "border": {
+          "value": "#E2E1E0",
+          "ref": "primitives.neutral.200",
+          "oklch": "oklch(91.0% 0.002 67.8)",
+          "usage": "Decorative inner edge."
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "value": "#1E1E1E",
+        "ref": "primitives.ink.950",
+        "oklch": "oklch(23.5% 0.000 89.9)",
+        "usage": "Default body copy, headings — the highest-emphasis text color on light surfaces.",
+        "contrast": {
+          "cream.50": "15.70:1 vs cream.50 [AAA]",
+          "neutral.50": "15.70:1 vs neutral.50 [AAA]"
+        }
+      },
+      "secondary": {
+        "value": "#707070",
+        "ref": "primitives.ink.700",
+        "oklch": "oklch(54.5% 0.000 89.9)",
+        "usage": "Supporting copy, sub-headings, captions with real informational content.",
+        "contrast": {
+          "cream.50": "4.66:1 vs cream.50 [AA]"
+        },
+        "notes": "This is the minimum ink step that clears 4.5:1 body-text AA on cream.50. Do not go lighter (ink.600 and up only clear the 3:1 large-text/UI tier)."
+      },
+      "tertiary": {
+        "value": "#8A8A8A",
+        "ref": "primitives.ink.600",
+        "oklch": "oklch(63.3% 0.000 89.9)",
+        "usage": "Large-scale (≥18.66px bold / ≥24px regular) supporting text, or non-essential microcopy where 3:1 is sufficient.",
+        "contrast": {
+          "cream.50": "3.25:1 vs cream.50 [AA (large text / UI components only)]"
+        },
+        "notes": "FAILS AA for body-sized text. Restrict to large text or decorative use only."
+      },
+      "disabled": {
+        "value": "#BCBCBC",
+        "ref": "primitives.ink.400",
+        "oklch": "oklch(79.5% 0.000 89.9)",
+        "usage": "Disabled form/UI text.",
+        "contrast": {
+          "cream.50": "1.79:1 vs cream.50 [FAIL - do not use for text or required UI boundaries]"
+        },
+        "notes": "WCAG 1.4.3 exempts disabled content from contrast minimums. Ratio shown for reference only — do not use this token for anything but genuinely disabled state."
+      },
+      "placeholder": {
+        "value": "#8C8B85",
+        "ref": "primitives.neutral.600",
+        "oklch": "oklch(63.6% 0.009 99.0)",
+        "usage": "Input placeholder copy.",
+        "contrast": {
+          "neutral.50 (field bg)": "3.22:1 vs neutral.50 [AA (large text / UI components only)]"
+        },
+        "notes": "Placeholder text is not classified as WCAG 'text' and is exempt from 4.5:1, but never use a placeholder as the only label for a field (WCAG 3.3.2) — always pair with a persistent visible label using text.secondary or darker."
+      },
+      "brand": {
+        "default": {
+          "value": "#896C00",
+          "ref": "primitives.gold.700",
+          "oklch": "oklch(54.4% 0.111 90.1)",
+          "usage": "Inline brand-colored text/emphasis on light surfaces (minimum accessible step).",
+          "contrast": {
+            "cream.50": "4.70:1 vs cream.50 [AA]"
+          }
+        },
+        "strong": {
+          "value": "#644E00",
+          "ref": "primitives.gold.800",
+          "oklch": "oklch(43.5% 0.089 90.0)",
+          "usage": "Higher-contrast brand text where AAA is desired.",
+          "contrast": {
+            "cream.50": "7.52:1 vs cream.50 [AAA]"
+          }
+        }
+      },
+      "accent": {
+        "value": "#BA4500",
+        "ref": "primitives.orange.700",
+        "oklch": "oklch(54.5% 0.164 42.2)",
+        "usage": "Inline Accent-1-colored text on light surfaces.",
+        "contrast": {
+          "cream.50": "5.02:1 vs cream.50 [AA]"
+        },
+        "notes": "orange.500 (the literal brand hex) is a fill color only — never use it as text color on light surfaces."
+      },
+      "inverse": {
+        "primary": {
+          "value": "#FCF8EC",
+          "ref": "primitives.cream.50",
+          "oklch": "oklch(97.9% 0.016 91.5)",
+          "usage": "Default text on dark (ink.950) surfaces.",
+          "contrast": {
+            "ink.950": "15.70:1 vs ink.950 [AAA]"
+          }
+        },
+        "secondary": {
+          "value": "#D2D1CE",
+          "ref": "primitives.neutral.300",
+          "oklch": "oklch(86.1% 0.004 91.5)",
+          "usage": "Supporting text on dark surfaces.",
+          "contrast": {
+            "ink.950": "10.92:1 vs ink.950 [AAA]"
+          }
+        },
+        "disabled": {
+          "value": "#72706A",
+          "ref": "primitives.neutral.700",
+          "oklch": "oklch(54.5% 0.009 91.5)",
+          "usage": "Disabled text on dark surfaces (exempt from minimums).",
+          "contrast": {
+            "ink.950": "3.37:1 vs ink.950 [AA (large text / UI components only)]"
+          }
+        }
+      },
+      "success": {
+        "value": "#008438",
+        "ref": "primitives.green.700",
+        "oklch": "oklch(53.6% 0.150 149.2)",
+        "usage": "Inline success/positive status copy.",
+        "contrast": {
+          "cream.50": "4.54:1 vs cream.50 [AA]"
+        }
+      },
+      "error": {
+        "value": "#D6332F",
+        "ref": "primitives.red.700",
+        "oklch": "oklch(57.6% 0.200 27.2)",
+        "usage": "Inline error/negative status copy.",
+        "contrast": {
+          "cream.50": "4.52:1 vs cream.50 [AA]"
+        }
+      },
+      "alert": {
+        "value": "#AD5D00",
+        "ref": "primitives.amber.700",
+        "oklch": "oklch(56.1% 0.134 58.2)",
+        "usage": "Inline alert/warning status copy.",
+        "contrast": {
+          "cream.50": "4.55:1 vs cream.50 [AA]"
+        }
+      },
+      "info": {
+        "value": "#346CE2",
+        "ref": "primitives.blue.700",
+        "oklch": "oklch(56.1% 0.190 262.8)",
+        "usage": "Inline informational status copy.",
+        "contrast": {
+          "cream.50": "4.51:1 vs cream.50 [AA]"
+        }
+      }
+    },
+    "border": {
+      "subtle": {
+        "value": "#E2E1E0",
+        "ref": "primitives.neutral.200",
+        "oklch": "oklch(91.0% 0.002 67.8)",
+        "usage": "Decorative dividers/edges not required to identify a component (exempt from 3:1)."
+      },
+      "default": {
+        "value": "#8C8B85",
+        "ref": "primitives.neutral.600",
+        "oklch": "oklch(63.6% 0.009 99.0)",
+        "usage": "Resting-state boundary for interactive components (inputs, outlined buttons, checkboxes, cards that are clickable).",
+        "contrast": {
+          "cream.50": "3.22:1 vs cream.50 [AA (large text / UI components only)]"
+        },
+        "notes": "This is the minimum neutral step clearing WCAG 1.4.11's 3:1 non-text contrast requirement against the cream canvas."
+      },
+      "hover": {
+        "value": "#72706A",
+        "ref": "primitives.neutral.700",
+        "oklch": "oklch(54.5% 0.009 91.5)",
+        "usage": "Hover-state boundary, one step stronger than default.",
+        "contrast": {
+          "cream.50": "4.66:1 vs cream.50 [AA]"
+        }
+      },
+      "strong": {
+        "value": "#53514B",
+        "ref": "primitives.neutral.800",
+        "oklch": "oklch(43.5% 0.010 91.6)",
+        "usage": "High-emphasis boundary (e.g. a selected card, an important container).",
+        "contrast": {
+          "cream.50": "7.47:1 vs cream.50 [AAA]"
+        }
+      },
+      "focus": {
+        "value": "#896C00",
+        "ref": "primitives.gold.700",
+        "oklch": "oklch(54.4% 0.111 90.1)",
+        "usage": "Focus-visible outline/ring color, brand-consistent and WCAG 2.2 SC 2.4.11-compliant.",
+        "contrast": {
+          "cream.50": "4.70:1 vs cream.50 [AA]"
+        }
+      },
+      "success": {
+        "value": "#008438",
+        "ref": "primitives.green.700",
+        "oklch": "oklch(53.6% 0.150 149.2)",
+        "usage": "Border for success-state components.",
+        "contrast": {
+          "cream.50": "4.54:1 vs cream.50 [AA]"
+        }
+      },
+      "error": {
+        "value": "#D6332F",
+        "ref": "primitives.red.700",
+        "oklch": "oklch(57.6% 0.200 27.2)",
+        "usage": "Border for error-state components.",
+        "contrast": {
+          "cream.50": "4.52:1 vs cream.50 [AA]"
+        }
+      },
+      "alert": {
+        "value": "#AD5D00",
+        "ref": "primitives.amber.700",
+        "oklch": "oklch(56.1% 0.134 58.2)",
+        "usage": "Border for alert-state components.",
+        "contrast": {
+          "cream.50": "4.55:1 vs cream.50 [AA]"
+        }
+      },
+      "info": {
+        "value": "#346CE2",
+        "ref": "primitives.blue.700",
+        "oklch": "oklch(56.1% 0.190 262.8)",
+        "usage": "Border for info-state components.",
+        "contrast": {
+          "cream.50": "4.51:1 vs cream.50 [AA]"
+        }
+      },
+      "inverse": {
+        "subtle": {
+          "value": "#53514B",
+          "ref": "primitives.neutral.800",
+          "oklch": "oklch(43.5% 0.010 91.6)",
+          "usage": "Decorative divider on dark surfaces (exempt from 3:1)."
+        },
+        "default": {
+          "value": "#72706A",
+          "ref": "primitives.neutral.700",
+          "oklch": "oklch(54.5% 0.009 91.5)",
+          "usage": "Interactive component boundary on dark (ink.950) surfaces.",
+          "contrast": {
+            "ink.950": "3.37:1 vs ink.950 [AA (large text / UI components only)]"
+          },
+          "notes": "Minimum neutral step clearing 3:1 against ink.950."
+        }
+      }
+    },
+    "field": {
+      "background": {
+        "default": {
+          "value": "#F8F8F8",
+          "ref": "primitives.neutral.50",
+          "oklch": "oklch(97.9% 0.000 89.9)",
+          "usage": "Resting input background."
+        },
+        "hover": {
+          "value": "#F0F0EF",
+          "ref": "primitives.neutral.100",
+          "oklch": "oklch(95.5% 0.001 106.4)",
+          "usage": "Hover-state input background."
+        },
+        "disabled": {
+          "value": "#F0F0EF",
+          "ref": "primitives.neutral.100",
+          "oklch": "oklch(95.5% 0.001 106.4)",
+          "usage": "Disabled input background."
+        },
+        "error": {
+          "value": "#FEF6F5",
+          "ref": "primitives.red.50",
+          "oklch": "oklch(97.9% 0.009 26.0)",
+          "usage": "Error-state input background tint."
+        },
+        "success": {
+          "value": "#F6FAF6",
+          "ref": "primitives.green.50",
+          "oklch": "oklch(98.1% 0.007 145.5)",
+          "usage": "Success/validated-state input background tint."
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#8C8B85",
+          "ref": "primitives.neutral.600",
+          "oklch": "oklch(63.6% 0.009 99.0)",
+          "usage": "Resting input border.",
+          "contrast": {
+            "neutral.50": "3.22:1 vs neutral.50 [AA (large text / UI components only)]"
+          }
+        },
+        "hover": {
+          "value": "#72706A",
+          "ref": "primitives.neutral.700",
+          "oklch": "oklch(54.5% 0.009 91.5)",
+          "usage": "Hover-state input border."
+        },
+        "focus": {
+          "value": "#896C00",
+          "ref": "primitives.gold.700",
+          "oklch": "oklch(54.4% 0.111 90.1)",
+          "usage": "Focus-state input border, paired with a soft outer glow (gold.300 @ 30% alpha).",
+          "contrast": {
+            "neutral.50": "4.70:1 vs neutral.50 [AA]"
+          }
+        },
+        "error": {
+          "value": "#D6332F",
+          "ref": "primitives.red.700",
+          "oklch": "oklch(57.6% 0.200 27.2)",
+          "usage": "Error-state input border.",
+          "contrast": {
+            "neutral.50": "4.52:1 vs neutral.50 [AA]"
+          }
+        },
+        "success": {
+          "value": "#008438",
+          "ref": "primitives.green.700",
+          "oklch": "oklch(53.6% 0.150 149.2)",
+          "usage": "Success-state input border."
+        },
+        "disabled": {
+          "value": "#D2D1CE",
+          "ref": "primitives.neutral.300",
+          "oklch": "oklch(86.1% 0.004 91.5)",
+          "usage": "Disabled input border (exempt from 3:1)."
+        }
+      },
+      "text": {
+        "value": {
+          "value": "#1E1E1E",
+          "ref": "primitives.ink.950",
+          "oklch": "oklch(23.5% 0.000 89.9)",
+          "usage": "User-entered text inside the field."
+        },
+        "label": {
+          "value": "#333333",
+          "ref": "primitives.ink.900",
+          "oklch": "oklch(32.1% 0.000 89.9)",
+          "usage": "Field label, always visible (never substitute with placeholder alone)."
+        },
+        "helper": {
+          "value": "#707070",
+          "ref": "primitives.ink.700",
+          "oklch": "oklch(54.5% 0.000 89.9)",
+          "usage": "Helper/hint text below the field.",
+          "contrast": {
+            "neutral.50": "4.66:1 vs neutral.50 [AA]"
+          }
+        },
+        "placeholder": {
+          "ref": "text.placeholder",
+          "usage": "See text.placeholder token."
+        },
+        "error": {
+          "value": "#D6332F",
+          "ref": "primitives.red.700",
+          "oklch": "oklch(57.6% 0.200 27.2)",
+          "usage": "Error/validation message text."
+        },
+        "disabled": {
+          "value": "#BDBCB8",
+          "ref": "primitives.neutral.400",
+          "oklch": "oklch(79.5% 0.006 95.1)",
+          "usage": "Disabled field text (exempt from minimums)."
+        }
+      },
+      "icon": {
+        "default": {
+          "value": "#8C8B85",
+          "ref": "primitives.neutral.600",
+          "oklch": "oklch(63.6% 0.009 99.0)",
+          "usage": "Field-adjacent icon (e.g. search, calendar)."
+        },
+        "error": {
+          "value": "#D6332F",
+          "ref": "primitives.red.700",
+          "oklch": "oklch(57.6% 0.200 27.2)",
+          "usage": "Error-state field icon."
+        }
+      }
+    },
+    "link": {
+      "default": {
+        "value": "#735DDF",
+        "ref": "primitives.violet.700",
+        "oklch": "oklch(56.9% 0.190 286.5)",
+        "usage": "Default link color on light surfaces.",
+        "contrast": {
+          "cream.50": "4.54:1 vs cream.50 [AA]"
+        }
+      },
+      "hover": {
+        "value": "#4F36AB",
+        "ref": "primitives.violet.800",
+        "oklch": "oklch(43.5% 0.177 286.3)",
+        "usage": "Hover-state link color.",
+        "contrast": {
+          "cream.50": "8.08:1 vs cream.50 [AAA]"
+        }
+      },
+      "active": {
+        "value": "#1E0951",
+        "ref": "primitives.violet.950",
+        "oklch": "oklch(23.4% 0.118 286.3)",
+        "usage": "Active/pressed-state link color (brief, on mousedown).",
+        "contrast": {
+          "cream.50": "16.30:1 vs cream.50 [AAA]"
+        }
+      },
+      "visited": {
+        "value": "#321A78",
+        "ref": "primitives.violet.900",
+        "oklch": "oklch(31.9% 0.148 286.3)",
+        "usage": "Visited-link color, deliberately deeper/duller than default.",
+        "contrast": {
+          "cream.50": "12.72:1 vs cream.50 [AAA]"
+        }
+      },
+      "focus": {
+        "value": "#896C00",
+        "ref": "primitives.gold.700",
+        "oklch": "oklch(54.4% 0.111 90.1)",
+        "usage": "Focus-visible ring around a focused link, matching border.focus."
+      },
+      "inverse": {
+        "default": {
+          "value": "#D3D2FA",
+          "ref": "primitives.lavender.300",
+          "oklch": "oklch(87.7% 0.055 286.4)",
+          "usage": "Default link color on dark (ink.950) surfaces — this is the exact Accent-2 brand hex, repurposed functionally.",
+          "contrast": {
+            "ink.950": "11.41:1 vs ink.950 [AAA]"
+          }
+        },
+        "hover": {
+          "value": "#DFDFF6",
+          "ref": "primitives.lavender.200",
+          "oklch": "oklch(91.1% 0.031 285.8)",
+          "usage": "Hover-state link on dark surfaces (lighter = higher emphasis on dark backgrounds).",
+          "contrast": {
+            "ink.950": "12.72:1 vs ink.950 [AAA]"
+          }
+        },
+        "visited": {
+          "value": "#9F9AE6",
+          "ref": "primitives.lavender.500",
+          "oklch": "oklch(72.0% 0.110 286.3)",
+          "usage": "Visited link on dark surfaces.",
+          "contrast": {
+            "ink.950": "6.54:1 vs ink.950 [AA]"
+          }
+        }
+      },
+      "underline": {
+        "value": "#BDBCB8",
+        "ref": "primitives.neutral.400",
+        "oklch": "oklch(79.5% 0.006 95.1)",
+        "usage": "Optional decorative underline color when a subtler rule than the link text itself is wanted (decorative, exempt from 3:1)."
+      }
+    },
+    "icon": {
+      "default": {
+        "value": "#515151",
+        "ref": "primitives.ink.800",
+        "oklch": "oklch(43.5% 0.000 89.9)",
+        "usage": "Default icon color on light surfaces — deliberately a touch stronger than text.secondary since icons read best at high clarity.",
+        "contrast": {
+          "cream.50": "7.48:1 vs cream.50 [AAA]"
+        }
+      },
+      "subtle": {
+        "value": "#8A8A8A",
+        "ref": "primitives.ink.600",
+        "oklch": "oklch(63.3% 0.000 89.9)",
+        "usage": "De-emphasized / decorative icon.",
+        "contrast": {
+          "cream.50": "3.25:1 vs cream.50 [AA (large text / UI components only)]"
+        },
+        "notes": "Only meets the 3:1 large-graphic tier — do not use for icons that are the sole carrier of meaning."
+      },
+      "disabled": {
+        "value": "#D2D1CE",
+        "ref": "primitives.neutral.300",
+        "oklch": "oklch(86.1% 0.004 91.5)",
+        "usage": "Disabled icon (exempt from minimums)."
+      },
+      "inverse": {
+        "default": {
+          "value": "#FCF8EC",
+          "ref": "primitives.cream.50",
+          "oklch": "oklch(97.9% 0.016 91.5)",
+          "usage": "Icon color on dark surfaces.",
+          "contrast": {
+            "ink.950": "15.70:1 vs ink.950 [AAA]"
+          }
+        },
+        "subtle": {
+          "value": "#BDBCB8",
+          "ref": "primitives.neutral.400",
+          "oklch": "oklch(79.5% 0.006 95.1)",
+          "usage": "De-emphasized icon on dark surfaces.",
+          "contrast": {
+            "ink.950": "8.77:1 vs ink.950 [AAA]"
+          }
+        }
+      },
+      "brand": {
+        "value": "#896C00",
+        "ref": "primitives.gold.700",
+        "oklch": "oklch(54.4% 0.111 90.1)",
+        "usage": "Brand-colored icon on light surfaces.",
+        "contrast": {
+          "cream.50": "4.70:1 vs cream.50 [AA]"
+        }
+      },
+      "accent": {
+        "value": "#BA4500",
+        "ref": "primitives.orange.700",
+        "oklch": "oklch(54.5% 0.164 42.2)",
+        "usage": "Accent-1-colored icon on light surfaces.",
+        "contrast": {
+          "cream.50": "5.02:1 vs cream.50 [AA]"
+        },
+        "notes": "orange.500 is a fill color only; use orange.700 whenever the orange itself must serve as the meaningful foreground shape."
+      },
+      "success": {
+        "value": "#008438",
+        "ref": "primitives.green.700",
+        "oklch": "oklch(53.6% 0.150 149.2)",
+        "usage": "Success icon.",
+        "contrast": {
+          "cream.50": "4.54:1 vs cream.50 [AA]"
+        }
+      },
+      "error": {
+        "value": "#D6332F",
+        "ref": "primitives.red.700",
+        "oklch": "oklch(57.6% 0.200 27.2)",
+        "usage": "Error icon.",
+        "contrast": {
+          "cream.50": "4.52:1 vs cream.50 [AA]"
+        }
+      },
+      "alert": {
+        "value": "#AD5D00",
+        "ref": "primitives.amber.700",
+        "oklch": "oklch(56.1% 0.134 58.2)",
+        "usage": "Alert/warning icon.",
+        "contrast": {
+          "cream.50": "4.55:1 vs cream.50 [AA]"
+        }
+      },
+      "info": {
+        "value": "#346CE2",
+        "ref": "primitives.blue.700",
+        "oklch": "oklch(56.1% 0.190 262.8)",
+        "usage": "Info icon.",
+        "contrast": {
+          "cream.50": "4.51:1 vs cream.50 [AA]"
+        }
+      }
+    },
+    "button": {
+      "primary": {
+        "background": {
+          "default": {
+            "value": "#FDD35A",
+            "ref": "primitives.gold.300",
+            "oklch": "oklch(88.1% 0.145 89.8)",
+            "usage": "Primary CTA fill — the exact Primary brand hex.",
+            "contrast": {
+              "cream.50 (page)": "1.35:1 vs cream.50 [FAIL - do not use for text or required UI boundaries]"
+            }
+          },
+          "hover": {
+            "value": "#E5B600",
+            "ref": "primitives.gold.400",
+            "oklch": "oklch(79.6% 0.163 89.9)",
+            "usage": "Hover fill."
+          },
+          "active": {
+            "value": "#C89F00",
+            "ref": "primitives.gold.500",
+            "oklch": "oklch(72.0% 0.147 90.1)",
+            "usage": "Active/pressed fill."
+          },
+          "disabled": {
+            "value": "#E2E1E0",
+            "ref": "primitives.neutral.200",
+            "oklch": "oklch(91.0% 0.002 67.8)",
+            "usage": "Disabled fill (exempt)."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#1E1E1E",
+            "ref": "primitives.ink.950",
+            "oklch": "oklch(23.5% 0.000 89.9)",
+            "usage": "Label text on the gold fill.",
+            "contrast": {
+              "gold.300": "11.62:1 vs gold.300 [AAA]"
+            }
+          },
+          "hover": {
+            "value": "#1E1E1E",
+            "ref": "primitives.ink.950",
+            "oklch": "oklch(23.5% 0.000 89.9)",
+            "usage": "Label text on hover fill.",
+            "contrast": {
+              "gold.400": "8.75:1 vs gold.400 [AAA]"
+            }
+          },
+          "active": {
+            "value": "#1E1E1E",
+            "ref": "primitives.ink.950",
+            "oklch": "oklch(23.5% 0.000 89.9)",
+            "usage": "Label text on active fill.",
+            "contrast": {
+              "gold.500": "6.68:1 vs gold.500 [AA]"
+            }
+          },
+          "disabled": {
+            "value": "#BDBCB8",
+            "ref": "primitives.neutral.400",
+            "oklch": "oklch(79.5% 0.006 95.1)",
+            "usage": "Disabled label text (exempt)."
+          }
+        },
+        "border": {
+          "required": {
+            "value": "#1E1E1E",
+            "ref": "primitives.ink.950",
+            "oklch": "oklch(23.5% 0.000 89.9)",
+            "usage": "MANDATORY 1.5-2px border at every state.",
+            "notes": "Gold fills sit at only 1.35-2.35:1 luminance-contrast against the cream.50 canvas at every step (300-500), failing WCAG 1.4.11's 3:1 non-text requirement. A solid ink.950 (or neutral.800) border is required so the button boundary remains perceivable without relying on hue alone."
+          }
+        },
+        "focusRing": {
+          "value": "#1E1E1E",
+          "ref": "primitives.ink.950",
+          "oklch": "oklch(23.5% 0.000 89.9)",
+          "usage": "2px offset focus-visible ring."
+        }
+      },
+      "secondary": {
+        "background": {
+          "default": {
+            "value": "#1E1E1E",
+            "ref": "primitives.ink.950",
+            "oklch": "oklch(23.5% 0.000 89.9)",
+            "usage": "Secondary button fill — the exact Secondary brand hex."
+          },
+          "hover": {
+            "value": "#515151",
+            "ref": "primitives.ink.800",
+            "oklch": "oklch(43.5% 0.000 89.9)",
+            "usage": "Hover fill."
+          },
+          "active": {
+            "value": "#707070",
+            "ref": "primitives.ink.700",
+            "oklch": "oklch(54.5% 0.000 89.9)",
+            "usage": "Active/pressed fill."
+          },
+          "disabled": {
+            "value": "#E2E1E0",
+            "ref": "primitives.neutral.200",
+            "oklch": "oklch(91.0% 0.002 67.8)",
+            "usage": "Disabled fill (exempt)."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#FCF8EC",
+            "ref": "primitives.cream.50",
+            "oklch": "oklch(97.9% 0.016 91.5)",
+            "usage": "Label text.",
+            "contrast": {
+              "ink.950": "15.70:1 vs ink.950 [AAA]"
+            }
+          },
+          "hover": {
+            "value": "#FCF8EC",
+            "ref": "primitives.cream.50",
+            "oklch": "oklch(97.9% 0.016 91.5)",
+            "usage": "Label text on hover fill.",
+            "contrast": {
+              "ink.800": "7.48:1 vs ink.800 [AAA]"
+            }
+          },
+          "active": {
+            "value": "#FCF8EC",
+            "ref": "primitives.cream.50",
+            "oklch": "oklch(97.9% 0.016 91.5)",
+            "usage": "Label text on active fill.",
+            "contrast": {
+              "ink.700": "4.66:1 vs ink.700 [AA]"
+            }
+          },
+          "disabled": {
+            "value": "#BDBCB8",
+            "ref": "primitives.neutral.400",
+            "oklch": "oklch(79.5% 0.006 95.1)",
+            "usage": "Disabled label text (exempt)."
+          }
+        },
+        "focusRing": {
+          "value": "#896C00",
+          "ref": "primitives.gold.700",
+          "oklch": "oklch(54.4% 0.111 90.1)",
+          "usage": "2px offset focus-visible ring, doubles as brand accent.",
+          "contrast": {
+            "ink.950 (button)": "3.34:1 vs ink.950 [AA (large text / UI components only)]",
+            "cream.50 (page)": "4.70:1 vs cream.50 [AA]"
+          }
+        }
+      },
+      "tertiary": {
+        "background": {
+          "default": "transparent",
+          "hover": {
+            "value": "#F0F0EF",
+            "ref": "primitives.neutral.100",
+            "oklch": "oklch(95.5% 0.001 106.4)",
+            "usage": "Hover fill."
+          },
+          "active": {
+            "value": "#E2E1E0",
+            "ref": "primitives.neutral.200",
+            "oklch": "oklch(91.0% 0.002 67.8)",
+            "usage": "Active fill."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#333333",
+            "ref": "primitives.ink.900",
+            "oklch": "oklch(32.1% 0.000 89.9)",
+            "usage": "Label text."
+          },
+          "hover": {
+            "value": "#1E1E1E",
+            "ref": "primitives.ink.950",
+            "oklch": "oklch(23.5% 0.000 89.9)",
+            "usage": "Label text on hover."
+          },
+          "disabled": {
+            "value": "#BDBCB8",
+            "ref": "primitives.neutral.400",
+            "oklch": "oklch(79.5% 0.006 95.1)",
+            "usage": "Disabled label text (exempt)."
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#8C8B85",
+            "ref": "primitives.neutral.600",
+            "oklch": "oklch(63.6% 0.009 99.0)",
+            "usage": "Resting outline.",
+            "contrast": {
+              "cream.50": "3.22:1 vs cream.50 [AA (large text / UI components only)]"
+            }
+          },
+          "hover": {
+            "value": "#72706A",
+            "ref": "primitives.neutral.700",
+            "oklch": "oklch(54.5% 0.009 91.5)",
+            "usage": "Hover outline."
+          },
+          "active": {
+            "value": "#53514B",
+            "ref": "primitives.neutral.800",
+            "oklch": "oklch(43.5% 0.010 91.6)",
+            "usage": "Active outline."
+          },
+          "disabled": {
+            "value": "#D2D1CE",
+            "ref": "primitives.neutral.300",
+            "oklch": "oklch(86.1% 0.004 91.5)",
+            "usage": "Disabled outline (exempt)."
+          }
+        }
+      },
+      "destructive": {
+        "background": {
+          "default": {
+            "value": "#D6332F",
+            "ref": "primitives.red.700",
+            "oklch": "oklch(57.6% 0.200 27.2)",
+            "usage": "Destructive action fill."
+          },
+          "hover": {
+            "value": "#9C000C",
+            "ref": "primitives.red.800",
+            "oklch": "oklch(43.6% 0.178 27.3)",
+            "usage": "Hover fill."
+          },
+          "active": {
+            "value": "#660005",
+            "ref": "primitives.red.900",
+            "oklch": "oklch(32.1% 0.131 27.2)",
+            "usage": "Active/pressed fill."
+          },
+          "disabled": {
+            "value": "#E2E1E0",
+            "ref": "primitives.neutral.200",
+            "oklch": "oklch(91.0% 0.002 67.8)",
+            "usage": "Disabled fill (exempt)."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Label text.",
+            "contrast": {
+              "red.700": "4.80:1 vs red.700 [AA]"
+            }
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Label text on hover.",
+            "contrast": {
+              "red.800": "8.68:1 vs red.800 [AAA]"
+            }
+          },
+          "active": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Label text on active.",
+            "contrast": {
+              "red.900": "13.40:1 vs red.900 [AAA]"
+            }
+          },
+          "disabled": {
+            "value": "#BDBCB8",
+            "ref": "primitives.neutral.400",
+            "oklch": "oklch(79.5% 0.006 95.1)",
+            "usage": "Disabled label text (exempt)."
+          }
+        }
+      },
+      "accent": {
+        "background": {
+          "default": {
+            "value": "#BA4500",
+            "ref": "primitives.orange.700",
+            "oklch": "oklch(54.5% 0.164 42.2)",
+            "usage": "Accent CTA fill — deliberately deeper than the raw Accent-1 brand hex so white label text stays AA-compliant."
+          },
+          "hover": {
+            "value": "#893100",
+            "ref": "primitives.orange.800",
+            "oklch": "oklch(43.5% 0.131 42.4)",
+            "usage": "Hover fill."
+          },
+          "active": {
+            "value": "#591D00",
+            "ref": "primitives.orange.900",
+            "oklch": "oklch(32.1% 0.096 42.4)",
+            "usage": "Active/pressed fill."
+          },
+          "disabled": {
+            "value": "#E2E1E0",
+            "ref": "primitives.neutral.200",
+            "oklch": "oklch(91.0% 0.002 67.8)",
+            "usage": "Disabled fill (exempt)."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Label text.",
+            "contrast": {
+              "orange.700": "5.33:1 vs orange.700 [AA]"
+            }
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Label text on hover.",
+            "contrast": {
+              "orange.800": "8.39:1 vs orange.800 [AAA]"
+            }
+          },
+          "active": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Label text on active.",
+            "contrast": {
+              "orange.900": "13.12:1 vs orange.900 [AAA]"
+            }
+          },
+          "disabled": {
+            "value": "#BDBCB8",
+            "ref": "primitives.neutral.400",
+            "oklch": "oklch(79.5% 0.006 95.1)",
+            "usage": "Disabled label text (exempt)."
+          }
+        },
+        "notes": "orange.500 (FF702E, the exact brand Accent-1 hex) fails with both white text (2.76:1) and is marginal with ink.950 text (6.04:1, workable but inconsistent across hover/active steps). This button uses orange.700 as its base so the full default/hover/active ladder can share one consistent white label color."
+      }
+    },
+    "chip": {
+      "success": {
+        "background": {
+          "subtle": {
+            "value": "#EAF3EB",
+            "ref": "primitives.green.100",
+            "oklch": "oklch(95.5% 0.014 148.8)",
+            "usage": "Success chip/badge soft fill."
+          },
+          "solid": {
+            "value": "#008438",
+            "ref": "primitives.green.700",
+            "oklch": "oklch(53.6% 0.150 149.2)",
+            "usage": "Success chip/badge high-emphasis fill."
+          }
+        },
+        "text": {
+          "subtle": {
+            "value": "#006328",
+            "ref": "primitives.green.800",
+            "oklch": "oklch(43.6% 0.122 149.2)",
+            "usage": "Success chip/badge text on soft fill.",
+            "contrast": {
+              "green.100": "6.58:1 vs green.100 [AA]"
+            }
+          },
+          "solid": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Success chip/badge text on solid fill.",
+            "contrast": {
+              "green.700": "4.82:1 vs green.700 [AA]"
+            }
+          }
+        },
+        "border": {
+          "subtle": {
+            "value": "#BADBBF",
+            "ref": "primitives.green.300",
+            "oklch": "oklch(86.0% 0.052 149.5)",
+            "usage": "Success chip/badge soft-fill border (decorative)."
+          }
+        }
+      },
+      "error": {
+        "background": {
+          "subtle": {
+            "value": "#FCECEA",
+            "ref": "primitives.red.100",
+            "oklch": "oklch(95.5% 0.018 26.1)",
+            "usage": "Error chip/badge soft fill."
+          },
+          "solid": {
+            "value": "#D6332F",
+            "ref": "primitives.red.700",
+            "oklch": "oklch(57.6% 0.200 27.2)",
+            "usage": "Error chip/badge high-emphasis fill."
+          }
+        },
+        "text": {
+          "subtle": {
+            "value": "#9C000C",
+            "ref": "primitives.red.800",
+            "oklch": "oklch(43.6% 0.178 27.3)",
+            "usage": "Error chip/badge text on soft fill.",
+            "contrast": {
+              "red.100": "7.58:1 vs red.100 [AAA]"
+            }
+          },
+          "solid": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Error chip/badge text on solid fill.",
+            "contrast": {
+              "red.700": "4.80:1 vs red.700 [AA]"
+            }
+          }
+        },
+        "border": {
+          "subtle": {
+            "value": "#FCC0B8",
+            "ref": "primitives.red.300",
+            "oklch": "oklch(86.0% 0.070 27.3)",
+            "usage": "Error chip/badge soft-fill border (decorative)."
+          }
+        }
+      },
+      "alert": {
+        "background": {
+          "subtle": {
+            "value": "#F7EEE8",
+            "ref": "primitives.amber.100",
+            "oklch": "oklch(95.5% 0.013 56.2)",
+            "usage": "Alert chip/badge soft fill."
+          },
+          "solid": {
+            "value": "#AD5D00",
+            "ref": "primitives.amber.700",
+            "oklch": "oklch(56.1% 0.134 58.2)",
+            "usage": "Alert chip/badge high-emphasis fill."
+          }
+        },
+        "text": {
+          "subtle": {
+            "value": "#7A4000",
+            "ref": "primitives.amber.800",
+            "oklch": "oklch(43.5% 0.104 58.4)",
+            "usage": "Alert chip/badge text on soft fill.",
+            "contrast": {
+              "amber.100": "7.17:1 vs amber.100 [AAA]"
+            }
+          },
+          "solid": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Alert chip/badge text on solid fill.",
+            "contrast": {
+              "amber.700": "4.84:1 vs amber.700 [AA]"
+            }
+          }
+        },
+        "border": {
+          "subtle": {
+            "value": "#E9CAB3",
+            "ref": "primitives.amber.300",
+            "oklch": "oklch(85.9% 0.047 58.7)",
+            "usage": "Alert chip/badge soft-fill border (decorative)."
+          }
+        }
+      },
+      "info": {
+        "background": {
+          "subtle": {
+            "value": "#EAF0FC",
+            "ref": "primitives.blue.100",
+            "oklch": "oklch(95.4% 0.017 264.5)",
+            "usage": "Info chip/badge soft fill."
+          },
+          "solid": {
+            "value": "#346CE2",
+            "ref": "primitives.blue.700",
+            "oklch": "oklch(56.1% 0.190 262.8)",
+            "usage": "Info chip/badge high-emphasis fill."
+          }
+        },
+        "text": {
+          "subtle": {
+            "value": "#1646B0",
+            "ref": "primitives.blue.800",
+            "oklch": "oklch(43.5% 0.177 262.9)",
+            "usage": "Info chip/badge text on soft fill.",
+            "contrast": {
+              "blue.100": "7.24:1 vs blue.100 [AAA]"
+            }
+          },
+          "solid": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Info chip/badge text on solid fill.",
+            "contrast": {
+              "blue.700": "4.78:1 vs blue.700 [AA]"
+            }
+          }
+        },
+        "border": {
+          "subtle": {
+            "value": "#BAD2FD",
+            "ref": "primitives.blue.300",
+            "oklch": "oklch(86.0% 0.066 262.1)",
+            "usage": "Info chip/badge soft-fill border (decorative)."
+          }
+        }
+      },
+      "neutral": {
+        "background": {
+          "subtle": {
+            "value": "#F0F0EF",
+            "ref": "primitives.neutral.100",
+            "oklch": "oklch(95.5% 0.001 106.4)",
+            "usage": "Neutral chip/badge soft fill."
+          },
+          "solid": {
+            "value": "#53514B",
+            "ref": "primitives.neutral.800",
+            "oklch": "oklch(43.5% 0.010 91.6)",
+            "usage": "Neutral chip/badge high-emphasis fill."
+          }
+        },
+        "text": {
+          "subtle": {
+            "value": "#53514B",
+            "ref": "primitives.neutral.800",
+            "oklch": "oklch(43.5% 0.010 91.6)",
+            "usage": "Neutral chip/badge text on soft fill.",
+            "contrast": {
+              "neutral.100": "6.96:1 vs neutral.100 [AA]"
+            }
+          },
+          "solid": {
+            "value": "#FFFFFF",
+            "ref": "literal white",
+            "usage": "Neutral chip/badge text on solid fill.",
+            "contrast": {
+              "neutral.800": "7.94:1 vs neutral.800 [AAA]"
+            }
+          }
+        },
+        "border": {
+          "subtle": {
+            "value": "#D2D1CE",
+            "ref": "primitives.neutral.300",
+            "oklch": "oklch(86.1% 0.004 91.5)",
+            "usage": "Neutral chip/badge soft-fill border (decorative)."
+          }
+        }
+      },
+      "disabled": {
+        "background": {
+          "value": "#F0F0EF",
+          "ref": "primitives.neutral.100",
+          "oklch": "oklch(95.5% 0.001 106.4)",
+          "usage": "Disabled chip/badge fill."
+        },
+        "text": {
+          "value": "#BDBCB8",
+          "ref": "primitives.neutral.400",
+          "oklch": "oklch(79.5% 0.006 95.1)",
+          "usage": "Disabled chip/badge text (exempt from minimums)."
+        },
+        "border": {
+          "value": "#E2E1E0",
+          "ref": "primitives.neutral.200",
+          "oklch": "oklch(91.0% 0.002 67.8)",
+          "usage": "Disabled chip/badge border (decorative, exempt)."
+        }
+      }
+    },
+    "tab": {
+      "text": {
+        "default": {
+          "value": "#707070",
+          "ref": "primitives.ink.700",
+          "oklch": "oklch(54.5% 0.000 89.9)",
+          "usage": "Inactive tab label.",
+          "contrast": {
+            "cream.50": "4.66:1 vs cream.50 [AA]"
+          }
+        },
+        "hover": {
+          "value": "#333333",
+          "ref": "primitives.ink.900",
+          "oklch": "oklch(32.1% 0.000 89.9)",
+          "usage": "Hover-state tab label."
+        },
+        "active": {
+          "value": "#1E1E1E",
+          "ref": "primitives.ink.950",
+          "oklch": "oklch(23.5% 0.000 89.9)",
+          "usage": "Active/selected tab label."
+        },
+        "disabled": {
+          "value": "#BDBCB8",
+          "ref": "primitives.neutral.400",
+          "oklch": "oklch(79.5% 0.006 95.1)",
+          "usage": "Disabled tab label (exempt)."
+        }
+      },
+      "indicator": {
+        "active": {
+          "value": "#896C00",
+          "ref": "primitives.gold.700",
+          "oklch": "oklch(54.4% 0.111 90.1)",
+          "usage": "Active tab underline/indicator bar.",
+          "contrast": {
+            "cream.50": "4.70:1 vs cream.50 [AA]"
+          },
+          "notes": "Meets the 3:1 non-text requirement for state indicators; gold.300/400/500 do not and should not be used here."
+        }
+      }
+    },
+    "separator": {
+      "default": {
+        "value": "#E2E1E0",
+        "ref": "primitives.neutral.200",
+        "oklch": "oklch(91.0% 0.002 67.8)",
+        "usage": "Standard divider on light surfaces (decorative, exempt from 3:1)."
+      },
+      "strong": {
+        "value": "#D2D1CE",
+        "ref": "primitives.neutral.300",
+        "oklch": "oklch(86.1% 0.004 91.5)",
+        "usage": "Higher-emphasis section divider on light surfaces."
+      },
+      "brand": {
+        "value": "#F7E0A2",
+        "ref": "primitives.gold.200",
+        "oklch": "oklch(91.1% 0.083 90.0)",
+        "usage": "Decorative brand-tinted divider (e.g. under a section heading)."
+      },
+      "inverse": {
+        "value": "#53514B",
+        "ref": "primitives.neutral.800",
+        "oklch": "oklch(43.5% 0.010 91.6)",
+        "usage": "Divider on dark (ink.950) surfaces (decorative)."
+      }
+    }
+  }
+}

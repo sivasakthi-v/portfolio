@@ -99,8 +99,7 @@
   /* ---------- hover glyph motion trail (hero + footer) ---------- */
   function initTrail() {
     if (reduce) return;
-    var zones = [].slice.call(document.querySelectorAll('.hero, .site-footer'));
-    if (!zones.length) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
     var layer = document.createElement('div');
     layer.className = 'trail-layer';
     layer.setAttribute('aria-hidden', 'true');
@@ -133,15 +132,14 @@
       anim.onfinish = function () { g.remove(); };
     }
     if (!('animate' in document.createElement('span'))) return;
-    zones.forEach(function (z) {
-      var dark = z.classList.contains('site-footer');
-      z.addEventListener('pointermove', function (e) {
-        var now = performance.now();
-        if (now - last < 55) return;
-        last = now;
-        spawn(e.clientX, e.clientY, dark);
-      });
-    });
+    document.addEventListener('pointermove', function (e) {
+      var now = performance.now();
+      if (now - last < 70) return;
+      last = now;
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var dark = !!(el && el.closest && el.closest('.site-footer, .cs-section.dark, .nav-pill.open, .cs-cover.dark, .pop, .tpop'));
+      spawn(e.clientX, e.clientY, dark);
+    }, { passive: true });
   }
 
   /* ---------- reading progress bar ---------- */
@@ -445,6 +443,67 @@
     }
   }
 
+  /* ---------- auto marquee (seamless loop, pause on hover) ---------- */
+  function initMarquee() {
+    document.querySelectorAll('.marquee').forEach(function (m) {
+      var track = m.querySelector('.marquee-track');
+      if (!track || track.dataset.cloned) return;
+      var kids = [].slice.call(track.children);
+      kids.forEach(function (k) {
+        var c = k.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.tabIndex = -1;
+        track.appendChild(c);
+      });
+      track.dataset.cloned = '1';
+    });
+  }
+
+  /* ---------- testimonials flip popup ---------- */
+  function initTestimonials() {
+    var pop = document.getElementById('tpop');
+    if (!pop) return;
+    var card = pop.querySelector('.tpop-card');
+    var closeBtn = pop.querySelector('.pop-close');
+    var lastFocus = null;
+    var fill = function (d) {
+      card.querySelector('.tpop-quote').textContent = '“' + d.quote + '”';
+      card.querySelector('.tpop-name').textContent = d.name;
+      card.querySelector('.tpop-role').textContent = d.role + ' · ' + d.company;
+      card.querySelector('.tpop-year').textContent = d.year;
+      var initials = d.name.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+      card.querySelector('.tpop-avatar').textContent = initials;
+    };
+    var open = function (d) {
+      fill(d);
+      pop.classList.add('open');
+      pop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lastFocus = document.activeElement;
+      closeBtn.focus();
+    };
+    var close = function () {
+      pop.classList.remove('open');
+      pop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    };
+    document.querySelectorAll('.tcard').forEach(function (c) {
+      var fire = function () {
+        open({
+          quote: c.getAttribute('data-quote'), name: c.getAttribute('data-name'),
+          role: c.getAttribute('data-role'), company: c.getAttribute('data-company'),
+          year: c.getAttribute('data-year')
+        });
+      };
+      c.addEventListener('click', fire);
+      c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); } });
+    });
+    closeBtn.addEventListener('click', close);
+    pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pop.classList.contains('open')) close(); });
+  }
+
   /* ---------- offset (fanned) sticky-stack cards ---------- */
   function initStickyCards() {
     if (window.matchMedia('(max-width: 760px)').matches) return;
@@ -539,6 +598,8 @@
     initToc();
     initStickyCards();
     initBlogFab();
+    initMarquee();
+    initTestimonials();
     initTrail();
     initDither();
     initLucide();
