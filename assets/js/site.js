@@ -307,9 +307,11 @@
     var lastFocus = null;
     var free = window.matchMedia('(min-width: 761px)').matches;
 
-    // initial desktop layout: an evenly-spaced horizontal row, 40px from the stage top
+    // initial desktop layout: an evenly-spaced horizontal row below the fixed hero
     if (free) {
-      var pad = 40, topY = 40;
+      var heroEl = canvas.querySelector('.pg-hero');
+      var pad = 40;
+      var topY = heroEl ? heroEl.offsetTop + heroEl.offsetHeight + 40 : 40;
       var cw = canvas.clientWidth;
       var widths = stickers.map(function (s) { return s.offsetWidth; });
       var totalW = widths.reduce(function (a, b) { return a + b; }, 0);
@@ -563,6 +565,98 @@
     onScroll();
   }
 
+  /* ---------- hero image: B/W ordered-dither, hover to colour ---------- */
+  function initHeroImage() {
+    var wrap = document.querySelector('.hero-img');
+    if (!wrap) return;
+    var img = wrap.querySelector('img');
+    var canvas = wrap.querySelector('canvas');
+    if (!img || !canvas) return;
+    var ctx = canvas.getContext('2d');
+    var bayer = [[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]];
+    function render() {
+      var w = wrap.clientWidth, h = wrap.clientHeight;
+      if (!w || !h || !img.naturalWidth) return;
+      var cap = 1100;
+      var scale = Math.min(1, cap / Math.max(w, h));
+      var cw = Math.max(1, Math.round(w * scale)), ch = Math.max(1, Math.round(h * scale));
+      canvas.width = cw; canvas.height = ch;
+      var ir = img.naturalWidth / img.naturalHeight, cr = cw / ch, dw, dh, dx, dy;
+      if (ir > cr) { dh = ch; dw = ch * ir; dx = (cw - dw) / 2; dy = 0; }
+      else { dw = cw; dh = cw / ir; dx = 0; dy = (ch - dh) / 2; }
+      try {
+        ctx.drawImage(img, dx, dy, dw, dh);
+        var id = ctx.getImageData(0, 0, cw, ch), d = id.data;
+        for (var y = 0; y < ch; y++) {
+          for (var x = 0; x < cw; x++) {
+            var i = (y * cw + x) * 4;
+            var g = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+            var t = (bayer[y & 3][x & 3] + 0.5) / 16 * 255;
+            if (g > t) { d[i] = 252; d[i + 1] = 248; d[i + 2] = 236; }
+            else { d[i] = 30; d[i + 1] = 30; d[i + 2] = 30; }
+          }
+        }
+        ctx.putImageData(id, 0, 0);
+      } catch (e) { /* tainted canvas — leave blank, colour img shows */ }
+    }
+    var t;
+    var onResize = function () { clearTimeout(t); t = setTimeout(render, 180); };
+    if (img.complete && img.naturalWidth) render(); else img.addEventListener('load', render);
+    window.addEventListener('resize', onResize);
+  }
+
+  /* ---------- bucket-list to-do toggles ---------- */
+  function initBucket() {
+    document.querySelectorAll('.todo-item').forEach(function (li) {
+      var toggle = function () {
+        var done = !li.classList.contains('done');
+        li.classList.toggle('done', done);
+        li.setAttribute('aria-checked', done ? 'true' : 'false');
+      };
+      li.addEventListener('click', toggle);
+      li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    });
+  }
+
+  /* ---------- generic flip popup (tools + out-of-work images) ---------- */
+  function initDetailPop() {
+    var pop = document.getElementById('dpop');
+    if (!pop) return;
+    var titleEl = pop.querySelector('.dpop-title');
+    var subEl = pop.querySelector('.dpop-sub');
+    var bodyEl = pop.querySelector('.dpop-body');
+    var glyphEl = pop.querySelector('.dpop-glyph');
+    var closeBtn = pop.querySelector('.pop-close');
+    var lastFocus = null;
+    var open = function (d) {
+      titleEl.textContent = d.title || '';
+      subEl.textContent = d.sub || '';
+      bodyEl.textContent = d.body || '';
+      if (glyphEl) glyphEl.textContent = d.glyph || (d.title ? d.title.slice(0, 2) : '');
+      pop.classList.add('open');
+      pop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lastFocus = document.activeElement;
+      closeBtn.focus();
+    };
+    var close = function () {
+      pop.classList.remove('open');
+      pop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    };
+    document.querySelectorAll('[data-flip]').forEach(function (c) {
+      var fire = function () {
+        open({ title: c.getAttribute('data-title'), sub: c.getAttribute('data-sub'), body: c.getAttribute('data-body'), glyph: c.getAttribute('data-glyph') });
+      };
+      c.addEventListener('click', fire);
+      c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); } });
+    });
+    closeBtn.addEventListener('click', close);
+    pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pop.classList.contains('open')) close(); });
+  }
+
   /* ---------- site-wide dither overlay ---------- */
   function initDither() {
     if (document.querySelector('.dither-overlay')) return;
@@ -600,6 +694,9 @@
     initBlogFab();
     initMarquee();
     initTestimonials();
+    initDetailPop();
+    initBucket();
+    initHeroImage();
     initTrail();
     initDither();
     initLucide();

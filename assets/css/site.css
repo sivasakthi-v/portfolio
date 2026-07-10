@@ -826,7 +826,7 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
   .nav-pill .nav-links a:hover { background: var(--paper-2); }
   .nav-pill .nav-links a::before { display: none !important; }
   .nav-pill .nav-links .hide-sm { display: block; }
-  .nav-pill .nav-cta { justify-content: center; border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .nav-pill .nav-cta { justify-content: center; border-color: var(--ink); background: var(--gold); color: var(--ink); }
 }
 
 /* ============================================================
@@ -957,12 +957,12 @@ body { background: transparent; }
 /* ============================================================
    NAV — Get in touch button (fixed hover + always visible)
    ============================================================ */
-.nav-cta {
-  padding: 9px 16px; border: 1px solid var(--ink); border-radius: 4px;
-  background: var(--ink); color: var(--paper); font-weight: 600;
+.nav-links .nav-cta {
+  padding: 9px 16px; border: 1.5px solid var(--ink); border-radius: 4px;
+  background: var(--gold); color: var(--ink); font-weight: 600;
   transition: background .2s, border-color .2s, color .2s;
 }
-.nav-cta:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.nav-links .nav-cta:hover { background: var(--ink); border-color: var(--ink); color: #FFFFFF; }
 .nav-cta::before, .nav-cta::after { display: none !important; }
 
 /* ============================================================
@@ -985,21 +985,29 @@ body { background: transparent; }
 /* ============================================================
    PLAYGROUND v2 — padded stage (drag on desktop, click on mobile)
    ============================================================ */
-.pg-stage {
-  position: relative; margin-top: clamp(24px, 4vw, 44px);
-  min-height: 560px; overflow: hidden;
-  border: 1px solid var(--line); border-radius: 4px;
+body.pg { overflow: hidden; }
+.pg-canvas {
+  position: fixed; inset: 0; z-index: 0; overflow: hidden;
   background-color: #FFFFFF;
   background-image: radial-gradient(var(--line-2) 1.1px, transparent 1.1px);
   background-size: 26px 26px; background-position: -13px -13px;
 }
-.pg-stage .canvas-hint { position: absolute; top: 16px; left: 20px; }
-.pg-stage .sticker { position: absolute; }
+.pg-canvas .pg-hero {
+  position: absolute; top: clamp(88px, 13vh, 156px); left: var(--pad-x); right: var(--pad-x);
+  max-width: min(640px, 66vw); z-index: 1; pointer-events: none;
+}
+.pg-canvas .pg-hero > * { pointer-events: auto; }
+.pg-canvas .canvas-hint { position: absolute; right: var(--pad-x); bottom: 18px; z-index: 1; }
+.pg-canvas .pg-foot { position: absolute; left: var(--pad-x); bottom: 18px; z-index: 1; font-size: var(--fs-small); color: var(--faint); }
+.pg-canvas .sticker { position: absolute; z-index: 3; }
 @media (max-width: 760px) {
-  .pg-stage { min-height: 0; display: flex; flex-direction: column; gap: 16px; padding: 16px; }
-  .pg-stage .canvas-hint { position: static; margin-bottom: 4px; }
-  .pg-stage .sticker { position: static !important; width: 100%; left: auto !important; top: auto !important; cursor: pointer; touch-action: auto; }
-  .pg-stage .sticker:hover { transform: none; }
+  body.pg { overflow: auto; }
+  .pg-canvas { position: static; min-height: 100svh; overflow: visible; padding: 92px var(--pad-x) 40px; display: block; }
+  .pg-canvas .pg-hero { position: static; max-width: none; margin-bottom: 20px; pointer-events: auto; }
+  .pg-canvas .canvas-hint { position: static; display: inline-block; margin-bottom: 14px; }
+  .pg-canvas .pg-foot { position: static; margin-top: 28px; }
+  .pg-canvas .sticker { position: static !important; width: 100%; left: auto !important; top: auto !important; margin-bottom: 16px; cursor: pointer; touch-action: auto; }
+  .pg-canvas .sticker:hover { transform: none; }
 }
 
 /* ============================================================
@@ -1128,7 +1136,9 @@ body { background: transparent; }
 /* ============================================================
    FULL-WIDTH PROJECT COVER (below overview)
    ============================================================ */
-.cs-cover-full { margin: clamp(30px, 5vw, 56px) 0; }
+.cs-cover-full { margin: 0 0 clamp(24px, 4vw, 44px); }
+.cs-cover-full .band { border-top: none; }
+main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { padding-top: clamp(28px, 4vw, 48px); }
 .cs-cover-full .band {
   position: relative; aspect-ratio: 3 / 1; width: 100%; overflow: hidden;
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
@@ -1140,6 +1150,66 @@ body { background: transparent; }
 .cs-cover-full .cover-label { position: absolute; left: clamp(20px,5vw,72px); bottom: 16px; font-size: var(--fs-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .cs-cover-full.dark .cover-label { color: rgba(255,255,255,.5); }
 @media (max-width: 600px) { .cs-cover-full .band { aspect-ratio: 2 / 1; } }
+
+/* ============================================================
+   DESIGN TOOLS — stacked-grid flip cards
+   ============================================================ */
+.tool-stack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tool-flip { text-align: left; cursor: pointer; background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; padding: 22px 18px; display: grid; gap: 12px; align-content: start; min-height: 152px; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .2s; }
+.tool-flip:hover { transform: translateY(-4px) rotate(-0.4deg); border-color: var(--line-2); box-shadow: 0 18px 40px -22px rgba(30,30,30,.3); }
+.tool-flip .ic { width: 44px; height: 44px; border-radius: 4px; background: var(--paper-2); display: grid; place-items: center; }
+.tool-flip .ic svg { width: 22px; height: 22px; color: var(--accent-2); }
+.tool-flip h3 { font-size: var(--fs-body); }
+.tool-flip p { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+@media (max-width: 900px) { .tool-stack { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .tool-stack { grid-template-columns: 1fr; } }
+
+/* detail flip popup (tools + out-of-work) */
+.dpop { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: clamp(20px, 5vw, 56px); background: rgba(30,30,30,.6); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.dpop.open { opacity: 1; pointer-events: auto; }
+.dpop-card { position: relative; width: min(460px, 100%); background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 40px 100px -34px rgba(30,30,30,.5); padding: 32px; transform: perspective(1300px) rotateY(-92deg); opacity: 0; }
+.dpop.open .dpop-card { animation: flipIn .6s var(--ease) both; }
+.dpop-glyph { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 4px; background: var(--gold); font-family: var(--f-display); font-size: 1.25rem; color: var(--ink); margin-bottom: 18px; }
+.dpop-title { font-family: var(--f-display); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--ink); line-height: 1.05; }
+.dpop-sub { font-size: var(--fs-small); color: var(--accent-2); margin-top: 6px; text-transform: uppercase; letter-spacing: .08em; }
+.dpop-body { font-size: var(--fs-body); color: var(--ink-2); line-height: 1.6; margin-top: 18px; }
+
+/* bucket-list to-do canvas */
+.todo-canvas { background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; padding: clamp(24px, 3vw, 36px); max-width: 580px; position: relative; background-image: radial-gradient(var(--line) 1px, transparent 1px); background-size: 22px 22px; }
+.todo-title { font-family: 'Caveat', var(--f-display), cursive; font-size: 2rem; color: var(--ink); margin-bottom: 16px; }
+.todo-list { display: grid; gap: 10px; }
+.todo-item { display: flex; align-items: flex-start; gap: 13px; cursor: pointer; padding: 7px 8px; border-radius: 4px; transition: background .18s; }
+.todo-item:hover { background: var(--paper-2); }
+.todo-check { width: 22px; height: 22px; border: 2px solid var(--ink); border-radius: 4px; flex-shrink: 0; display: grid; place-items: center; margin-top: 3px; transition: background .2s, border-color .2s; }
+.todo-check svg { width: 14px; height: 14px; color: #FFFFFF; opacity: 0; transition: opacity .2s; }
+.todo-item.done .todo-check { background: var(--accent-2); border-color: var(--accent-2); }
+.todo-item.done .todo-check svg { opacity: 1; }
+.todo-text { font-family: 'Caveat', var(--f-display), cursive; font-size: 1.55rem; line-height: 1.25; color: var(--ink-2); position: relative; transition: color .2s; }
+.todo-text::after { content: ''; position: absolute; left: 0; right: 0; top: 52%; height: 2px; background: var(--accent-2); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+.todo-item.done .todo-text { color: var(--faint); }
+.todo-item.done .todo-text::after { transform: scaleX(1); }
+
+/* extra section breathing room */
+.roomy { padding-block: clamp(84px, 11vw, 150px); }
+
+/* ============================================================
+   HERO IMAGE — full-bleed B/W dither, hover to colour
+   ============================================================ */
+.hero { position: relative; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-img canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+  image-rendering: pixelated; opacity: 1; transition: opacity .7s var(--ease);
+}
+.hero:hover .hero-img canvas { opacity: 0.06; }
+.hero-scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(100deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 88%, transparent) 32%, color-mix(in srgb, var(--paper) 34%, transparent) 64%, transparent 100%),
+    linear-gradient(0deg, color-mix(in srgb, var(--paper) 74%, transparent), transparent 42%);
+}
+.hero .hero-main, .hero .hero-foot { position: relative; z-index: 2; }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {

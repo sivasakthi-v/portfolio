@@ -49,6 +49,11 @@
 
     <!-- HERO -->
     <section class="hero wrap" aria-label="Introduction">
+      <div class="hero-img" aria-hidden="true">
+        <img src="assets/media/landing-page/hero.png" alt="" loading="eager" fetchpriority="high" />
+        <canvas></canvas>
+      </div>
+      <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-main">
         <p class="hero-kicker">
           <span>UI/UX &amp; Product Designer</span>
@@ -137,7 +142,7 @@
     </section>
 
     <!-- ABOUT TEASER -->
-    <section id="about" class="about" aria-label="About">
+    <section id="about" class="about roomy" aria-label="About">
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-index">02 / About</span>
@@ -145,8 +150,8 @@
         </div>
         <div class="about-teaser">
           <div class="about-lead">
-            <p style="font-size:var(--fs-lead);color:var(--ink-2)"><strong>Vanakkam!</strong> I'm Siva, a UI/UX and product designer with 3+ years across fintech, e-commerce, healthcare, travel, and a few AI products. I've shipped 10+ of them, and I'm happiest turning something tangled into something obvious.</p>
-            <p style="margin-top:16px;color:var(--muted)">Curious, a little chaotic, and usually mid-thought. Tea in hand, doodling on any spare surface.</p>
+            <p style="font-size:var(--fs-lead);color:var(--ink-2)"><strong>Vanakkam!</strong> I'm Siva, a Visual and Experience Designer in Chennai, working at the intersection of UI, UX, and product thinking. Across 3+ years and 10+ products, I've shaped messy ideas, business constraints, and user needs into experiences that feel simple, intentional, and refined.</p>
+            <p style="margin-top:16px;color:var(--muted)">Curious by default, tea in hand, and happiest when a hard problem finally clicks into something clear.</p>
           </div>
           <div class="coming-actions" style="justify-content:flex-start">
             <a class="btn solid" href="about.html">More about me <i data-lucide="arrow-right"></i></a>
@@ -157,7 +162,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="words" class="cs-section" aria-label="Kind words">
+    <section id="words" class="cs-section roomy" aria-label="Kind words">
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-index">03 / Kind words</span>
@@ -182,34 +187,34 @@
     </section>
 
     <!-- OUT OF WORK -->
-    <section id="offwork" class="cs-section alt" aria-label="Out of work">
+    <section id="offwork" class="cs-section alt roomy" aria-label="Out of work">
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-index">04 / Out of work</span>
-          <h2>What I'm into when I'm not designing.</h2>
+          <h2>What keeps me curious off the clock.</h2>
         </div>
         <div class="cs-prose reveal" style="max-width:var(--measure)">
-          <p>Outside the work, I'm usually chasing something visual or cosmic. I shoot "so-called" professional photos, doodle on any surface that holds ink, and fall down rabbit holes about films and the universe.</p>
+          <p>Away from the screen, I'm usually chasing something visual or cosmic: systems and mental models, surreal graphic design, cinema, photography, and a good rabbit hole about the universe.</p>
         </div>
         <ul class="oow-points reveal d1">
-          <li><i data-lucide="camera"></i><span>Photography and street shots</span></li>
-          <li><i data-lucide="pencil"></i><span>Doodling and a soft spot for print media</span></li>
-          <li><i data-lucide="orbit"></i><span>Cosmos, cinema, and matrix-simulation rabbit holes</span></li>
+          <li><i data-lucide="orbit"></i><span>Systems, mental models, and the psychology behind UX</span></li>
+          <li><i data-lucide="sparkles"></i><span>Surrealism in graphic design and print media</span></li>
+          <li><i data-lucide="clapperboard"></i><span>Cinema and photography, on and off the screen</span></li>
           <li><i data-lucide="shapes"></i><span>Side projects like Magic To Do, Orbit, and Flow</span></li>
         </ul>
       </div>
       <div class="marquee rev">
         <div class="marquee-track">
-          <div class="oow-img r1"><span class="ph-mono">01</span></div>
-          <div class="oow-img r2"><span class="ph-mono">02</span></div>
-          <div class="oow-img r3"><span class="ph-mono">03</span></div>
-          <div class="oow-img r4"><span class="ph-mono">04</span></div>
-          <div class="oow-img r5"><span class="ph-mono">05</span></div>
-          <div class="oow-img r2"><span class="ph-mono">06</span></div>
-          <div class="oow-img r3"><span class="ph-mono">07</span></div>
-          <div class="oow-img r1"><span class="ph-mono">08</span></div>
-          <div class="oow-img r4"><span class="ph-mono">09</span></div>
-          <div class="oow-img r5"><span class="ph-mono">10</span></div>
+          <button class="oow-img r1" data-flip data-title="Frame 01" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">01</span></button>
+          <button class="oow-img r2" data-flip data-title="Frame 02" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">02</span></button>
+          <button class="oow-img r3" data-flip data-title="Frame 03" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">03</span></button>
+          <button class="oow-img r4" data-flip data-title="Frame 04" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">04</span></button>
+          <button class="oow-img r5" data-flip data-title="Frame 05" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">05</span></button>
+          <button class="oow-img r2" data-flip data-title="Frame 06" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">06</span></button>
+          <button class="oow-img r3" data-flip data-title="Frame 07" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">07</span></button>
+          <button class="oow-img r1" data-flip data-title="Frame 08" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">08</span></button>
+          <button class="oow-img r4" data-flip data-title="Frame 09" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">09</span></button>
+          <button class="oow-img r5" data-flip data-title="Frame 10" data-sub="Placeholder" data-body="A slot for my out-of-work photos and graphic explorations. Real ones coming soon."><span class="ph-mono">10</span></button>
         </div>
       </div>
     </section>
@@ -226,6 +231,17 @@
         <span class="tpop-meta"><span class="tpop-name"></span><span class="tpop-role"></span></span>
         <span class="tpop-year"></span>
       </div>
+    </article>
+  </div>
+
+  <!-- DETAIL POPUP (out-of-work) -->
+  <div class="dpop" id="dpop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Details">
+    <button class="pop-close" aria-label="Close"><i data-lucide="x"></i></button>
+    <article class="dpop-card">
+      <span class="dpop-glyph"></span>
+      <h2 class="dpop-title"></h2>
+      <p class="dpop-sub"></p>
+      <p class="dpop-body"></p>
     </article>
   </div>
 
