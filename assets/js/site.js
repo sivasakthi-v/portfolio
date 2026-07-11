@@ -341,33 +341,38 @@
 
     stickers.forEach(function (s) {
       var sx, sy, ox, oy, moved = false, dragging = false;
+      // Desktop only: pointer events drive dragging. On mobile we do nothing here and
+      // let the native `click` below open the popup (reliable, and auto-suppressed after a scroll).
       s.addEventListener('pointerdown', function (e) {
+        if (!free) return;
         dragging = true; moved = false;
-        if (free) { try { s.setPointerCapture(e.pointerId); } catch (_) {} }
+        try { s.setPointerCapture(e.pointerId); } catch (_) {}
         sx = e.clientX; sy = e.clientY;
         ox = parseFloat(s.style.left) || 0; oy = parseFloat(s.style.top) || 0;
-        if (free) s.classList.add('dragging');
+        s.classList.add('dragging');
       });
       s.addEventListener('pointermove', function (e) {
         if (!dragging) return;
         var dx = e.clientX - sx, dy = e.clientY - sy;
         if (Math.abs(dx) > 5 || Math.abs(dy) > 5) moved = true;
-        if (canvas.classList.contains('free')) {
-          var cw = canvas.clientWidth, ch = canvas.clientHeight, sw = s.offsetWidth, sh = s.offsetHeight;
-          s.style.left = Math.max(0, Math.min(cw - sw, ox + dx)) + 'px';
-          s.style.top = Math.max(0, Math.min(ch - sh, oy + dy)) + 'px';
-        }
+        var cw = canvas.clientWidth, ch = canvas.clientHeight, sw = s.offsetWidth, sh = s.offsetHeight;
+        s.style.left = Math.max(0, Math.min(cw - sw, ox + dx)) + 'px';
+        s.style.top = Math.max(0, Math.min(ch - sh, oy + dy)) + 'px';
       });
-      var end = function (e, allowOpen) {
+      var endDrag = function (e) {
         if (!dragging) return;
         dragging = false;
         s.classList.remove('dragging');
         try { s.releasePointerCapture(e.pointerId); } catch (_) {}
-        if (allowOpen && !moved) openPop(s.getAttribute('data-app'));
       };
-      s.addEventListener('pointerup', function (e) { end(e, true); });
-      // pointercancel fires when a touch turns into a page scroll — reset, never treat as a tap
-      s.addEventListener('pointercancel', function (e) { end(e, false); });
+      s.addEventListener('pointerup', endDrag);
+      s.addEventListener('pointercancel', endDrag);
+      // Native click: fires on a genuine tap/click, never after a scroll. Skip the click the
+      // browser synthesizes at the end of a desktop drag.
+      s.addEventListener('click', function () {
+        if (moved) { moved = false; return; }
+        openPop(s.getAttribute('data-app'));
+      });
       s.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPop(s.getAttribute('data-app')); }
       });
@@ -644,6 +649,20 @@
     });
   }
 
+  /* ---------- about portrait: 3D flip on click/keyboard ---------- */
+  function initPortraitFlip() {
+    document.querySelectorAll('.portrait-flip').forEach(function (card) {
+      var toggle = function () {
+        var flipped = card.classList.toggle('flipped');
+        card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+      };
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+  }
+
   /* ---------- generic flip popup (tools + out-of-work images) ---------- */
   function initDetailPop() {
     var pop = document.getElementById('dpop');
@@ -726,6 +745,7 @@
     initMarquee();
     initTestimonials();
     initDetailPop();
+    initPortraitFlip();
     initBucket();
     initDitherCovers();
     initTrail();

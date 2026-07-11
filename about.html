@@ -47,19 +47,30 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="cs-hero wrap has-cover">
-      <div class="hero-img dcover" aria-hidden="true">
-        <img src="assets/media/page-covers/about-page-cover.webp" alt="" loading="eager" fetchpriority="high" />
-        <canvas></canvas>
-      </div>
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="page-hero-inner">
-        <p class="vanakkam">Vanakkam! 🙏 &nbsp;·&nbsp; 3+ years in &nbsp;·&nbsp; 10+ products shipped</p>
-        <h1 class="cs-title">I'm Siva, a Visual &amp; Experience <span class="ital">Designer</span> in Chennai.</h1>
-        <p class="cs-sub">I work at the intersection of UI, UX, and product thinking. I love taking messy product ideas, business constraints, and user needs, then shaping them into experiences that feel simple, intentional, and visually refined.</p>
-        <div class="coming-actions" style="justify-content:flex-start;margin-top:26px">
-          <a class="btn solid" href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Download resume <i data-lucide="download"></i></a>
-          <a class="btn" href="mailto:sivavenkat372@gmail.com">Say hello <i data-lucide="arrow-up-right"></i></a>
+    <section class="cs-hero wrap about-hero">
+      <div class="about-hero-grid">
+        <div class="about-hero-text reveal">
+          <p class="vanakkam">Vanakkam! 🙏 &nbsp;·&nbsp; 3+ years in &nbsp;·&nbsp; 10+ products shipped</p>
+          <h1 class="cs-title">I'm Siva, a Visual &amp; Experience <span class="ital">Designer</span> in Chennai.</h1>
+          <p class="cs-sub">I work at the intersection of UI, UX, and product thinking. I love taking messy product ideas, business constraints, and user needs, then shaping them into experiences that feel simple, intentional, and visually refined.</p>
+          <div class="coming-actions" style="justify-content:flex-start;margin-top:26px">
+            <a class="btn solid" href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Resume <i data-lucide="arrow-up-right"></i></a>
+            <a class="btn" href="mailto:sivavenkat372@gmail.com">Say hello <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </div>
+        <div class="portrait-flip reveal d1" tabindex="0" role="button" aria-label="Flip my portrait card" aria-pressed="false">
+          <div class="portrait-flip-inner">
+            <div class="portrait-face portrait-front">
+              <img src="assets/media/about-page/about-page-portrait.webp" alt="Portrait of Siva Sakthi V" loading="eager" />
+              <span class="pf-tap"><i data-lucide="rotate-3d"></i> Tap to flip</span>
+            </div>
+            <div class="portrait-face portrait-back">
+              <img class="pf-logo" src="assets/media/logo/top-nav-logo.webp" alt="" />
+              <h2 class="pf-name">Siva Sakthi V</h2>
+              <p class="pf-line">Designer by trade, systems-thinker by instinct, and a very committed tea drinker.</p>
+              <span class="pf-role">Visual &amp; Experience Designer · Chennai</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -83,14 +94,20 @@
           <span class="eyebrow">The Story</span>
           <h2>Systems first, then the canvas.</h2>
         </div>
-        <div class="cs-prose reveal d1">
-          <p>Over the last 3+ years I've worked across fintech, healthcare, e-commerce, travel, and AI products, contributing to everything from user flows and interfaces to documentation, design systems, and product thinking.</p>
-          <p>I believe the most powerful thing a designer can do is match UX vocabulary with real-world user mental models. So I try to understand the systems, the mental models, and the real data before I ever touch the canvas. Away from the screen, I'm usually chasing surrealism in graphic design and following a good rabbit hole about cinema or the cosmos.</p>
-          <p>I've also vibe-coded a few things of my own: a Figma to-do plugin (live), a local personal journal, and a productivity app. All small. All mine. All satisfying.</p>
-        </div>
-        <div class="callout reveal" style="margin-top:28px">
-          <div class="c-label">Current obsession</div>
-          <p style="color:var(--ink-2)">Understanding systems, mental models, and real data before touching the canvas, and chasing surrealism in graphic design.</p>
+        <div class="about-story-grid">
+          <div class="cs-prose reveal d1">
+            <p>Over the last 3+ years I've worked across fintech, healthcare, e-commerce, travel, and AI products, contributing to everything from user flows and interfaces to documentation, design systems, and product thinking.</p>
+            <p>I believe the most powerful thing a designer can do is match UX vocabulary with real-world user mental models. So I try to understand the systems, the mental models, and the real data before I ever touch the canvas. Away from the screen, I'm usually chasing surrealism in graphic design and following a good rabbit hole about cinema or the cosmos.</p>
+            <p>I've also vibe-coded a few things of my own: a Figma to-do plugin (live), a local personal journal, and a productivity app. All small. All mine. All satisfying.</p>
+          </div>
+          <aside class="about-snapshot reveal d2" aria-label="At a glance">
+            <span class="snap-title">At a glance</span>
+            <div class="snap-row"><span class="snap-k">Based in</span><span class="snap-v">Chennai, India</span></div>
+            <div class="snap-row"><span class="snap-k">Focus</span><span class="snap-v">UI · UX · Product</span></div>
+            <div class="snap-row"><span class="snap-k">Domains</span><span class="snap-v">Fintech · Travel · AI · Health · Commerce</span></div>
+            <div class="snap-row"><span class="snap-k">Currently into</span><span class="snap-v">Systems, mental models &amp; the psychology behind good UX</span></div>
+            <div class="snap-row"><span class="snap-k">Off the clock</span><span class="snap-v">Surreal graphics, cinema, the cosmos</span></div>
+          </aside>
         </div>
       </div>
     </section>
@@ -157,7 +174,7 @@
           <span class="eyebrow">Beyond the Screen</span>
           <h2>What keeps me curious.</h2>
         </div>
-        <ul class="quirks reveal d1" style="max-width:var(--measure)">
+        <ul class="quirks reveal d1">
           <li><i data-lucide="orbit"></i><span>Systems, mental models, and the psychology behind good UX</span></li>
           <li><i data-lucide="sparkles"></i><span>Surrealism in graphic design and print media</span></li>
           <li><i data-lucide="clapperboard"></i><span>Cinema, both the magic on screen and the craft behind it</span></li>
@@ -189,15 +206,16 @@
     </section>
 
     <!-- CTA -->
-    <section class="cs-section dark">
+    <section class="cs-section about-cta-section">
       <div class="wrap">
-        <div class="pull reveal">
-          <blockquote>"Fun to collaborate with, always excited to learn from smart people, and build products that are simple, useful, and thoughtfully crafted from scratch."</blockquote>
-          <cite>— Open to interesting problems and good teams</cite>
-        </div>
-        <div class="coming-actions" style="margin-top:36px">
-          <a class="btn solid" href="projects.html">See my work <i data-lucide="arrow-right"></i></a>
-          <a class="btn" href="mailto:sivavenkat372@gmail.com">Get in touch <i data-lucide="arrow-up-right"></i></a>
+        <div class="about-cta reveal">
+          <span class="about-cta-mark"><i data-lucide="quote"></i></span>
+          <blockquote>Fun to collaborate with, always excited to learn from smart people, and build products that are simple, useful, and thoughtfully crafted from scratch.</blockquote>
+          <cite>Open to interesting problems and good teams</cite>
+          <div class="about-cta-actions">
+            <a class="btn solid" href="projects.html">See my work <i data-lucide="arrow-right"></i></a>
+            <a class="btn ghost-dark" href="mailto:sivavenkat372@gmail.com">Get in touch <i data-lucide="arrow-up-right"></i></a>
+          </div>
         </div>
       </div>
     </section>
