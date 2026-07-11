@@ -192,8 +192,9 @@ em { font-style: italic; }
    ============================================================ */
 
 /* HERO */
-/* full-viewport presentation hero: fills the whole screen on desktop and mobile (object-fit: cover) */
-.hero { min-height: 100svh; display: grid; grid-template-rows: 1fr auto; padding-top: 96px; }
+/* full-viewport presentation hero: the SECTION is full-bleed; text lives in an inner wrap */
+.hero { min-height: 100svh; padding: 0; }
+.hero-inner { position: relative; z-index: 2; max-width: var(--max); margin-inline: auto; padding: 96px var(--pad-x) clamp(28px, 4vh, 52px); min-height: 100svh; display: grid; grid-template-rows: 1fr auto; }
 .hero-main { align-self: center; }
 .hero-kicker {
   font-size: var(--fs-label); letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
@@ -1267,10 +1268,12 @@ main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { paddin
    ============================================================ */
 @property --spot { syntax: '<length>'; inherits: false; initial-value: 0px; }
 .hero, .cs-hero.has-cover { position: relative; overflow: hidden; }
-.cs-hero.has-cover { min-height: 100svh; display: flex; align-items: center; }
-.cs-hero.has-cover .page-hero-inner { position: relative; z-index: 2; width: 100%; max-width: 47rem; }
-/* full-bleed dithered cover: break out of the centered wrap to the full viewport, flush to top */
-.hero-img { position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); z-index: 0; overflow: hidden; }
+/* the page cover hero: full-bleed section, content centred in an inner wrap */
+.cs-hero.has-cover { min-height: 100svh; padding: 0; }
+.cs-hero.has-cover .page-hero-inner { position: relative; z-index: 2; max-width: var(--max); margin-inline: auto; width: 100%; padding: clamp(120px, 16vw, 184px) var(--pad-x) clamp(40px, 6vw, 72px); min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+.cs-hero.has-cover .page-hero-inner > * { max-width: 47rem; }
+/* full-bleed image: fills the full-width hero section (no max-width clipping) */
+.hero-img { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .dcover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 /* the mono dither sits on top; a mouse-tracked radial hole reveals the colour photo beneath */
 .dcover canvas {
