@@ -358,15 +358,16 @@
           s.style.top = Math.max(0, Math.min(ch - sh, oy + dy)) + 'px';
         }
       });
-      var end = function (e) {
+      var end = function (e, allowOpen) {
         if (!dragging) return;
         dragging = false;
         s.classList.remove('dragging');
         try { s.releasePointerCapture(e.pointerId); } catch (_) {}
-        if (!moved) openPop(s.getAttribute('data-app'));
+        if (allowOpen && !moved) openPop(s.getAttribute('data-app'));
       };
-      s.addEventListener('pointerup', end);
-      s.addEventListener('pointercancel', end);
+      s.addEventListener('pointerup', function (e) { end(e, true); });
+      // pointercancel fires when a touch turns into a page scroll — reset, never treat as a tap
+      s.addEventListener('pointercancel', function (e) { end(e, false); });
       s.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPop(s.getAttribute('data-app')); }
       });

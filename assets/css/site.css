@@ -1196,7 +1196,8 @@ main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { paddin
    HERO IMAGE — full-bleed B/W dither, hover to colour
    ============================================================ */
 .hero { position: relative; overflow: hidden; }
-.hero-img { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+/* full-bleed: break out of the centered .wrap to the full viewport, flush to top */
+.hero-img { position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); z-index: 0; overflow: hidden; }
 .hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-img canvas {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
