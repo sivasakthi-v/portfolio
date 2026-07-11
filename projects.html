@@ -6,7 +6,7 @@
   <title>Projects, Siva Sakthi V</title>
   <meta name="description" content="Selected product design work by Siva Sakthi V, travel, fintech, mobility, AI tooling and multi-product commerce." />
   <meta name="theme-color" content="#FCF8EC" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314130F'/%3E%3Ctext x='50' y='72' font-size='64' font-family='Georgia,serif' fill='%23DE3B21' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/webp" href="assets/media/logo/favicon.webp" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&f[]=gambarino@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
@@ -27,7 +27,7 @@
 
   <!-- NAV -->
   <header class="nav-pill" id="nav">
-    <a href="index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
+    <a href="index.html" class="nav-brand" aria-label="Siva Sakthi, home"><img src="assets/media/logo/top-nav-logo.webp" alt="Siva Sakthi" class="nav-logo" /></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
       <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
     </button>
@@ -43,10 +43,17 @@
   <main id="main">
 
     <!-- HEADER -->
-    <section class="cs-hero wrap">
-      <p class="cs-kicker"><span>Selected Work</span><span class="sep">/</span><span>2022 – 2026</span></p>
-      <h1 class="cs-title">Projects, framed by the <span class="ital">problem</span> each one solved.</h1>
-      <p class="cs-sub">Five products across travel, banking, mobility, AI and commerce, each one an exercise in turning something complicated into something people can actually use.</p>
+    <section class="cs-hero wrap has-cover">
+      <div class="hero-img dcover" aria-hidden="true">
+        <img src="assets/media/page-covers/projects-page-cover.webp" alt="" loading="eager" fetchpriority="high" />
+        <canvas></canvas>
+      </div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="page-hero-inner">
+        <p class="cs-kicker"><span>Selected Work</span><span class="sep">/</span><span>2022 – 2026</span></p>
+        <h1 class="cs-title">Projects, framed by the <span class="ital">problem</span> each one solved.</h1>
+        <p class="cs-sub">Five products across travel, banking, mobility, AI and commerce, each one an exercise in turning something complicated into something people can actually use.</p>
+      </div>
     </section>
 
     <!-- LIST -->
@@ -61,7 +68,7 @@
             <div class="work-tags"><span class="work-tag">B2B + B2C</span><span class="work-tag">Responsive Web</span><span class="work-tag">Motion</span></div>
             <span class="work-cta full">Read case study <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-media"><div class="ph t1"><span class="ph-mono">RI</span><span class="ph-label">Travel Platform</span></div></div>
+          <div class="work-media"><img src="assets/media/projects/botique-travel-hero-cover.webp" alt="Boutique Travel Platform cover" loading="lazy" /></div>
         </a>
 
         <a class="work-item reveal" href="work/kbz.html">
@@ -72,7 +79,7 @@
             <div class="work-tags"><span class="work-tag">MiniApps</span><span class="work-tag">Video KYC</span><span class="work-tag">Admin Platforms</span></div>
             <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-media"><div class="ph t2"><span class="ph-mono">KBZ</span><span class="ph-label">Core Banking</span></div></div>
+          <div class="work-media"><img src="assets/media/projects/core-banking-hero-cover.webp" alt="Core Banking cover" loading="lazy" /></div>
         </a>
 
         <a class="work-item reveal" href="work/mozy.html">
@@ -83,7 +90,7 @@
             <div class="work-tags"><span class="work-tag">Mobile</span><span class="work-tag">UX Research</span><span class="work-tag">Systems Thinking</span></div>
             <span class="work-cta full">Read case study <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-media"><div class="ph t3"><span class="ph-mono">MZ</span><span class="ph-label">Mobility</span></div></div>
+          <div class="work-media"><img src="assets/media/projects/mozy-hero-cover.webp" alt="MOZY cover" loading="lazy" /></div>
         </a>
 
         <a class="work-item reveal" href="work/comms-ai.html">
@@ -94,7 +101,7 @@
             <div class="work-tags"><span class="work-tag">AI Tooling</span><span class="work-tag">Web SaaS</span><span class="work-tag">Design System</span></div>
             <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-media"><div class="ph t4"><span class="ph-mono">C.AI</span><span class="ph-label">AI Tooling</span></div></div>
+          <div class="work-media"><img src="assets/media/projects/comms-ai-hero-cover.webp" alt="Comms.AI cover" loading="lazy" /></div>
         </a>
 
         <a class="work-item reveal" href="work/fabrito.html">
@@ -105,7 +112,7 @@
             <div class="work-tags"><span class="work-tag">Multi-product</span><span class="work-tag">Design System</span><span class="work-tag">Web + Mobile</span></div>
             <span class="work-cta">View overview <i data-lucide="arrow-up-right"></i></span>
           </div>
-          <div class="work-media"><div class="ph t5"><span class="ph-mono">FB</span><span class="ph-label">Commerce</span></div></div>
+          <div class="work-media"><img src="assets/media/projects/fabrito-hero-cover.webp" alt="Fabrito cover" loading="lazy" /></div>
         </a>
 
       </div>

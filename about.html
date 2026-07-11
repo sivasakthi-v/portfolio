@@ -6,7 +6,7 @@
   <title>About, Siva Sakthi V</title>
   <meta name="description" content="About Siva Sakthi V, a Visual and Experience Designer in Chennai working at the intersection of UI, UX, and product thinking." />
   <meta name="theme-color" content="#FCF8EC" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231E1E1E'/%3E%3Ctext x='50' y='72' font-size='64' font-family='Georgia,serif' fill='%23BA4500' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/webp" href="assets/media/logo/favicon.webp" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +31,7 @@
 
   <!-- NAV -->
   <header class="nav-pill" id="nav">
-    <a href="index.html" class="nav-brand">Siva Sakthi<span class="dot">.</span></a>
+    <a href="index.html" class="nav-brand" aria-label="Siva Sakthi, home"><img src="assets/media/logo/top-nav-logo.webp" alt="Siva Sakthi" class="nav-logo" /></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
       <i data-lucide="menu" class="ic-menu"></i><i data-lucide="x" class="ic-close"></i>
     </button>
@@ -47,20 +47,19 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="cs-hero wrap">
-      <div class="about-hero-grid">
-        <div>
-          <p class="vanakkam">Vanakkam! 🙏 &nbsp;·&nbsp; 3+ years in &nbsp;·&nbsp; 10+ products shipped</p>
-          <h1 class="cs-title">I'm Siva, a Visual &amp; Experience <span class="ital">Designer</span> in Chennai.</h1>
-          <p class="cs-sub">I work at the intersection of UI, UX, and product thinking. I love taking messy product ideas, business constraints, and user needs, then shaping them into experiences that feel simple, intentional, and visually refined.</p>
-          <div class="coming-actions" style="justify-content:flex-start;margin-top:26px">
-            <a class="btn solid" href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Download resume <i data-lucide="download"></i></a>
-            <a class="btn" href="mailto:sivavenkat372@gmail.com">Say hello <i data-lucide="arrow-up-right"></i></a>
-          </div>
-        </div>
-        <div class="about-portrait" role="img" aria-label="Portrait of Siva, coming soon">
-          <span class="ph-mono">SV</span>
-          <span class="ph-label">Portrait, coming soon</span>
+    <section class="cs-hero wrap has-cover">
+      <div class="hero-img dcover" aria-hidden="true">
+        <img src="assets/media/page-covers/about-page-cover.webp" alt="" loading="eager" fetchpriority="high" />
+        <canvas></canvas>
+      </div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="page-hero-inner">
+        <p class="vanakkam">Vanakkam! 🙏 &nbsp;·&nbsp; 3+ years in &nbsp;·&nbsp; 10+ products shipped</p>
+        <h1 class="cs-title">I'm Siva, a Visual &amp; Experience <span class="ital">Designer</span> in Chennai.</h1>
+        <p class="cs-sub">I work at the intersection of UI, UX, and product thinking. I love taking messy product ideas, business constraints, and user needs, then shaping them into experiences that feel simple, intentional, and visually refined.</p>
+        <div class="coming-actions" style="justify-content:flex-start;margin-top:26px">
+          <a class="btn solid" href="assets/resume/Siva-Sakthi-V-Resume.pdf" target="_blank" rel="noopener">Download resume <i data-lucide="download"></i></a>
+          <a class="btn" href="mailto:sivavenkat372@gmail.com">Say hello <i data-lucide="arrow-up-right"></i></a>
         </div>
       </div>
     </section>

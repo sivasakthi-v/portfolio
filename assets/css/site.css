@@ -168,8 +168,9 @@ em { font-style: italic; }
   transition: border-color .3s, background .3s;
 }
 .nav.solid { border-color: var(--line); }
-.nav-brand { font-family: var(--f-display); font-size: 1.15rem; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.nav-brand { font-family: var(--f-display); font-size: 1.15rem; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); display: flex; align-items: center; }
 .nav-brand .dot { color: var(--accent-2); }
+.nav-logo { height: 26px; width: auto; display: block; }
 .nav-links { display: flex; gap: clamp(16px, 2.4vw, 34px); align-items: center; }
 .nav-links a {
   font-size: var(--fs-small); font-weight: 500; letter-spacing: .04em;
@@ -1136,7 +1137,7 @@ body.pg { overflow: hidden; }
 /* ============================================================
    FULL-WIDTH PROJECT COVER (below overview)
    ============================================================ */
-.cs-cover-full { margin: 0 0 clamp(24px, 4vw, 44px); }
+.cs-cover-full { margin: 0 0 clamp(24px, 4vw, 44px); padding-block: 0; }
 .cs-cover-full .band { border-top: none; }
 main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { padding-top: clamp(28px, 4vw, 48px); }
 .cs-cover-full .band {
@@ -1170,6 +1171,9 @@ main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { paddin
 .dpop-card { position: relative; width: min(460px, 100%); background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 40px 100px -34px rgba(30,30,30,.5); padding: 32px; transform: perspective(1300px) rotateY(-92deg); opacity: 0; }
 .dpop.open .dpop-card { animation: flipIn .6s var(--ease) both; }
 .dpop-glyph { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 4px; background: var(--gold); font-family: var(--f-display); font-size: 1.25rem; color: var(--ink); margin-bottom: 18px; }
+.dpop-glyph[hidden] { display: none; }
+.dpop-img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; margin-bottom: 18px; border: 1px solid var(--line); }
+.dpop-img[hidden] { display: none; }
 .dpop-title { font-family: var(--f-display); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--ink); line-height: 1.05; }
 .dpop-sub { font-size: var(--fs-small); color: var(--accent-2); margin-top: 6px; text-transform: uppercase; letter-spacing: .08em; }
 .dpop-body { font-size: var(--fs-body); color: var(--ink-2); line-height: 1.6; margin-top: 18px; }
@@ -1195,22 +1199,36 @@ main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { paddin
 /* ============================================================
    HERO IMAGE — full-bleed B/W dither, hover to colour
    ============================================================ */
-.hero { position: relative; overflow: hidden; }
-/* full-bleed: break out of the centered .wrap to the full viewport, flush to top */
+@property --spot { syntax: '<length>'; inherits: false; initial-value: 0px; }
+.hero, .cs-hero.has-cover { position: relative; overflow: hidden; }
+.cs-hero.has-cover { min-height: clamp(440px, 66vh, 680px); display: flex; align-items: center; }
+.cs-hero.has-cover .page-hero-inner { position: relative; z-index: 2; width: 100%; max-width: 47rem; }
+/* full-bleed dithered cover: break out of the centered wrap to the full viewport, flush to top */
 .hero-img { position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); z-index: 0; overflow: hidden; }
-.hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero-img canvas {
+.dcover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* the mono dither sits on top; a mouse-tracked radial hole reveals the colour photo beneath */
+.dcover canvas {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
-  image-rendering: pixelated; opacity: 1; transition: opacity .7s var(--ease);
+  image-rendering: pixelated;
+  -webkit-mask-image: radial-gradient(circle var(--spot, 0px) at var(--mx, -300px) var(--my, -300px), transparent 0, transparent 52%, #000 100%);
+          mask-image: radial-gradient(circle var(--spot, 0px) at var(--mx, -300px) var(--my, -300px), transparent 0, transparent 52%, #000 100%);
+  transition: --spot .4s var(--ease);
 }
-.hero:hover .hero-img canvas { opacity: 0.06; }
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(100deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 88%, transparent) 32%, color-mix(in srgb, var(--paper) 34%, transparent) 64%, transparent 100%),
-    linear-gradient(0deg, color-mix(in srgb, var(--paper) 74%, transparent), transparent 42%);
+    linear-gradient(100deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 88%, transparent) 30%, color-mix(in srgb, var(--paper) 32%, transparent) 58%, transparent 84%),
+    linear-gradient(0deg, color-mix(in srgb, var(--paper) 60%, transparent), transparent 40%);
 }
 .hero .hero-main, .hero .hero-foot { position: relative; z-index: 2; }
+/* narrow screens: text fills the width, so lean the veil more vertical for legibility */
+@media (max-width: 760px) {
+  .hero-scrim {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--paper) 78%, transparent) 0%, color-mix(in srgb, var(--paper) 58%, transparent) 46%, color-mix(in srgb, var(--paper) 8%, transparent) 82%, transparent 100%),
+      linear-gradient(90deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 40%, transparent) 62%, transparent 100%);
+  }
+}
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
