@@ -96,50 +96,31 @@
     }
   }
 
-  /* ---------- hover glyph motion trail (hero + footer) ---------- */
-  function initTrail() {
+  /* ---------- custom cursor: blend-mode ring, maximize glyph over zoomable images ---------- */
+  function initCursor() {
     if (reduce) return;
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    var layer = document.createElement('div');
-    layer.className = 'trail-layer';
-    layer.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(layer);
-
-    var shapes = [
-      '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/></svg>',
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></svg>',
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>',
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 5 L19 19 L5 19 Z"/></svg>',
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 16 A8 8 0 0 1 20 16"/></svg>',
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 4 L20 12 L12 20 L4 12 Z"/></svg>'
-    ];
-    var last = 0;
-    function spawn(x, y, dark) {
-      var g = document.createElement('span');
-      g.className = 'trail-glyph';
-      g.innerHTML = shapes[(Math.random() * shapes.length) | 0];
-      var size = 10 + Math.random() * 12;
-      g.style.left = x + 'px'; g.style.top = y + 'px';
-      g.style.width = size + 'px'; g.style.height = size + 'px';
-      g.style.color = Math.random() < 0.28 ? 'var(--accent)' : (dark ? 'rgba(237,234,225,0.5)' : 'rgba(20,19,15,0.45)');
-      layer.appendChild(g);
-      var dx = (Math.random() - 0.5) * 44, dy = 42 + Math.random() * 64, rot = (Math.random() - 0.5) * 140;
-      var anim = g.animate([
-        { transform: 'translate(-50%,-50%) scale(0.5) rotate(0deg)', opacity: 0 },
-        { opacity: 0.85, offset: 0.16 },
-        { transform: 'translate(calc(-50% + ' + dx + 'px), calc(-50% + ' + dy + 'px)) scale(1) rotate(' + rot + 'deg)', opacity: 0 }
-      ], { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(0.22,1,0.36,1)' });
-      anim.onfinish = function () { g.remove(); };
-    }
-    if (!('animate' in document.createElement('span'))) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    ring.setAttribute('aria-hidden', 'true');
+    ring.innerHTML = '<span class="cur-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>';
+    document.body.appendChild(ring);
+    document.body.classList.add('has-cursor');
+    var x = window.innerWidth / 2, y = window.innerHeight / 2, raf = null;
+    function place() { raf = null; ring.style.left = x + 'px'; ring.style.top = y + 'px'; }
     document.addEventListener('pointermove', function (e) {
-      var now = performance.now();
-      if (now - last < 70) return;
-      last = now;
-      var el = document.elementFromPoint(e.clientX, e.clientY);
-      var dark = !!(el && el.closest && el.closest('.site-footer, .cs-section.dark, .nav-pill.open, .cs-cover.dark, .pop, .tpop'));
-      spawn(e.clientX, e.clientY, dark);
+      if (e.pointerType === 'touch') return;
+      x = e.clientX; y = e.clientY;
+      ring.classList.add('on');
+      if (!raf) raf = requestAnimationFrame(place);
+      var t = e.target;
+      var zoom = t && t.closest && t.closest('.oow-img, [data-zoom], .lightbox');
+      var link = t && t.closest && t.closest('a, button, [role="button"], .sticker, label');
+      ring.classList.toggle('zoom', !!zoom);
+      ring.classList.toggle('link', !zoom && !!link);
     }, { passive: true });
+    document.addEventListener('mouseleave', function () { ring.classList.remove('on'); });
+    window.addEventListener('blur', function () { ring.classList.remove('on'); });
   }
 
   /* ---------- reading progress bar ---------- */
@@ -464,6 +445,22 @@
         track.appendChild(c);
       });
       track.dataset.cloned = '1';
+
+      // Web Animations so hover SLOWS the marquee (not stops); faster base speed.
+      if (reduce || typeof track.animate !== 'function') return;
+      m.classList.add('js-marquee');
+      var rev = m.classList.contains('rev');
+      var frames = rev
+        ? [{ transform: 'translateX(-50%)' }, { transform: 'translateX(0)' }]
+        : [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }];
+      var anim = track.animate(frames, { duration: 42000, iterations: Infinity, easing: 'linear' });
+      var setRate = function (r) { if (typeof anim.updatePlaybackRate === 'function') anim.updatePlaybackRate(r); else anim.playbackRate = r; };
+      var slow = function () { setRate(0.28); };
+      var full = function () { setRate(1); };
+      m.addEventListener('pointerenter', slow);
+      m.addEventListener('pointerleave', full);
+      m.addEventListener('focusin', slow);
+      m.addEventListener('focusout', full);
     });
   }
 
@@ -748,7 +745,7 @@
     initPortraitFlip();
     initBucket();
     initDitherCovers();
-    initTrail();
+    initCursor();
     initDither();
     initLucide();
   });

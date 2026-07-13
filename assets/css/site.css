@@ -838,11 +838,12 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
 .work-list { display: grid; gap: clamp(18px, 2.6vw, 32px); }
 .work-item {
   display: grid; grid-template-columns: 1fr 42%; gap: clamp(20px, 4vw, 56px); align-items: center;
-  padding: clamp(22px, 2.6vw, 36px); border: 1px solid var(--line); border-radius: 4px;
-  background: var(--paper); text-decoration: none; color: var(--ink);
-  transition: border-color .35s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
+  padding: clamp(24px, 2.8vw, 40px); border: 1.5px solid var(--ink); border-radius: 8px;
+  background: #FFFFFF; text-decoration: none; color: var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
-.work-item:hover { border-color: var(--line-2); transform: translateY(-4px); box-shadow: 0 34px 74px -36px rgba(20,19,15,.34); }
+.work-item:hover, .work-item:focus-visible { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 var(--accent-2); }
 .work-body { display: grid; gap: 15px; align-content: center; min-width: 0; }
 .work-top { display: flex; align-items: center; gap: 13px; }
 .work-num { font-family: var(--f-display); font-size: 1.1rem; color: var(--accent-2); }
@@ -854,8 +855,11 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
 .work-cta.full { color: var(--accent-2); }
 .work-cta svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
 .work-item:hover .work-cta svg { transform: translate(4px, -4px); }
-.work-media { position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+.work-media { position: relative; aspect-ratio: 1 / 1; border-radius: 6px; overflow: hidden; border: 1.5px solid var(--ink); }
 .work-media img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1); transition: transform .7s var(--ease); }
+/* slight colour dither: a faint dot texture over the colour cover (keeps colour, adds grain) */
+.work-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; opacity: .42;
+  background-image: radial-gradient(rgba(20,19,15,.55) 0.5px, transparent 0.7px); background-size: 3px 3px; }
 .reveal:not(.visible) .work-media img { transform: scale(1.09); }
 .work-item:hover .work-media img { transform: scale(1.05); }
 
@@ -912,13 +916,17 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
 .about-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 5vw, 76px); align-items: center; }
 .about-hero-text .cs-sub { max-width: 34rem; }
 /* interactive 3D flip portrait */
-.portrait-flip { perspective: 1400px; cursor: pointer; aspect-ratio: 4 / 5; width: 100%; max-width: 380px; margin-left: auto; border-radius: 6px; }
-.portrait-flip:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 6px; border-radius: 6px; }
+/* portrait as a polaroid: responsive width, aspect-locked, flips on click */
+.portrait-flip { perspective: 1400px; cursor: pointer; aspect-ratio: 4 / 5; width: 100%; max-width: min(390px, 100%); margin-left: auto; border-radius: 4px; }
+.portrait-flip:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 8px; border-radius: 4px; }
 .portrait-flip-inner { position: relative; width: 100%; height: 100%; transition: transform .8s cubic-bezier(.2,.8,.2,1); transform-style: preserve-3d; }
 .portrait-flip.flipped .portrait-flip-inner { transform: rotateY(180deg); }
-.portrait-face { position: absolute; inset: 0; border-radius: 6px; overflow: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; border: 1px solid var(--line); box-shadow: 0 30px 70px -34px rgba(20,19,15,.42); }
-.portrait-front img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.portrait-front .pf-tap { position: absolute; left: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 72%, transparent); color: #fff; font-size: var(--fs-label); letter-spacing: .06em; text-transform: uppercase; backdrop-filter: blur(6px); }
+.portrait-face { position: absolute; inset: 0; border-radius: 4px; overflow: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 32px 72px -34px rgba(20,19,15,.46); }
+/* front = white polaroid frame with a handwritten caption */
+.portrait-front { background: #FFFFFF; border: 1px solid var(--line); }
+.portrait-front img { position: absolute; top: 16px; left: 16px; right: 16px; bottom: 62px; width: auto; height: auto; object-fit: cover; display: block; border-radius: 2px; }
+.portrait-front .pf-cap { position: absolute; left: 0; right: 0; bottom: 22px; text-align: center; font-family: 'Caveat', var(--f-display), cursive; font-size: 1.6rem; color: var(--ink); }
+.portrait-front .pf-tap { position: absolute; left: 18px; top: 18px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 74%, transparent); color: #fff; font-size: var(--fs-label); letter-spacing: .06em; text-transform: uppercase; backdrop-filter: blur(6px); }
 .portrait-front .pf-tap svg { width: 15px; height: 15px; }
 .portrait-back { transform: rotateY(180deg); background: var(--dark); border-color: var(--dark); display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: clamp(24px, 3vw, 34px); text-align: left; }
 .portrait-back .pf-logo { width: 52px; height: 52px; border-radius: 10px; object-fit: contain; margin-bottom: 6px; background: var(--paper); padding: 8px; }
@@ -976,7 +984,7 @@ svg.lucide { width: 1em; height: 1em; stroke-width: 2; vertical-align: -0.125em;
 @media (max-width: 860px) { .strength-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) {
   .about-hero-grid { grid-template-columns: 1fr; }
-  .portrait-flip { margin: 0 auto; max-width: 320px; }
+  .portrait-flip { margin: 4px auto 0; max-width: clamp(260px, 80vw, 420px); }
   .about-story-grid { grid-template-columns: 1fr; }
   .about-snapshot { position: static; }
   .strength-grid { grid-template-columns: 1fr; }
@@ -1146,9 +1154,11 @@ body.pg { overflow: hidden; }
 .marquee { overflow: hidden; position: relative; padding: 6px 0; margin-top: clamp(28px, 4vw, 48px);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-.marquee-track { display: flex; gap: 20px; width: max-content; animation: marquee var(--marquee-dur, 64s) linear infinite; }
+.marquee-track { display: flex; gap: 24px; width: max-content; animation: marquee var(--marquee-dur, 42s) linear infinite; }
 .marquee.rev .marquee-track { animation-direction: reverse; }
-.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+/* no-JS fallback: pause on hover. With JS the track uses Web Animations and slows (not stops) on hover. */
+.marquee.js-marquee .marquee-track { animation: none !important; }
+.marquee:not(.js-marquee):hover .marquee-track, .marquee:not(.js-marquee):focus-within .marquee-track { animation-play-state: paused; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* testimonial card */
@@ -1181,10 +1191,16 @@ body.pg { overflow: hidden; }
 .tpop-year { margin-left: auto; align-self: center; font-size: var(--fs-small); color: var(--faint); }
 
 /* out-of-work image marquee */
-.oow-img { flex: 0 0 auto; height: 224px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(135deg, var(--paper-2), var(--paper-3)); display: grid; place-items: center; position: relative; }
-.oow-img img { width: 100%; height: 100%; object-fit: cover; }
-.oow-img .ph-mono { color: rgba(30,30,30,.14); font-size: 1.6rem; }
-.oow-img.r1 { width: 300px; } .oow-img.r2 { width: 224px; } .oow-img.r3 { width: 372px; } .oow-img.r4 { width: 264px; } .oow-img.r5 { width: 336px; }
+/* out-of-work polaroids: mono dither at rest, colour + slight tilt on hover, click opens popup */
+.oow-img { flex: 0 0 auto; display: block; position: relative; padding: 14px 14px 46px; border: 1px solid var(--line); border-radius: 3px; background: #FFFFFF; box-shadow: 0 16px 34px -18px rgba(20,19,15,.45); cursor: zoom-in; transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.oow-img img { width: 100%; height: 300px; object-fit: cover; display: block; border-radius: 1px; filter: grayscale(1) contrast(1.04); transition: filter .55s var(--ease); }
+.oow-img::before { content: ""; position: absolute; top: 14px; left: 14px; right: 14px; height: 300px; pointer-events: none; background-image: radial-gradient(rgba(20,19,15,.5) 0.5px, transparent 0.7px); background-size: 3px 3px; mix-blend-mode: multiply; opacity: .5; transition: opacity .55s var(--ease); border-radius: 1px; }
+.oow-img::after { content: attr(data-sub); position: absolute; left: 0; right: 0; bottom: 13px; text-align: center; font-family: 'Caveat', var(--f-display), cursive; font-size: 1.3rem; color: var(--ink-2); }
+.oow-img:hover img, .oow-img:focus-visible img { filter: none; }
+.oow-img:hover::before { opacity: 0; }
+.oow-img:hover, .oow-img:focus-visible { transform: rotate(-2deg) scale(1.03); box-shadow: 0 28px 50px -20px rgba(20,19,15,.5); z-index: 2; }
+.oow-img.r1 { width: 320px; } .oow-img.r2 { width: 264px; } .oow-img.r3 { width: 392px; } .oow-img.r4 { width: 300px; } .oow-img.r5 { width: 356px; }
+@media (max-width: 600px) { .oow-img img, .oow-img::before { height: 240px; } }
 .oow-points { display: grid; gap: 10px; margin-top: 18px; max-width: var(--measure); }
 .oow-points li { list-style: none; display: flex; gap: 12px; align-items: flex-start; font-size: var(--fs-small); color: var(--ink-2); }
 .oow-points li svg { width: 16px; height: 16px; color: var(--accent-2); flex-shrink: 0; margin-top: 3px; }
@@ -1208,8 +1224,8 @@ main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { paddin
 @media (max-width: 600px) { .cs-cover-full .band { aspect-ratio: 2 / 1; } }
 
 /* TL;DR summary card on case studies */
-.cs-tldr { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; background: var(--paper-2); padding: clamp(24px, 3.4vw, 40px); }
-.cs-tldr-label { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-label); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); font-weight: 600; margin-bottom: 14px; }
+.cs-tldr { border: 1px solid var(--line); border-left: 4px solid var(--link); border-radius: 12px; background: color-mix(in srgb, var(--link) 6%, var(--paper-2)); padding: clamp(24px, 3.4vw, 40px); }
+.cs-tldr-label { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-label); letter-spacing: .14em; text-transform: uppercase; color: var(--link); font-weight: 600; margin-bottom: 14px; }
 .cs-tldr-label svg { width: 16px; height: 16px; }
 .cs-tldr-text { font-size: var(--fs-lead); color: var(--ink); line-height: 1.55; max-width: 60rem; }
 .cs-tldr-points { display: flex; flex-wrap: wrap; gap: 9px 10px; margin-top: 20px; list-style: none; padding: 0; }
@@ -1283,21 +1299,92 @@ main > .cs-cover-full:first-child + .cs-hero, .cs-cover-full + .cs-hero { paddin
           mask-image: radial-gradient(circle var(--spot, 0px) at var(--mx, -300px) var(--my, -300px), transparent 0, transparent 52%, #000 100%);
   transition: --spot .4s var(--ease);
 }
+/* readability: a near-solid cream panel sits behind the text, feathering into the full dither */
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(100deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 88%, transparent) 30%, color-mix(in srgb, var(--paper) 32%, transparent) 58%, transparent 84%),
-    linear-gradient(0deg, color-mix(in srgb, var(--paper) 60%, transparent), transparent 40%);
+    linear-gradient(100deg, var(--paper) 0%, var(--paper) 34%, color-mix(in srgb, var(--paper) 78%, transparent) 50%, color-mix(in srgb, var(--paper) 20%, transparent) 66%, transparent 82%),
+    linear-gradient(0deg, color-mix(in srgb, var(--paper) 66%, transparent), transparent 38%);
 }
 .hero .hero-main, .hero .hero-foot { position: relative; z-index: 2; }
 /* narrow screens: text fills the width, so lean the veil more vertical for legibility */
 @media (max-width: 760px) {
   .hero-scrim {
     background:
-      linear-gradient(180deg, color-mix(in srgb, var(--paper) 78%, transparent) 0%, color-mix(in srgb, var(--paper) 58%, transparent) 46%, color-mix(in srgb, var(--paper) 8%, transparent) 82%, transparent 100%),
-      linear-gradient(90deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 40%, transparent) 62%, transparent 100%);
+      linear-gradient(180deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 82%, transparent) 42%, color-mix(in srgb, var(--paper) 20%, transparent) 74%, transparent 100%),
+      linear-gradient(90deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 55%, transparent) 60%, transparent 100%);
   }
 }
+
+/* ============================================================
+   CUSTOM CURSOR — blend-mode ring; morphs to a maximize glyph over zoomable images
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor [role="button"], body.has-cursor .sticker, body.has-cursor label { cursor: none; }
+  body.has-cursor input, body.has-cursor textarea, body.has-cursor select { cursor: auto; }
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
+  width: 26px; height: 26px; border-radius: 999px;
+  border: 1.5px solid #fff; background: transparent; mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width .22s var(--ease), height .22s var(--ease), border-radius .22s, background .22s, opacity .3s;
+  opacity: 0; will-change: left, top;
+}
+.cursor-ring.on { opacity: 1; }
+.cursor-ring.link { width: 46px; height: 46px; background: #fff; }
+.cursor-ring.zoom { width: 56px; height: 56px; border-radius: 10px; background: rgba(255,255,255,.16); }
+.cursor-ring .cur-ic { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; opacity: 0; transition: opacity .18s; }
+.cursor-ring.zoom .cur-ic { opacity: 1; }
+.cursor-ring .cur-ic svg { width: 22px; height: 22px; }
+
+/* ============================================================
+   PROGRESSIVE DITHER — footer (dense at top, fading down) + faint texture on light alt sections
+   ============================================================ */
+.site-footer { position: relative; }
+.site-footer > * { position: relative; z-index: 1; }
+.site-footer::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.55) 0.6px, transparent 0.8px);
+  background-size: 4px 4px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.28) 40%, transparent 76%);
+          mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.28) 40%, transparent 76%);
+  opacity: .12;
+}
+.cs-section.alt:not(.dark) { position: relative; }
+.cs-section.alt:not(.dark) > * { position: relative; z-index: 1; }
+.cs-section.alt:not(.dark)::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(20,19,15,.5) 0.5px, transparent 0.7px);
+  background-size: 4px 4px; opacity: .05;
+}
+
+/* ============================================================
+   DARK-SECTION polish (home Kind words, About What I'm Good At) + lavender accents
+   ============================================================ */
+.cs-section.dark .sec-index { color: var(--accent); }
+.cs-section.dark .sec-head h2 { color: var(--on-dark); }
+.cs-section.dark .cs-intro { color: var(--on-dark-2) !important; }
+/* light cards sitting inside a dark section must keep dark text */
+.cs-section.dark .strength { background: #FFFFFF; }
+.cs-section.dark .strength h3 { color: var(--ink); }
+.cs-section.dark .strength p { color: var(--muted); }
+/* lavender accents on the About page */
+.about-hero .vanakkam { color: var(--link); }
+#story .eyebrow, .about-snapshot .snap-title { color: var(--link); }
+.about-snapshot .snap-row:hover { background: color-mix(in srgb, var(--link) 8%, var(--paper)); }
+
+/* closing CTA → secondary-dark card with lavender accents, kept clear of the footer */
+.about-cta { background: var(--dark-2); border: 1.5px solid var(--dark); color: var(--on-dark); box-shadow: 0 34px 74px -40px rgba(20,19,15,.6); }
+.about-cta blockquote { color: var(--on-dark); }
+.about-cta cite { color: var(--link-inverse); }
+.about-cta-mark { background: var(--link); color: #FFFFFF; }
+.about-cta .btn.solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.about-cta .btn.ghost-dark { background: transparent; color: var(--on-dark); border: 1.5px solid var(--on-dark-2); }
+.about-cta .btn.ghost-dark:hover { background: var(--on-dark); color: var(--ink); border-color: var(--on-dark); }
+
+/* out-of-work → Playground link */
+.oow-more { margin-top: 20px; }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
