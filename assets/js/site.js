@@ -722,6 +722,55 @@
     });
   }
 
+  /* ---------- GSAP: hero + key-moment motion (subtle cover parallax + magnetic primary CTA) ---------- */
+  function initGsap() {
+    if (reduce) return;
+    if (window.gsap) { runGsap(); return; }
+    var core = document.createElement('script');
+    core.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js';
+    core.onload = runGsap;
+    document.head.appendChild(core);
+  }
+
+  function runGsap() {
+    var gsap = window.gsap;
+    if (!gsap) return;
+    var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // Signature parallax on the case-study cover. A live scroll read keeps it
+    // independent of the loader (no ScrollTrigger measurement to go stale).
+    var cover = document.querySelector('.cs-cover-full .band > img');
+    if (cover) {
+      var band = cover.closest('.band');
+      gsap.set(cover, { scale: 1.14, willChange: 'transform' });
+      var setY = gsap.quickTo(cover, 'yPercent', { duration: 0.4, ease: 'power2.out' });
+      var onScroll = function () {
+        var r = band.getBoundingClientRect();
+        var p = gsap.utils.clamp(0, 1, -r.top / (r.height || 1));
+        setY(-6 + p * 12);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    // Reusable, playful magnetic pull on the primary CTA (present on every page).
+    if (fine) {
+      document.querySelectorAll('.nav-links .nav-cta').forEach(function (btn) {
+        var pull = 0.26, max = 7;
+        var moveTo = gsap.quickTo(btn, 'x', { duration: 0.4, ease: 'power3.out' });
+        var moveToY = gsap.quickTo(btn, 'y', { duration: 0.4, ease: 'power3.out' });
+        btn.addEventListener('pointermove', function (e) {
+          var r = btn.getBoundingClientRect();
+          moveTo(gsap.utils.clamp(-max, max, (e.clientX - (r.left + r.width / 2)) * pull));
+          moveToY(gsap.utils.clamp(-max, max, (e.clientY - (r.top + r.height / 2)) * pull));
+        });
+        btn.addEventListener('pointerleave', function () {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.4)' });
+        });
+      });
+    }
+  }
+
   /* ---------- init ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     initScrollTop();
@@ -748,5 +797,6 @@
     initCursor();
     initDither();
     initLucide();
+    initGsap();
   });
 })();
